@@ -2,11 +2,12 @@
 title: "Best Agentic AI Deal Workflows in 2026: How the Fastest Firms Are Closing More and Sleeping Less"
 description: "An agentic AI deal workflow is an autonomous system that executes multi-step deal tasks (sourcing, diligence tracking, CIM drafting, CRM updates) without w"
 pubDate: 2026-04-02
-tags: ["best", "agentic", "ai", "deal", "workflows"]
+image: "/images/generated/blog-best-agentic-ai-deal-workflows-in-2026-how-the-fastest-firms-are-closing-more-and-sleeping-less.png"
+imageAlt: "Agentic AI deal workflows accelerating PE and M&A deal sourcing, diligence, and closing processes"
+tags: ["agentic ai", "deal workflows", "private equity", "automation", "M&A"]
 author: "PE Tech Partners"
 category: "Strategy"
 readTime: "12 min read"
-image: "/images/generated/blog-best-agentic-ai-deal-workflows-in-2026-how-the-fastest-firms-are-closing-more-and-sleeping-less.png"
 draft: false
 ---
 
