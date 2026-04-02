@@ -1,0 +1,37 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  author?: string;
+  publishDate?: string;
+  modifiedDate?: string;
+  tags?: string[];
+  structuredData?: object;
+  noindex?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <SEOHead {...props} />
+    <script data-harbor-site="nd7bb2dpp3sefh9me33zpp4m8s83pqp2" src="https://outgoing-oyster-428.convex.site/api/harbor-seo.js?siteId=nd7bb2dpp3sefh9me33zpp4m8s83pqp2" async></script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#FAFAF5] text-zinc-900">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
