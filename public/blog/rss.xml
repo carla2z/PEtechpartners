@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>petechpartners.com Blog</title>
+    <link>https://petechpartners.com/blog/</link>
+    <description>Latest articles from petechpartners.com</description>
+    <language>en</language>
+    <atom:link href="https://petechpartners.com/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Best Agentic AI Deal Workflows in 2026: How the Fastest Firms Are Closing More and Sleeping Less</title>
+      <link>https://petechpartners.com/blog/best-agentic-ai-deal-workflows-in-2026-how-the-fastest-firms-are-closing-more-an.html</link>
+      <description>Best Agentic AI Deal Workflows in 2026: How the Fastest Firms Are Closing More and Sleeping Less Agentic AI deal workflows are no longer a pilot program for ...</description>
+      <pubDate>Thu, 02 Apr 2026 16:30:21 GMT</pubDate>
+      <guid isPermaLink="true">https://petechpartners.com/blog/best-agentic-ai-deal-workflows-in-2026-how-the-fastest-firms-are-closing-more-an.html</guid>
+    </item>
+  </channel>
+</rss>
