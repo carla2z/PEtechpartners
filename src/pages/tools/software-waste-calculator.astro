@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SoftwareWasteCalculator from '../../components/SoftwareWasteCalculator';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Software Waste Calculator for PE & M&A Firms',
+  description: 'Calculate how much your firm wastes on forgotten subscriptions, unused licenses, and duplicate tools.',
+  url: 'https://petechpartners.com/tools/software-waste-calculator',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  provider: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+};
+---
+
+<BaseLayout
+  title="Software Waste Calculator for PE & M&A Firms | PE Tech Partners"
+  description="Calculate how much your firm wastes on forgotten subscriptions, unused licenses, and duplicate tools. Free instant results."
+  structuredData={structuredData}
+  tags={['software waste calculator', 'PE technology audit', 'SaaS waste', 'unused software licenses', 'M&A technology costs']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <a href="/tools" class="text-sm font-medium text-crimson-500 hover:text-crimson-600 transition-colors mb-4 inline-block">
+          &larr; All Tools
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          Software Waste Calculator
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[55ch]">
+          The average PE firm bleeds six figures annually on forgotten subscriptions, unused licenses, and duplicate tools. Move the sliders to estimate your firm's hidden cost.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="pb-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-10">
+        <SoftwareWasteCalculator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Context -->
+  <section class="py-20 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tighter text-navy-800 mb-4">
+          Where Does the Waste Come From?
+        </h2>
+        <div class="space-y-4 text-zinc-600 leading-relaxed">
+          <p>
+            Most PE and M&A firms accumulate software organically. A new analyst brings their preferred tool. A deal team signs up for a trial that never gets cancelled. A portfolio company integration adds three more logins nobody uses.
+          </p>
+          <p>
+            Over time, these subscriptions compound. The average mid-market firm carries 40+ SaaS subscriptions, but only actively uses about 60% of them. The rest are ghost licenses: paid for monthly, used by no one.
+          </p>
+          <p>
+            A technology audit maps every license, every login, and every dollar. It takes days, not weeks, and the ROI is immediate.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

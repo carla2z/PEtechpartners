@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/400-italic.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/900.css";
+
+@theme {
+  --color-navy-50: #e8edf4;
+  --color-navy-100: #c5d0e3;
+  --color-navy-200: #9fb1d0;
+  --color-navy-300: #7892bd;
+  --color-navy-400: #5b7aae;
+  --color-navy-500: #3e629f;
+  --color-navy-600: #365697;
+  --color-navy-700: #2c478b;
+  --color-navy-800: #0A2E50;
+  --color-navy-900: #061b30;
+  --color-navy-950: #030e19;
+
+  --color-crimson-50: #fce8ec;
+  --color-crimson-100: #f8c5ce;
+  --color-crimson-200: #f39eae;
+  --color-crimson-300: #ee778d;
+  --color-crimson-400: #ea5975;
+  --color-crimson-500: #BF0A30;
+  --color-crimson-600: #a0082a;
+  --color-crimson-700: #800621;
+  --color-crimson-800: #600519;
+  --color-crimson-900: #400310;
+
+  --color-gold-300: #D4BA82;
+  --color-gold-400: #C5A572;
+  --color-gold-500: #B08D5B;
+  --color-gold-600: #96743E;
+
+  --color-cream: #FAFAF5;
+  --color-cream-dark: #F0EFE8;
+
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-ticker: ticker-scroll 40s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-navy-100);
+    color: var(--color-navy-800);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+  }
+}
+
+@utility bg-grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+}
+
+@utility shadow-navy {
+  box-shadow: 0 2px 24px rgba(10, 46, 80, 0.08);
+}
+
+@utility shadow-navy-lg {
+  box-shadow: 0 8px 32px rgba(10, 46, 80, 0.12);
+}
+
+@utility shadow-crimson {
+  box-shadow: 0 2px 16px rgba(191, 10, 48, 0.2);
+}

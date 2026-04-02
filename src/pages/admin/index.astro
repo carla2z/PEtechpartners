@@ -1,0 +1,96 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Auth check handled by middleware — if we got here, user is authenticated
+
+// Fetch submissions directly on the server
+let contacts: any[] = [];
+let error = '';
+
+try {
+  const { db } = await import('../../lib/db');
+  const { contacts: contactsTable } = await import('../../lib/schema');
+  const { desc } = await import('drizzle-orm');
+  contacts = await db.select().from(contactsTable).orderBy(desc(contactsTable.createdAt));
+} catch (e) {
+  error = 'Could not connect to database. Check TURSO_DATABASE_URL and TURSO_AUTH_TOKEN.';
+}
+
+const newCount = contacts.filter((c) => c.status === 'new').length;
+---
+
+<BaseLayout title="Admin Dashboard | PE Tech Partners" description="Site administration" noindex={true}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-10">
+      <h1 class="text-3xl font-bold tracking-tighter text-navy-800">Dashboard</h1>
+      <a href="/admin/logout" class="text-sm text-zinc-500 hover:text-zinc-700 transition-colors">Logout</a>
+    </div>
+
+    {error && (
+      <div class="rounded-xl border border-red-200 bg-red-50 p-6 mb-8">
+        <p class="text-red-800 text-sm">{error}</p>
+      </div>
+    )}
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+        <p class="text-sm text-zinc-500 mb-1">Total Submissions</p>
+        <p class="text-3xl font-bold tracking-tighter text-navy-800 font-mono">{contacts.length}</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+        <p class="text-sm text-zinc-500 mb-1">New (Unread)</p>
+        <p class="text-3xl font-bold tracking-tighter text-emerald-600 font-mono">{newCount}</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-zinc-200 bg-white">
+        <p class="text-sm text-zinc-500 mb-1">Responded</p>
+        <p class="text-3xl font-bold tracking-tighter text-navy-800 font-mono">{contacts.length - newCount}</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="rounded-2xl border border-zinc-200 bg-white overflow-hidden">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-zinc-100">
+            <th class="text-left px-6 py-3 font-medium text-zinc-500">Name</th>
+            <th class="text-left px-6 py-3 font-medium text-zinc-500">Email</th>
+            <th class="text-left px-6 py-3 font-medium text-zinc-500 hidden md:table-cell">Company</th>
+            <th class="text-left px-6 py-3 font-medium text-zinc-500 hidden lg:table-cell">Message</th>
+            <th class="text-left px-6 py-3 font-medium text-zinc-500">Date</th>
+            <th class="text-left px-6 py-3 font-medium text-zinc-500">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-zinc-50">
+          {contacts.map((c) => (
+            <tr class="hover:bg-zinc-50/50 transition-colors">
+              <td class="px-6 py-4 font-medium text-zinc-900">{c.name}</td>
+              <td class="px-6 py-4 text-zinc-600">{c.email}</td>
+              <td class="px-6 py-4 text-zinc-600 hidden md:table-cell">{c.company || '—'}</td>
+              <td class="px-6 py-4 text-zinc-600 max-w-xs truncate hidden lg:table-cell">{c.message}</td>
+              <td class="px-6 py-4 text-zinc-500 font-mono text-xs">{new Date(c.createdAt).toLocaleDateString()}</td>
+              <td class="px-6 py-4">
+                <span class={`inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  c.status === 'new'
+                    ? 'bg-emerald-50 text-emerald-700'
+                    : 'bg-zinc-100 text-zinc-600'
+                }`}>
+                  {c.status}
+                </span>
+              </td>
+            </tr>
+          ))}
+          {contacts.length === 0 && (
+            <tr>
+              <td colspan="6" class="px-6 py-12 text-center text-zinc-400">
+                No submissions yet. Debrief requests will appear here.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>

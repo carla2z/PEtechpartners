@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact PE Tech Partners',
+  description: 'Book a no-cost technology assessment for your PE or M&A firm.',
+  url: 'https://petechpartners.com/contact',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+    telephone: '+19177157100',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2125 Albany Post Rd Suite 106',
+      addressLocality: 'Montrose',
+      addressRegion: 'NY',
+      postalCode: '10548',
+      addressCountry: 'US',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+19177157100',
+      contactType: 'sales',
+      availableLanguage: 'English',
+    },
+  },
+};
+---
+
+<BaseLayout
+  title="Secure a Strategic Debrief | PE Tech Partners"
+  description="Book a no-cost technology assessment for your PE or M&A firm. No pressure, high clarity. Call (917) 715-7100 or fill out the form."
+  structuredData={structuredData}
+  tags={['contact PE Tech Partners', 'technology assessment', 'PE consulting', 'M&A technology audit']}
+>
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+        <!-- Left: Info -->
+        <div class="lg:py-8">
+          <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Get Started</p>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+            Secure a Strategic Debrief
+          </h1>
+          <p class="text-lg text-zinc-600 leading-relaxed max-w-[50ch] mb-10">
+            A no-cost, no-pressure working session where we map your current tech stack, identify the biggest friction points, and outline a 90-day path to fixing them. No pitch deck. Just answers.
+          </p>
+
+          <div class="space-y-8">
+            <!-- Phone -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-navy-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-zinc-500">Phone</p>
+                <a href="tel:+19177157100" class="text-lg font-semibold text-navy-800 hover:text-crimson-500 transition-colors">
+                  (917) 715-7100
+                </a>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-navy-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-zinc-500">Office</p>
+                <p class="text-navy-800 font-medium">
+                  2125 Albany Post Rd Suite 106<br />
+                  Montrose, NY 10548
+                </p>
+              </div>
+            </div>
+
+            <!-- Response time -->
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-navy-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-navy-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-zinc-500">Response Time</p>
+                <p class="text-navy-800 font-medium">
+                  Typically within one business day
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="lg:py-8">
+          <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-10">
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

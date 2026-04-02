@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'CRM & System Integration for PE Firms',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  url: 'https://petechpartners.com/solutions/system-integration',
+  description: 'Connect DealCloud, Salesforce, Affinity, and HubSpot to your data rooms, cap tables, and portfolio tools. One connected operating system.',
+  serviceType: 'System Integration',
+  areaServed: 'US',
+};
+---
+
+<BaseLayout
+  title="CRM & System Integration for PE Firms | PE Tech Partners"
+  description="Connect DealCloud, Salesforce, Affinity, and HubSpot to your data rooms, cap tables, and portfolio tools. One connected operating system."
+  structuredData={structuredData}
+  canonicalUrl="https://petechpartners.com/solutions/system-integration"
+  tags={['PE CRM integration', 'DealCloud integration', 'Salesforce PE', 'private equity system integration']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">System Integration</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          One Connected Operating System for Your Entire Firm
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[58ch]">
+          Your CRM knows about the deal. Your data room knows about the documents. Your cap table knows about the structure. But none of them talk to each other. We fix that.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          The Disconnected Tech Stack Problem
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            The average private equity firm operates between eight and fifteen distinct software platforms. There is a CRM for deal origination and relationship tracking — typically DealCloud, Salesforce, Affinity, or HubSpot. There is a virtual data room for document management during diligence. There is cap table software tracking ownership structures across portfolio companies. There is a portfolio monitoring platform pulling financial data from operating companies. There are communication tools, project management apps, and a web of spreadsheets filling in the gaps where nothing else connects.
+          </p>
+          <p>
+            The problem is not that firms lack tools. The problem is that every tool operates in its own silo. When a managing director updates a deal stage in the CRM, that information does not automatically flow to the data room, the cap table system, or the portfolio dashboard. An analyst manually re-enters the same data across three or four systems. A principal asks for a pipeline report and waits two days while someone reconciles conflicting numbers from different platforms.
+          </p>
+          <p>
+            This is not a minor inconvenience. It is a structural drag on deal velocity. Every hour spent on duplicate data entry is an hour not spent on sourcing, diligence, or value creation. Every inconsistency between systems is a risk — a wrong number in an IC memo, a missed document in diligence, a portfolio company metric that nobody caught because it lived in a system nobody checked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Connect -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+          What We Connect — and How
+        </h2>
+        <p class="text-zinc-600 leading-relaxed">
+          We integrate the specific platforms that PE and M&A firms actually use. Not generic enterprise middleware. Purpose-built connections between the tools that matter to your deal flow.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 rounded-2xl overflow-hidden mb-12">
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">CRM Platforms</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            DealCloud, Salesforce, Affinity, and HubSpot are the four CRMs we see most frequently in PE and M&A environments. Each has strengths. DealCloud was built specifically for capital markets and understands deal objects natively. Salesforce offers unmatched customization and ecosystem breadth. Affinity excels at relationship intelligence and network mapping. HubSpot provides accessibility and marketing integration that growth equity firms increasingly value. We integrate all four — and configure them to reflect your actual deal stages, relationship hierarchies, and reporting requirements.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Data Rooms & Document Management</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Virtual data rooms are where diligence lives. Whether you use Intralinks, Datasite, or Box, we connect your VDR to your CRM so document status flows automatically. When diligence materials arrive, your deal team sees them without logging into a separate platform. When a deal moves stages, document access permissions update accordingly. No manual uploads. No version confusion. No missed documents.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Cap Table & Ownership Software</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Carta, Shareworks, and custom cap table systems hold critical ownership and waterfall data. We integrate these with your CRM and portfolio monitoring tools so ownership structures are always current, fund allocation data flows into reporting, and waterfall calculations reflect live deal terms. When a term sheet changes, your cap table updates. When a portfolio company raises a follow-on round, your fund-level reporting reflects it immediately.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Portfolio Monitoring</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Platforms like Chronograph, eFront, and Cobalt pull operating metrics from portfolio companies. We connect these to your core systems so financial performance data, KPI dashboards, and covenant compliance metrics are visible alongside deal data. Your investment team sees the full picture — pipeline and portfolio — in one environment, without toggling between five different logins.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          The Single Source of Truth
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            When your systems are connected, you get something PE firms rarely have: a single source of truth. One place where deal data, document status, ownership structure, and portfolio performance converge. No more reconciling conflicting spreadsheets. No more questioning which system has the latest number. No more two-day waits for pipeline reports that are already stale by the time they land.
+          </p>
+          <p>
+            A single source of truth means your managing directors can pull up any deal and see its complete history — every interaction, every document, every financial metric — in seconds. It means your analysts enter data once and it propagates everywhere. It means your IC memos draw from live data instead of snapshots that someone manually assembled last Tuesday.
+          </p>
+          <p>
+            Real-time data is not a luxury. It is a competitive advantage. When a competing firm takes three days to assemble a pipeline report, and your team generates one in three seconds, you make faster decisions. You catch issues earlier. You move from LOI to close faster because your diligence process is not bottlenecked by manual data assembly.
+          </p>
+          <p>
+            The integration also eliminates a category of risk that most firms underestimate: data inconsistency. When the same deal appears differently in three systems — different valuations, different stage labels, different contact information — mistakes compound silently. An IC memo with outdated revenue numbers. A portfolio report that misses a covenant breach. A relationship that falls through the cracks because nobody realized the CRM contact was the same person as the data room user. Connected systems eliminate these errors structurally, not through vigilance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          How the Integration Process Works
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            We start with a comprehensive audit of your current tech stack — every platform, every integration (or lack thereof), every manual workaround your team has built. We map the data flows that exist and the ones that should exist. We identify where data enters the ecosystem, where it gets stuck, and where it leaks out into spreadsheets and email threads.
+          </p>
+          <p>
+            From there, we design an integration architecture that connects your systems using native APIs, middleware where necessary, and custom connectors for platforms that do not play well with others. We prioritize the highest-impact connections first — typically the CRM-to-data-room and CRM-to-portfolio-monitoring links — so your team sees results within the first two to four weeks.
+          </p>
+          <p>
+            Every integration we build includes error handling, data validation, and monitoring. If a sync fails at 2 AM, we know about it before your team arrives at 7 AM. If data conflicts arise between systems, our reconciliation logic resolves them according to rules your team defines — not arbitrary defaults.
+          </p>
+          <p>
+            Once connected, we layer on the <a href="/solutions/workflow-automation" class="text-crimson-500 hover:text-crimson-600 font-medium">workflow automation</a> that makes the integration truly powerful. Connected systems are the foundation. Automated workflows are where the productivity gains compound.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Stop Re-Entering Data Across Five Systems</h2>
+      <p class="text-zinc-300 leading-relaxed mb-6 max-w-lg mx-auto">
+        Book a Strategic Debrief and we will map your tech stack, identify every integration gap, and outline the fastest path to a single source of truth.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all">
+          Secure a Strategic Debrief
+        </a>
+        <a href="/challenges" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-white/10 rounded-xl hover:bg-white/20 active:scale-[0.98] transition-all">
+          See Common PE Tech Challenges
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

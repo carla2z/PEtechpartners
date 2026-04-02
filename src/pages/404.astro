@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | PE Tech Partners"
+  description="The page you're looking for doesn't exist."
+  noindex={true}
+>
+  <section class="min-h-[60vh] flex items-center justify-center px-4">
+    <div class="text-center max-w-lg">
+      <p class="text-6xl font-bold text-crimson-500 mb-4">404</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">
+        Page Not Found
+      </h1>
+      <p class="text-lg text-gray-600 mb-8">
+        This page doesn't exist. It may have been moved or removed.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-block px-6 py-3 bg-navy-800 text-white font-semibold rounded-lg hover:bg-navy-700 transition-colors"
+        >
+          Back to Home
+        </a>
+        <a
+          href="/contact"
+          class="inline-block px-6 py-3 border-2 border-crimson-500 text-crimson-500 font-semibold rounded-lg hover:bg-crimson-500 hover:text-white transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

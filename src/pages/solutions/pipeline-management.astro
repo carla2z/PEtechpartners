@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Deal Pipeline Dashboards for Private Equity',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  url: 'https://petechpartners.com/solutions/pipeline-management',
+  description: 'Real-time deal velocity dashboards and portfolio health monitoring. See every deal, every stage, every bottleneck — live.',
+  serviceType: 'Pipeline Management',
+  areaServed: 'US',
+};
+---
+
+<BaseLayout
+  title="Deal Pipeline Dashboards for Private Equity | PE Tech Partners"
+  description="Real-time deal velocity dashboards and portfolio health monitoring. See every deal, every stage, every bottleneck — live."
+  structuredData={structuredData}
+  canonicalUrl="https://petechpartners.com/solutions/pipeline-management"
+  tags={['PE deal pipeline', 'deal velocity dashboard', 'private equity portfolio monitoring', 'pipeline management PE']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Pipeline Management</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          See Every Deal, Every Stage, Every Bottleneck — Live
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[58ch]">
+          Most PE firms manage their pipeline in spreadsheets that are stale before the ink dries. We build real-time dashboards that give your team instant visibility into deal velocity, stage progression, and portfolio health.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Spreadsheet Problem -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          The Spreadsheet Pipeline Is a Liability
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            Walk into most PE firms on a Monday morning and ask for a current pipeline snapshot. What you will get is a spreadsheet that someone updated last Thursday. The numbers might be close. They might not. Nobody is entirely sure, because the spreadsheet depends on individual deal team members remembering to update their rows — and in the middle of active diligence on three deals simultaneously, updating a pipeline tracker is nobody's priority.
+          </p>
+          <p>
+            This is not a discipline problem. It is a systems problem. When pipeline data lives in a manually maintained spreadsheet, it is always a lagging indicator. By the time leadership sees the data, it reflects a reality that no longer exists. Deals have moved stages. New opportunities have entered the funnel. Others have gone cold. The spreadsheet shows you where the pipeline was, not where it is.
+          </p>
+          <p>
+            The consequences compound at every level. Managing directors make capital allocation decisions based on stale pipeline data. Operating partners cannot see which portfolio companies are approaching covenant thresholds until quarterly reports surface the issue. Fund-level reporting relies on manual aggregation that introduces errors and consumes days of analyst time. Limited partners receive updates that are outdated before they are sent.
+          </p>
+          <p>
+            Real-time pipeline visibility is not a nice-to-have. It is the difference between proactive management and reactive scrambling. Firms that see their pipeline in real time catch problems early, capitalize on opportunities faster, and make better-informed investment decisions at every stage of the deal lifecycle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Capabilities -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+          What Our Dashboards Deliver
+        </h2>
+        <p class="text-zinc-600 leading-relaxed">
+          Built on top of your <a href="/solutions/system-integration" class="text-crimson-500 hover:text-crimson-600 font-medium">integrated tech stack</a>, our dashboards pull live data from your CRM, data rooms, portfolio monitoring tools, and financial systems. No manual updates required.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 rounded-2xl overflow-hidden mb-12">
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Deal Velocity Tracking</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Measure how fast deals move through your pipeline — from initial screening to LOI to close. Track average time in each stage, identify where deals stall, and benchmark current deal velocity against your historical performance. When a deal sits in diligence longer than your average, the dashboard flags it before anyone needs to ask. Deal velocity is the leading indicator of fund performance, and you cannot improve what you cannot measure.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Stage Progression & Conversion</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Visualize your pipeline as a true funnel with conversion rates at every stage. See how many deals move from screening to preliminary diligence, from diligence to LOI, from LOI to close. Track conversion rates by sector, deal size, origination source, and deal team member. These metrics reveal whether your sourcing strategy is generating quality deal flow or simply volume, and where your process loses the most promising opportunities.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Bottleneck Identification</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Bottlenecks in the deal process are often invisible until they have already delayed a close. Our dashboards surface them in real time. If legal review is consistently the longest phase, you see it. If a specific diligence workstream is holding up multiple deals, you see it. If one team member's deals consistently move slower through a particular stage, you see it. The dashboard does not just report problems — it pinpoints their exact location so you can act on them immediately.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Portfolio Health Monitoring</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Pipeline dashboards are only half the picture. Your existing portfolio companies are equally critical. We build portfolio health views that aggregate financial performance data across every company in your portfolio — revenue growth, EBITDA margins, covenant compliance, working capital trends, and operational KPIs. When a portfolio company's metrics deteriorate, your operating team sees it in days, not quarters. Proactive portfolio management starts with proactive visibility.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beyond the Dashboard -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          Beyond Dashboards: Actionable Intelligence
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            A dashboard that only displays data is a report with a refresh button. Our pipeline management solution goes further. It generates alerts when metrics cross thresholds your team defines — a deal that has been in diligence longer than 45 days, a portfolio company whose revenue growth drops below plan for two consecutive months, a pipeline stage with an unusually high drop-off rate.
+          </p>
+          <p>
+            We build automated reporting cadences that deliver the right data to the right people at the right time. Managing directors receive weekly pipeline summaries. Operating partners get monthly portfolio health reports. LP reporting packages assemble themselves from live data instead of requiring a two-week manual effort every quarter. The data architecture ensures consistency — every report draws from the same source, so the numbers always match regardless of who is looking at them.
+          </p>
+          <p>
+            For firms that want to go deeper, we build predictive models that estimate deal close probability based on historical patterns, identify portfolio companies most likely to need operational intervention, and forecast fund deployment timing based on current pipeline composition. These models improve over time as they incorporate more of your firm's actual deal data, becoming increasingly accurate and firm-specific.
+          </p>
+          <p>
+            Everything we build is designed for sustainability. Your team does not need to maintain complex dashboards or troubleshoot broken data connections. Our ongoing support ensures dashboards stay current as your systems evolve, new portfolio companies are added, and your reporting requirements change. Check our <a href="/blog" class="text-crimson-500 hover:text-crimson-600 font-medium">latest insights</a> for more on how leading PE firms are using data to drive investment decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Replace Spreadsheets with Real-Time Visibility</h2>
+      <p class="text-zinc-300 leading-relaxed mb-6 max-w-lg mx-auto">
+        Book a Strategic Debrief and we will show you what your pipeline and portfolio data looks like when it updates itself — live, accurate, and always current.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all">
+        Secure a Strategic Debrief
+      </a>
+    </div>
+  </section>
+</BaseLayout>

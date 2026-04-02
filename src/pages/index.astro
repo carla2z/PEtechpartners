@@ -1,0 +1,431 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ';
+import ScrollReveal from '../components/ScrollReveal';
+import AnimatedCounter from '../components/AnimatedCounter';
+import MagneticButton from '../components/MagneticButton';
+import HeroTicker from '../components/HeroTicker';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'PE Tech Partners',
+  url: 'https://petechpartners.com',
+  description: 'Technology alignment consulting for private equity and M&A firms. System integration, workflow automation, and deal pipeline optimization.',
+  telephone: '+19177157100',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '2125 Albany Post Rd Suite 106',
+    addressLocality: 'Montrose',
+    addressRegion: 'NY',
+    postalCode: '10548',
+    addressCountry: 'US',
+  },
+  areaServed: 'US',
+  serviceType: ['Technology Consulting', 'System Integration', 'Workflow Automation'],
+};
+
+const solutions = [
+  {
+    num: '01',
+    title: 'System Integration',
+    desc: 'Connect your CRM, data room, cap table, and portfolio tools into one operating system. DealCloud, Salesforce, Affinity, HubSpot — we make them talk.',
+    href: '/solutions/system-integration',
+  },
+  {
+    num: '02',
+    title: 'Workflow Automation',
+    desc: 'Automate CIM processing, IC memos, diligence tracking, and VDR document management. Your analysts do strategy, not data entry.',
+    href: '/solutions/workflow-automation',
+  },
+  {
+    num: '03',
+    title: 'Pipeline Management',
+    desc: 'Real-time dashboards for deal velocity and portfolio health. See every deal, every stage, every bottleneck — live.',
+    href: '/solutions/pipeline-management',
+  },
+  {
+    num: '04',
+    title: 'Data Security',
+    desc: 'SOC 2 compliant enterprise-grade protection for sensitive transaction documents. Because one breach kills the deal.',
+    href: '/solutions/data-security',
+  },
+];
+
+const processSteps = [
+  {
+    num: '01',
+    title: 'Discovery & Assessment',
+    desc: 'We map your entire tech stack and deal workflow — origination through exit — to find where time, data, and money leak out.',
+  },
+  {
+    num: '02',
+    title: 'Architecture & Integration',
+    desc: 'Connect your systems, automate the workflows that drain your analysts, and build the dashboards your partners actually want.',
+  },
+  {
+    num: '03',
+    title: 'Optimization & Training',
+    desc: 'Fine-tune every integration, train your team on the new workflows, and measure the results against hard baselines.',
+  },
+  {
+    num: '04',
+    title: 'Ongoing Support',
+    desc: 'Continuous monitoring, quarterly reviews, and scaling support as your portfolio grows and your needs evolve.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'How long before we see results?',
+    answer: 'Most firms see measurable impact within 2-4 weeks. Full technology transformation typically completes in 60-90 days. We prioritize quick wins that demonstrate ROI before tackling larger structural changes.',
+  },
+  {
+    question: 'Do we need to replace our existing software?',
+    answer: 'Almost never. We optimize what you already have before recommending anything new. Most firms are sitting on 60-70% unused capability in tools they already pay for. We unlock that first.',
+  },
+  {
+    question: 'What size firms do you work with?',
+    answer: 'PE and M&A firms of all sizes — from boutique shops running 3-5 deals a year to mid-market firms with 50+ active portfolio companies. The technology pain points are remarkably similar across firm sizes.',
+  },
+  {
+    question: 'What does the Strategic Debrief cost?',
+    answer: 'Nothing. It is a no-cost, no-pressure working session where we map your current tech stack, identify the biggest friction points, and outline a 90-day path to fixing them. No pitch deck. No sales pressure.',
+  },
+];
+---
+
+<BaseLayout
+  title="PE Tech Partners | Technology Alignment for Private Equity & M&A Firms"
+  description="We integrate and optimize technology stacks for PE and M&A firms. Connect your CRM, automate deal workflows, and close faster. Results in 2-4 weeks."
+  structuredData={structuredData}
+  ogImage="/images/generated/og-default.png"
+  tags={['private equity technology', 'M&A tech consulting', 'PE firm technology integration', 'deal workflow automation']}
+>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 1. HERO — Full-viewport navy-950 with grain texture    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section
+    class="relative min-h-[100dvh] bg-navy-950 bg-grain overflow-hidden"
+    style="background-image: radial-gradient(ellipse at top right, rgba(191,10,48,0.08) 0%, transparent 60%)"
+  >
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[100dvh] flex flex-col justify-center py-24 lg:py-0">
+
+      <div class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-20">
+
+        <!-- Left: Copy — occupies ~55% -->
+        <div class="lg:w-[55%] shrink-0">
+          <div class="flex items-center gap-3 mb-8">
+            <img src="/images/logo.png" alt="PE Tech Partners mark" class="h-10 w-10 object-contain" />
+            <span class="text-xs font-mono text-zinc-500 uppercase tracking-[0.2em]">PE Tech Partners</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.95] text-white mb-6">
+            Close More Deals<br />with Tech That<br /><em class="font-serif italic text-crimson-400 not-italic">Actually</em> Works
+          </h1>
+          <p class="text-lg text-zinc-400 leading-relaxed max-w-[48ch] mb-10">
+            Your firm already owns the tools. We make them operate as one system — integration, automation, and pipeline visibility that shows up in weeks, not quarters.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <MagneticButton client:load href="/contact" variant="crimson">
+              Secure a Strategic Debrief
+            </MagneticButton>
+            <MagneticButton client:load href="/process" variant="ghost">
+              See Our Process
+            </MagneticButton>
+          </div>
+        </div>
+
+        <!-- Right: Floating stat cards -->
+        <div class="hidden lg:block lg:w-[45%] relative h-[420px]">
+          <!-- Card 1 -->
+          <div class="absolute top-0 right-0 w-64 bg-navy-800 border border-white/10 rounded-2xl p-6 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Avg. Close Acceleration</p>
+            <p class="text-4xl font-bold text-white font-mono tracking-tight">47.2<span class="text-crimson-400">%</span></p>
+            <p class="text-sm text-zinc-400 mt-2">faster from LOI to close</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="absolute top-36 right-24 w-64 bg-navy-800 border border-white/10 rounded-2xl p-6 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Annual Savings</p>
+            <p class="text-4xl font-bold text-white font-mono tracking-tight"><span class="text-gold-400">$</span>2.4M</p>
+            <p class="text-sm text-zinc-400 mt-2">recovered from dead licenses</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="absolute top-72 right-4 w-64 bg-navy-800 border border-white/10 rounded-2xl p-6 transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+            <p class="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">Integration Timeline</p>
+            <p class="text-4xl font-bold text-white font-mono tracking-tight">12<span class="text-crimson-400">-day</span></p>
+            <p class="text-sm text-zinc-400 mt-2">average full-stack integration</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Ticker — full width at bottom -->
+    <div class="relative z-10 border-t border-white/5">
+      <HeroTicker client:visible />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 2. STATS — Cream bg, asymmetric layout                -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-[#FAFAF5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+
+        <!-- Left column: Intro copy -->
+        <div class="lg:w-3/5">
+          <div class="border-l-4 border-crimson-500 pl-6">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-navy-800 leading-tight mb-6">
+              Old Tech Wastes Time.<br />Smart Firms Don't.
+            </h2>
+            <p class="text-zinc-600 leading-relaxed max-w-[52ch]">
+              Most PE and M&A firms bleed money on disconnected tools, forgotten licenses, and manual workflows that should have been automated years ago. The data backs it up.
+            </p>
+          </div>
+          <div class="mt-8 pl-6">
+            <a href="/challenges" class="text-sm font-semibold text-crimson-500 hover:text-crimson-600 transition-colors group">
+              See the full breakdown of PE tech challenges <span class="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right column: Stats -->
+        <div class="lg:w-2/5">
+          <ScrollReveal client:visible direction="up" delay={0}>
+            <!-- Hero stat -->
+            <div class="mb-10">
+              <AnimatedCounter client:visible value={38} suffix="%" label="of apps go unused or barely used in the average PE firm" className="text-7xl md:text-8xl font-bold tracking-tighter text-navy-800 font-mono" />
+            </div>
+          </ScrollReveal>
+
+          <!-- Supporting stats with gold divider -->
+          <ScrollReveal client:visible direction="up" delay={200}>
+            <div class="flex gap-8 items-start">
+              <div class="flex-1">
+                <AnimatedCounter client:visible value={158} prefix="$" suffix="K" label="hidden annually in forgotten subscriptions" className="text-4xl font-bold tracking-tighter text-navy-800 font-mono" />
+              </div>
+              <div class="w-px self-stretch bg-gold-400"></div>
+              <div class="flex-1">
+                <AnimatedCounter client:visible value={14} suffix="mo" label="average time before anyone notices a dead license" className="text-4xl font-bold tracking-tighter text-navy-800 font-mono" />
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 3. SOLUTIONS — White bg, zig-zag alternating rows      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section intro -->
+      <div class="max-w-2xl mb-20">
+        <p class="text-xs font-semibold text-gold-400 tracking-[0.2em] uppercase mb-4">What We Fix</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-navy-800 leading-tight">
+          Platform-Agnostic.<br />Results-Obsessed.
+        </h2>
+        <p class="text-zinc-600 leading-relaxed mt-4 max-w-[50ch]">
+          We work with your existing stack — DealCloud, Salesforce, Affinity, HubSpot, whatever you run. No rip-and-replace. Just alignment.
+        </p>
+      </div>
+
+      <!-- Zig-zag solution blocks -->
+      <div class="space-y-16 lg:space-y-24">
+
+        {solutions.map((s, i) => {
+          const isOdd = i % 2 === 0; /* 0-indexed: first and third are "odd" rows */
+          return (
+            <ScrollReveal client:visible direction={isOdd ? 'left' : 'right'} delay={0}>
+              <div class={`grid grid-cols-1 gap-8 lg:gap-12 items-center ${isOdd ? 'lg:grid-cols-[1fr_2fr]' : 'lg:grid-cols-[2fr_1fr]'}`}>
+
+                {/* Accent block */}
+                <div class={`${isOdd ? 'order-1' : 'order-1 lg:order-2'}`}>
+                  <div class="bg-navy-800 rounded-xl p-10 flex items-center justify-center min-h-[180px]">
+                    <span class="text-6xl lg:text-7xl font-bold font-mono text-white/10 select-none">{s.num}</span>
+                  </div>
+                </div>
+
+                {/* Text content */}
+                <a href={s.href} class={`group block ${isOdd ? 'order-2' : 'order-2 lg:order-1'}`}>
+                  <h3 class="text-xl lg:text-2xl font-bold text-navy-800 mb-3 group-hover:text-crimson-500 transition-colors">{s.title}</h3>
+                  <p class="text-zinc-600 leading-relaxed max-w-[50ch]">{s.desc}</p>
+                  <span class="inline-block mt-4 text-sm font-semibold text-crimson-500 group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more &rarr;
+                  </span>
+                </a>
+
+              </div>
+            </ScrollReveal>
+          );
+        })}
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 4. PROCESS — Navy-950 with vertical gold timeline      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-32 bg-navy-950 bg-grain overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section heading -->
+      <div class="text-center mb-20">
+        <p class="text-xs font-semibold text-gold-400 tracking-[0.2em] uppercase mb-4">How It Works</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white leading-tight">
+          From Assessment to<br /><span class="text-crimson-400">Acceleration</span> in <em class="font-serif italic not-italic text-gold-300">90 Days</em>
+        </h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+
+        <!-- Vertical gold line — centered on desktop, left-aligned on mobile -->
+        <div class="absolute top-0 bottom-0 left-4 lg:left-1/2 lg:-translate-x-1/2 w-0.5 bg-gold-400/40"></div>
+
+        <div class="space-y-12 lg:space-y-16">
+          {processSteps.map((step, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <div class="relative flex items-start" style={`animation: fade-up 0.6s ease-out ${i * 0.15}s both`}>
+
+                {/* Gold node */}
+                <div class="absolute left-4 lg:left-1/2 top-2 w-4 h-4 rounded-full bg-gold-400 border-4 border-navy-950 -translate-x-1/2 z-10"></div>
+
+                {/* Content card — mobile: all right of line. Desktop: alternating */}
+                <div class={`
+                  ml-12 lg:ml-0 lg:w-[calc(50%-3rem)]
+                  ${isLeft ? 'lg:mr-auto lg:pr-0' : 'lg:ml-auto lg:pl-0'}
+                `}>
+                  <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 lg:p-8">
+                    <span class="text-sm font-mono text-crimson-300 block mb-2">{step.num}</span>
+                    <h3 class="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 text-center">
+        <MagneticButton client:load href="/process" variant="ghost">
+          View the Full Process
+        </MagneticButton>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 5. TOOLS — Cream-dark bg, unequal cards                -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-[#F0EFE8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-16">
+        <p class="text-xs font-semibold text-gold-400 tracking-[0.2em] uppercase mb-4">Free Tools</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-navy-800 leading-tight">
+          Quantify the Problem<br />Before You Fix It
+        </h2>
+        <p class="text-zinc-600 leading-relaxed mt-4">
+          Use our calculators to see what disconnected tech is actually costing your firm. No login required.
+        </p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+
+        <!-- Card 1 — wider -->
+        <ScrollReveal client:visible direction="up" delay={0} className="lg:w-[55%]">
+          <a href="/tools/software-waste-calculator" class="group block bg-white rounded-2xl shadow-navy border-l-4 border-crimson-500 p-8 lg:p-10 hover:-translate-y-1 hover:shadow-navy-lg transition-all duration-300">
+            <h3 class="text-xl font-bold text-navy-800 mb-3 group-hover:text-crimson-500 transition-colors">Software Waste Calculator</h3>
+            <p class="text-zinc-600 leading-relaxed">
+              Find out how much your firm bleeds annually on forgotten subscriptions, unused licenses, and duplicate tools.
+            </p>
+            <span class="inline-block mt-6 text-sm font-semibold text-crimson-500 group-hover:translate-x-2 transition-transform duration-300">
+              Calculate your waste &rarr;
+            </span>
+          </a>
+        </ScrollReveal>
+
+        <!-- Card 2 — narrower, offset -->
+        <ScrollReveal client:visible direction="up" delay={150} className="lg:w-[45%] lg:mt-8">
+          <a href="/tools/firepower-estimator" class="group block bg-white rounded-2xl shadow-navy border-l-4 border-crimson-500 p-8 lg:p-10 hover:-translate-y-1 hover:shadow-navy-lg transition-all duration-300">
+            <h3 class="text-xl font-bold text-navy-800 mb-3 group-hover:text-crimson-500 transition-colors">Firepower Estimator</h3>
+            <p class="text-zinc-600 leading-relaxed">
+              Model how AI and workflow automation can multiply your team's effective output without adding headcount.
+            </p>
+            <span class="inline-block mt-6 text-sm font-semibold text-crimson-500 group-hover:translate-x-2 transition-transform duration-300">
+              Estimate your firepower &rarr;
+            </span>
+          </a>
+        </ScrollReveal>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 6. FAQ — White bg, two-column                          -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+
+        <!-- Left: Heading -->
+        <div class="lg:w-2/5 shrink-0">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-navy-800 leading-tight font-serif">
+            Common<br />Questions
+          </h2>
+          <div class="w-16 h-0.5 bg-gold-400 mt-4"></div>
+        </div>
+
+        <!-- Right: Accordion -->
+        <div class="lg:w-3/5">
+          <FAQ client:visible items={faqItems} />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- 7. FINAL CTA — Full-bleed crimson                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="relative bg-crimson-500 overflow-hidden">
+    <!-- Gold divider at top -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gold-300 to-transparent"></div>
+
+    <!-- Subtle grain overlay -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E'); background-size: 200px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white leading-tight mb-6">
+          Ready to Make Your<br />Tech a <span class="font-serif italic">Weapon</span>?
+        </h2>
+        <p class="text-white/80 leading-relaxed max-w-[48ch] mb-10">
+          Book a no-cost Strategic Debrief. We map your tech stack, identify the friction, and outline a 90-day path to fixing it. No pitch deck. No sales pressure.
+        </p>
+        <MagneticButton client:load href="/contact" variant="white">
+          Secure a Strategic Debrief
+        </MagneticButton>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Free PE & M&A Technology Tools',
+  description: 'Interactive calculators to quantify software waste and model AI-driven team productivity. No login required.',
+  url: 'https://petechpartners.com/tools',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+};
+
+const tools = [
+  {
+    title: 'Software Waste Calculator',
+    description: 'Calculate how much your firm wastes annually on forgotten subscriptions, unused licenses, and duplicate tools. Input your team size and estimated per-person spend to see the total hidden cost.',
+    href: '/tools/software-waste-calculator',
+    stat: '$158K',
+    statLabel: 'avg. hidden waste per firm',
+  },
+  {
+    title: 'Firepower Estimator',
+    description: 'Model how AI and workflow automation multiply your team\'s effective output. See your firepower multiplier, effective team equivalent, and verified output per quarter.',
+    href: '/tools/firepower-estimator',
+    stat: '3.2x',
+    statLabel: 'avg. multiplier with automation',
+  },
+];
+---
+
+<BaseLayout
+  title="Free PE & M&A Technology Tools | PE Tech Partners"
+  description="Interactive calculators to quantify software waste and model AI-driven team productivity. No login required."
+  structuredData={structuredData}
+  tags={['PE technology tools', 'software waste calculator', 'team firepower estimator', 'M&A technology ROI']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Free Tools</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          Quantify the Problem Before You Fix It
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[55ch]">
+          Most PE and M&A firms know their technology is underperforming. These calculators put a number on it. No login required, no email gate. Just clarity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tool Cards -->
+  <section class="pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {tools.map((tool) => (
+          <a href={tool.href} class="group rounded-2xl border border-zinc-200 hover:border-crimson-200 transition-all overflow-hidden">
+            <div class="bg-navy-800 p-6">
+              <p class="text-3xl font-bold font-mono text-white tracking-tighter">{tool.stat}</p>
+              <p class="text-sm text-zinc-400 mt-1">{tool.statLabel}</p>
+            </div>
+            <div class="p-8">
+              <h2 class="text-xl font-semibold text-navy-800 mb-3 group-hover:text-crimson-500 transition-colors">
+                {tool.title}
+              </h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mb-4">
+                {tool.description}
+              </p>
+              <span class="inline-block text-sm font-semibold text-crimson-500 group-hover:translate-x-1 transition-transform">
+                Open calculator &rarr;
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Want the Full Picture?</h2>
+      <p class="text-zinc-300 leading-relaxed mb-8 max-w-lg mx-auto">
+        These calculators show directional estimates. A Strategic Debrief gives you the exact numbers, mapped to your specific tech stack and team structure.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all"
+      >
+        Secure a Strategic Debrief
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Deal Workflow Automation for M&A Firms',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  url: 'https://petechpartners.com/solutions/workflow-automation',
+  description: 'Automate CIM processing, IC memos, diligence tracking, and VDR management. Your analysts do strategy, not data entry.',
+  serviceType: 'Workflow Automation',
+  areaServed: 'US',
+};
+---
+
+<BaseLayout
+  title="Deal Workflow Automation for M&A Firms | PE Tech Partners"
+  description="Automate CIM processing, IC memos, diligence tracking, and VDR management. Your analysts do strategy, not data entry."
+  structuredData={structuredData}
+  canonicalUrl="https://petechpartners.com/solutions/workflow-automation"
+  tags={['deal workflow automation', 'CIM processing automation', 'PE workflow optimization', 'M&A diligence automation']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Workflow Automation</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          Your Analysts Should Do Strategy, Not Data Entry
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[58ch]">
+          Every deal generates hundreds of repetitive tasks — CIM intake, memo drafting, diligence checklists, document organization. We automate the work that slows your team down so they can focus on what actually moves deals forward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Cost of Manual Workflows -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          The Hidden Cost of Manual Deal Workflows
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            A typical lower middle-market PE firm reviews between 200 and 500 deals per year. For every deal that reaches the LOI stage, dozens were screened, evaluated, and passed on — each generating its own trail of documents, data entry, and administrative tasks. The sheer volume of repetitive work that flows through a deal team is staggering, and most of it is invisible to firm leadership because it has always been done this way.
+          </p>
+          <p>
+            Consider what happens when a new Confidential Information Memorandum arrives. An analyst downloads the PDF, reads through 40 to 80 pages, and manually extracts key financial metrics — revenue, EBITDA, growth rates, customer concentration, capital expenditure requirements. They enter these numbers into the CRM. They create a preliminary screening memo. They update the pipeline tracker. They might build a quick comparable analysis. For a single CIM, this process takes anywhere from two to four hours. Multiply that by the hundreds of CIMs a firm receives annually, and you are looking at thousands of analyst hours consumed by information extraction and data entry.
+          </p>
+          <p>
+            The same pattern repeats across every stage of the deal lifecycle. Investment committee memos require assembling data from multiple sources into a standardized format. Diligence tracking means maintaining checklists across dozens of workstreams — financial, legal, commercial, operational, environmental, IT — each with its own set of documents, deadlines, and responsible parties. Virtual data room management demands constant attention to document organization, access permissions, and version control.
+          </p>
+          <p>
+            None of this work requires the analytical judgment that firms hire for. It requires attention to detail and time — both of which are finite resources that should be directed at higher-value activities like deal sourcing, management assessment, and value creation planning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Automate -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+          Workflows We Automate
+        </h2>
+        <p class="text-zinc-600 leading-relaxed">
+          We target the workflows that consume the most time and produce the least strategic value. Each automation is built on top of your <a href="/solutions/system-integration" class="text-crimson-500 hover:text-crimson-600 font-medium">integrated tech stack</a>, ensuring data flows cleanly from trigger to output.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 rounded-2xl overflow-hidden mb-12">
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">CIM Processing & Deal Screening</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Incoming CIMs are automatically parsed to extract financial metrics, industry classifications, and deal parameters. Key data points populate your CRM record, a preliminary screening summary is generated, and the deal is routed to the appropriate team member based on sector focus, deal size, and geographic criteria. What used to take an analyst three hours now takes three minutes of review and approval.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">IC Memo Generation</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Investment committee memos follow a standardized structure at every firm. We automate the assembly of financial data, comparable transactions, market analysis, and deal terms into your firm's IC memo template. Analysts review and add qualitative judgment instead of spending hours formatting tables and copying numbers from one system to another. The memo draws from live data, eliminating the stale-numbers problem entirely.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Diligence Tracking & Coordination</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Diligence involves dozens of workstreams running in parallel — financial, legal, tax, commercial, operational, environmental, insurance, IT. We automate the creation, assignment, and tracking of diligence checklists tied directly to your deal stages. When a document arrives in the data room, the corresponding diligence item is automatically marked as received. When a workstream falls behind schedule, the deal team receives an alert. Status rollups generate automatically for IC updates.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">VDR Document Management</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Virtual data room organization is tedious but critical. We automate document indexing, folder structure creation based on deal type, access permission management tied to deal stage and user role, and version control notifications. When a new document is uploaded, it is automatically categorized, indexed, and the relevant team members are notified. When a deal progresses to a new stage, VDR permissions update to reflect the expanded access requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          The ROI of Automation
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            The numbers on workflow automation are not abstract. They are measurable within the first month of deployment. A firm processing 300 CIMs per year at three hours each recovers 900 analyst hours annually — roughly half a full-time equivalent. IC memo assembly that drops from six hours to one hour per deal, across 30 to 50 deals per year, returns another 150 to 250 hours. Diligence tracking automation saves an additional 10 to 15 hours per active deal by eliminating manual status updates and document chasing.
+          </p>
+          <p>
+            But the value extends beyond hours saved. Automation accelerates deal velocity. When CIM processing happens in minutes instead of days, your firm responds to opportunities faster. When IC memos assemble themselves from live data, investment committee meetings happen sooner. When diligence tracking is automated, bottlenecks surface immediately instead of festering for weeks until someone manually reviews a checklist.
+          </p>
+          <p>
+            Speed matters in competitive processes. A firm that can move from CIM receipt to LOI in 10 days instead of 21 wins deals that slower firms never even get to bid on. Workflow automation is not just an efficiency play — it is a competitive positioning strategy that lets smaller teams punch above their weight. Use our <a href="/tools/firepower-estimator" class="text-crimson-500 hover:text-crimson-600 font-medium">Firepower Estimator</a> to model the specific impact for your firm's deal volume and team size.
+          </p>
+          <p>
+            Automation also reduces error rates substantially. Manual data entry into multiple systems introduces transcription errors, version conflicts, and missed updates. Automated workflows execute consistently every time — the same validation rules, the same formatting standards, the same routing logic. The quality improvement alone justifies the investment for firms that have experienced the consequences of a wrong number in an IC memo or a missed item in diligence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Reclaim Thousands of Analyst Hours</h2>
+      <p class="text-zinc-300 leading-relaxed mb-6 max-w-lg mx-auto">
+        Book a Strategic Debrief and we will identify the workflows consuming the most time in your deal process — and show you exactly how to automate them.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all">
+        Secure a Strategic Debrief
+      </a>
+    </div>
+  </section>
+</BaseLayout>

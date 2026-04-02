@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Cybersecurity & SOC 2 Compliance for PE Firms',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  url: 'https://petechpartners.com/solutions/data-security',
+  description: 'Enterprise-grade data protection for sensitive transaction documents. SOC 2 compliant infrastructure built for investment firms.',
+  serviceType: 'Data Security',
+  areaServed: 'US',
+};
+---
+
+<BaseLayout
+  title="Cybersecurity & SOC 2 Compliance for PE Firms | PE Tech Partners"
+  description="Enterprise-grade data protection for sensitive transaction documents. SOC 2 compliant infrastructure built for investment firms."
+  structuredData={structuredData}
+  canonicalUrl="https://petechpartners.com/solutions/data-security"
+  tags={['PE cybersecurity', 'SOC 2 compliance PE', 'private equity data security', 'M&A document security']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Data Security</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          One Breach Kills the Deal. We Make Sure It Never Happens.
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[58ch]">
+          PE firms handle some of the most sensitive business data in existence — proprietary financials, deal terms, management assessments, portfolio company vulnerabilities. The security infrastructure protecting that data needs to match the stakes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Stakes -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          Why PE Firms Are High-Value Targets
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            Private equity firms sit at the intersection of concentrated financial data and relatively lean IT infrastructure. A mid-market PE firm might manage billions in assets under management while operating with an IT footprint that would be considered minimal for a company a tenth of its size. This asymmetry makes PE firms disproportionately attractive targets for cyber threats.
+          </p>
+          <p>
+            The data inside a PE firm is exceptionally valuable. Deal terms under negotiation contain material non-public information that could move markets. Confidential information memorandums include proprietary financial data that target companies shared under NDA. Management assessments contain sensitive evaluations of executives. Portfolio company data aggregates across dozens of businesses creates a single point of exposure for an entire portfolio. LP communications contain fund performance data, capital call schedules, and distribution details that investors expect to remain confidential.
+          </p>
+          <p>
+            A security breach at a PE firm is not just a data loss event. It is a deal killer. If a target company's confidential financials leak during a competitive process, the deal collapses and the firm's reputation for handling sensitive information is permanently damaged. If LP data is exposed, the firm faces regulatory scrutiny, investor lawsuits, and a fundraising environment that becomes dramatically harder. If portfolio company vulnerabilities are exploited through the PE firm's systems, the operational and financial damage cascades across the entire portfolio.
+          </p>
+          <p>
+            These are not hypothetical risks. Cybersecurity incidents targeting financial services firms have accelerated in both frequency and sophistication. PE firms are increasingly being targeted not just for the data they hold directly, but as a vector to reach their portfolio companies — many of which have their own security gaps that become the PE firm's problem during ownership.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Secure -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+          Security Built for the Deal Lifecycle
+        </h2>
+        <p class="text-zinc-600 leading-relaxed">
+          Generic enterprise security frameworks miss the specific risks that PE firms face. We build security architectures that protect data at every stage — from origination through exit.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 rounded-2xl overflow-hidden mb-12">
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">SOC 2 Compliant Infrastructure</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            SOC 2 compliance is increasingly a requirement — not a differentiator — for PE firms. LPs demand it in due diligence questionnaires. Target companies ask about it before sharing confidential data. We design and implement SOC 2 Type II compliant infrastructure that covers all five trust service criteria: security, availability, processing integrity, confidentiality, and privacy. This is not a checkbox exercise. We build the controls, monitoring, and documentation that make compliance sustainable and auditable year after year.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Document-Level Security & Encryption</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Deal documents require encryption at rest and in transit, but also granular access controls that reflect the reality of how PE firms operate. Different team members need access to different documents at different deal stages. External advisors need temporary, limited access. LPs need visibility into specific portfolio data but not deal pipeline details. We implement document-level security that enforces these boundaries automatically, with full audit trails showing who accessed what and when.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Access Controls & Identity Management</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            PE firms have complex access requirements. Investment professionals, operating partners, fund administrators, external counsel, auditors, placement agents, and limited partners all need different levels of access to different systems and data. We implement role-based access control architectures with multi-factor authentication, single sign-on integration, and automated provisioning and deprovisioning. When a deal team member leaves or an external advisor's engagement ends, their access is revoked automatically across every connected system.
+          </p>
+        </div>
+        <div class="bg-white p-8">
+          <h3 class="text-lg font-semibold text-navy-800 mb-3 tracking-tighter">Monitoring, Detection & Response</h3>
+          <p class="text-zinc-600 leading-relaxed text-sm">
+            Prevention is essential, but detection and response are equally critical. We deploy continuous monitoring across your technology environment — network traffic analysis, anomalous login detection, data exfiltration alerts, and endpoint security management. When something suspicious occurs, your team is notified immediately with actionable information, not cryptic log files. Incident response plans are documented, tested, and maintained so your firm can respond to a security event in hours, not weeks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M&A-Specific Risks -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          M&A-Specific Security Risks
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            Mergers and acquisitions create security exposures that do not exist in steady-state business operations. During a transaction, sensitive data flows between multiple parties — buyer, seller, advisors, lenders, lawyers — each with their own security posture and practices. The attack surface expands dramatically during a deal, precisely when the data is most sensitive.
+          </p>
+          <p>
+            Deal leaks are the most obvious risk. When information about a pending acquisition reaches the market prematurely, it can inflate the target's valuation, attract competing bidders, trigger regulatory scrutiny, or collapse the deal entirely. Deal leaks often originate not from sophisticated cyberattacks but from basic security hygiene failures — unsecured email attachments, shared login credentials for data rooms, or access permissions that were not revoked when an advisor's role changed.
+          </p>
+          <p>
+            Target company vulnerabilities represent another critical exposure. During diligence, PE firms inherit the cybersecurity risk profile of every company they evaluate. A target company with weak security practices becomes the PE firm's problem the moment the deal closes. We conduct cybersecurity assessments as part of the technology diligence process, identifying vulnerabilities before they become liabilities and building remediation plans into the post-acquisition value creation roadmap.
+          </p>
+          <p>
+            Document exposure during transactions remains a persistent challenge. Virtual data rooms provide a controlled environment, but documents often escape the VDR through downloads, email forwards, and local copies that persist long after the deal is completed. We implement data loss prevention controls that limit how documents can be shared, track where sensitive files travel, and ensure that document access is revoked cleanly when a transaction concludes — whether it closes or terminates. For a deeper look at the technology challenges PE firms face across the deal lifecycle, see our <a href="/challenges" class="text-crimson-500 hover:text-crimson-600 font-medium">Challenges</a> overview.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Security -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-6">
+          Portfolio Company Security Oversight
+        </h2>
+        <div class="prose prose-zinc max-w-none text-zinc-600 leading-relaxed space-y-4">
+          <p>
+            Your portfolio's cybersecurity posture is your fund's cybersecurity posture. A breach at a portfolio company reflects directly on the PE firm — operationally, financially, and reputationally. We help PE firms establish security governance frameworks across their portfolios, providing standardized security assessments, ongoing monitoring, and incident response coordination that spans every company in the portfolio.
+          </p>
+          <p>
+            This includes baseline security standards that every portfolio company must meet, regular vulnerability assessments and penetration testing, centralized security monitoring that gives the PE firm visibility into threats across the portfolio, and cyber insurance guidance tailored to each company's risk profile. The goal is not to run security for every portfolio company, but to ensure that security standards are consistently maintained and that the PE firm has visibility into the risks it carries across its investments. Explore our full <a href="/solutions" class="text-crimson-500 hover:text-crimson-600 font-medium">solutions suite</a> to see how security integrates with our system integration, workflow automation, and pipeline management capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Protect Your Deals. Protect Your Portfolio.</h2>
+      <p class="text-zinc-300 leading-relaxed mb-6 max-w-lg mx-auto">
+        Book a Strategic Debrief and we will assess your current security posture, identify the highest-risk exposures, and outline a path to enterprise-grade protection.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all">
+        Secure a Strategic Debrief
+      </a>
+    </div>
+  </section>
+</BaseLayout>

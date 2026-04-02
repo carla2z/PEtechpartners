@@ -1,0 +1,12 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdminLogin from '../../components/AdminLogin';
+---
+
+<BaseLayout title="Admin Login | PE Tech Partners" description="Admin login" noindex={true}>
+  <div class="flex items-center justify-center min-h-[60vh]">
+    <AdminLogin client:load />
+  </div>
+</BaseLayout>

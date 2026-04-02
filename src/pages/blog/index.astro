@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="PE & M&A Technology Blog | PE Tech Partners"
+  description="Expert insights on technology strategy, deal workflow automation, cybersecurity, and portfolio management for private equity and M&A firms."
+>
+  <section class="py-20 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold tracking-wide uppercase text-crimson-500 mb-3">Insights & Analysis</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-navy-800 tracking-tighter mb-6">
+          PE & M&A Technology Blog
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed">
+          Expert insights on technology strategy, deal workflow automation, cybersecurity, and portfolio management for private equity and M&A firms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-4xl">
+        {posts.length === 0 && (
+          <p class="text-zinc-500 text-lg">No posts yet. Check back soon.</p>
+        )}
+
+        {posts.map((post, index) => (
+          <article class:list={["py-10", index !== posts.length - 1 && "border-b border-zinc-200"]}>
+            <a href={`/blog/${post.id}`} class="group block">
+              <div class="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-6 items-start">
+                <div>
+                  <div class="flex items-center gap-3 text-sm text-zinc-500 mb-3">
+                    {post.data.category && (
+                      <>
+                        <span class="font-medium text-crimson-500">{post.data.category}</span>
+                        <span aria-hidden="true">&middot;</span>
+                      </>
+                    )}
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {post.data.pubDate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    {post.data.readTime && (
+                      <>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{post.data.readTime}</span>
+                      </>
+                    )}
+                  </div>
+                  <h2 class="text-2xl font-bold text-navy-800 tracking-tighter group-hover:text-crimson-500 transition-colors mb-3">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-zinc-600 leading-relaxed line-clamp-3">
+                    {post.data.description}
+                  </p>
+                  <span class="inline-block mt-4 text-sm font-semibold text-crimson-500 group-hover:underline">
+                    Read article &rarr;
+                  </span>
+                </div>
+                {post.data.image && (
+                  <div class="hidden md:block">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.imageAlt || post.data.title}
+                      width="240"
+                      height="135"
+                      loading="lazy"
+                      class="w-full h-auto rounded-xl object-cover aspect-video"
+                    />
+                  </div>
+                )}
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

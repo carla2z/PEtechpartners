@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: entry.data.pubDate.toISOString(),
+  ...(entry.data.updatedDate && { dateModified: entry.data.updatedDate.toISOString() }),
+  author: {
+    '@type': 'Organization',
+    name: entry.data.author || 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://petechpartners.com/blog/${entry.id}`,
+  },
+  ...(entry.data.image && { image: entry.data.image }),
+  keywords: entry.data.tags?.join(', '),
+};
+---
+
+<BaseLayout
+  title={`${entry.data.title} | PE Tech Partners`}
+  description={entry.data.description}
+  ogType="article"
+  author={entry.data.author}
+  publishDate={entry.data.pubDate.toISOString()}
+  tags={entry.data.tags}
+  ogImage={entry.data.image}
+  structuredData={structuredData}
+>
+  <article class="py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <!-- Featured Image -->
+        {entry.data.image && (
+          <div class="mb-10 -mx-4 sm:mx-0">
+            <img
+              src={entry.data.image}
+              alt={entry.data.imageAlt || entry.data.title}
+              width="1200"
+              height="630"
+              loading="eager"
+              class="w-full h-auto rounded-2xl object-cover aspect-video"
+            />
+          </div>
+        )}
+
+        <!-- Header -->
+        <header class="mb-12">
+          <div class="flex items-center gap-3 text-sm text-zinc-500 mb-4">
+            {entry.data.category && (
+              <>
+                <span class="font-medium text-crimson-500">{entry.data.category}</span>
+                <span aria-hidden="true">&middot;</span>
+              </>
+            )}
+            <time datetime={entry.data.pubDate.toISOString()}>
+              {entry.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+            {entry.data.readTime && (
+              <>
+                <span aria-hidden="true">&middot;</span>
+                <span>{entry.data.readTime}</span>
+              </>
+            )}
+          </div>
+
+          <h1 class="text-4xl md:text-5xl font-bold text-navy-800 tracking-tighter mb-6">
+            {entry.data.title}
+          </h1>
+
+          <p class="text-lg text-zinc-600 leading-relaxed">
+            {entry.data.description}
+          </p>
+
+          <div class="mt-6 pt-6 border-t border-zinc-200 flex items-center justify-between">
+            <p class="text-sm text-zinc-500">
+              By <span class="font-medium text-navy-800">{entry.data.author || 'PE Tech Partners'}</span>
+            </p>
+            {entry.data.tags && entry.data.tags.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {entry.data.tags.map((tag) => (
+                  <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </header>
+
+        <!-- Content -->
+        <div class="prose prose-lg prose-zinc max-w-none
+          prose-headings:text-navy-800 prose-headings:tracking-tighter prose-headings:font-bold
+          prose-a:text-crimson-500 prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-navy-800
+          prose-blockquote:border-crimson-500
+        ">
+          <Content />
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-zinc-200">
+          <a
+            href="/blog"
+            class="inline-flex items-center text-sm font-semibold text-crimson-500 hover:underline"
+          >
+            &larr; Back to all articles
+          </a>
+        </footer>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

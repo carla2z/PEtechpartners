@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Technology Solutions for PE & M&A Firms',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  url: 'https://petechpartners.com/solutions',
+  description: 'System integration, workflow automation, pipeline dashboards, and data security — all built for how investment firms actually work.',
+  serviceType: ['System Integration', 'Workflow Automation', 'Pipeline Management', 'Data Security'],
+  areaServed: 'US',
+};
+
+const solutions = [
+  {
+    title: 'System Integration',
+    desc: 'Connect DealCloud, Salesforce, Affinity, and HubSpot to your data rooms, cap tables, and portfolio tools. One connected operating system — zero duplicate entry.',
+    href: '/solutions/system-integration',
+  },
+  {
+    title: 'Workflow Automation',
+    desc: 'Automate CIM processing, IC memo generation, diligence tracking, and VDR document management. Your analysts focus on strategy, not data entry.',
+    href: '/solutions/workflow-automation',
+  },
+  {
+    title: 'Pipeline Management',
+    desc: 'Real-time deal velocity dashboards and portfolio health monitoring. See every deal, every stage, every bottleneck — live and without spreadsheets.',
+    href: '/solutions/pipeline-management',
+  },
+  {
+    title: 'Data Security',
+    desc: 'SOC 2 compliant, enterprise-grade protection for sensitive transaction documents. Access controls, encryption, and audit trails built for investment firms.',
+    href: '/solutions/data-security',
+  },
+];
+---
+
+<BaseLayout
+  title="Technology Solutions for PE & M&A Firms | PE Tech Partners"
+  description="System integration, workflow automation, pipeline dashboards, and data security — all built for how investment firms actually work."
+  structuredData={structuredData}
+  canonicalUrl="https://petechpartners.com/solutions"
+  tags={['PE technology solutions', 'M&A tech consulting', 'private equity system integration', 'deal workflow automation']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-crimson-500 tracking-wide uppercase mb-4">Our Solutions</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          Technology That Closes Deals Faster
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[58ch]">
+          Most PE and M&A firms run on disconnected tools, manual workflows, and dashboards that nobody trusts. We fix that. Our four core solutions cover the entire deal lifecycle — from origination to exit — so your technology works as hard as your team does.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Grid -->
+  <section class="py-20 bg-zinc-50 border-y border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+          Platform-Agnostic. Results-Obsessed.
+        </h2>
+        <p class="text-zinc-600 leading-relaxed">
+          We work with your existing stack — DealCloud, Salesforce, Affinity, HubSpot, whatever you run. No rip-and-replace. Just alignment, integration, and acceleration.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-200 rounded-2xl overflow-hidden">
+        {solutions.map((s) => (
+          <a href={s.href} class="bg-white p-8 lg:p-10 hover:bg-zinc-50 transition-colors group">
+            <h3 class="text-xl font-semibold text-navy-800 mb-3 group-hover:text-crimson-500 transition-colors tracking-tighter">{s.title}</h3>
+            <p class="text-zinc-600 leading-relaxed text-sm mb-4">{s.desc}</p>
+            <span class="inline-block text-sm font-medium text-crimson-500 group-hover:translate-x-1 transition-transform">
+              Learn more &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-navy-800 mb-4">
+            Built for How Investment Firms Actually Work
+          </h2>
+          <p class="text-zinc-600 leading-relaxed mb-6">
+            Generic IT consulting does not work for PE. Your workflows are different. Your compliance requirements are different. Your speed expectations are different. We specialize exclusively in private equity and M&A technology because the deal lifecycle demands it.
+          </p>
+          <p class="text-zinc-600 leading-relaxed">
+            Every solution we deliver integrates with your existing tools, respects your security requirements, and produces measurable ROI within weeks — not quarters. We do not sell software. We make the software you already own actually perform.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div class="border-l-2 border-crimson-500 pl-6">
+            <p class="text-3xl font-bold tracking-tighter text-navy-800 font-mono">2-4 weeks</p>
+            <p class="text-zinc-600 text-sm mt-1">Average time to first measurable results</p>
+          </div>
+          <div class="border-l-2 border-crimson-500 pl-6">
+            <p class="text-3xl font-bold tracking-tighter text-navy-800 font-mono">60-90 days</p>
+            <p class="text-zinc-600 text-sm mt-1">Full technology transformation timeline</p>
+          </div>
+          <div class="border-l-2 border-crimson-500 pl-6">
+            <p class="text-3xl font-bold tracking-tighter text-navy-800 font-mono">0 rip-and-replace</p>
+            <p class="text-zinc-600 text-sm mt-1">We optimize what you already have first</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-navy-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Not Sure Where to Start?</h2>
+      <p class="text-zinc-300 leading-relaxed mb-8 max-w-lg mx-auto">
+        Book a no-cost Strategic Debrief. We will map your current tech stack, identify the biggest friction points, and outline a 90-day path to fixing them.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-crimson-500 rounded-xl hover:bg-crimson-600 active:scale-[0.98] transition-all">
+        Secure a Strategic Debrief
+      </a>
+    </div>
+  </section>
+</BaseLayout>

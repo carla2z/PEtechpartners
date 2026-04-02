@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FirepowerEstimator from '../../components/FirepowerEstimator';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Team Firepower Estimator',
+  description: 'Model how AI and workflow automation multiply your team\'s output. Calculate your effective team equivalent and firepower multiplier.',
+  url: 'https://petechpartners.com/tools/firepower-estimator',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  provider: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+};
+---
+
+<BaseLayout
+  title="Team Firepower Estimator | PE Tech Partners"
+  description="Model how AI and workflow automation multiply your team's output. Calculate your effective team equivalent and firepower multiplier."
+  structuredData={structuredData}
+  tags={['team firepower estimator', 'AI productivity calculator', 'workflow automation ROI', 'PE team efficiency']}
+>
+  <!-- Hero -->
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <a href="/tools" class="text-sm font-medium text-crimson-500 hover:text-crimson-600 transition-colors mb-4 inline-block">
+          &larr; All Tools
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-navy-800 mb-6">
+          Team Firepower Estimator
+        </h1>
+        <p class="text-lg text-zinc-600 leading-relaxed max-w-[55ch]">
+          Automation does not replace your team. It multiplies them. Adjust the inputs below to model how AI depth, verification quality, and coordination overhead affect your effective output.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="pb-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-10">
+        <FirepowerEstimator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- Context -->
+  <section class="py-20 bg-zinc-50 border-t border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tighter text-navy-800 mb-4">
+          How the Model Works
+        </h2>
+        <div class="space-y-4 text-zinc-600 leading-relaxed">
+          <p>
+            The Firepower Estimator models three forces that determine your team's real output: automation depth, verification quality, and coordination drag.
+          </p>
+          <p>
+            <strong class="text-navy-800">Automation Depth</strong> measures how much of each person's work is handled or accelerated by AI and workflow tools. At 40%, each person effectively produces 1.4x their baseline output.
+          </p>
+          <p>
+            <strong class="text-navy-800">Verification Quality</strong> accounts for the fact that automated output still needs human review. Higher quality automation means less rework.
+          </p>
+          <p>
+            <strong class="text-navy-800">Coordination Drag</strong> captures the overhead lost to meetings, handoffs, and context-switching. Even well-run teams lose 15-25% to coordination.
+          </p>
+          <p>
+            The multiplier tells you how many baseline-equivalent team members your current setup produces. A team of 10 operating at 3x firepower delivers the verified output of 30.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

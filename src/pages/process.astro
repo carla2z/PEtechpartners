@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Our Process',
+  url: 'https://petechpartners.com/process',
+  description: 'From tech assessment to full transformation in 90 days. We map your deal workflow, identify inefficiencies, and fix them fast.',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+};
+---
+
+<BaseLayout
+  title="Our Process | PE Tech Partners"
+  description="From tech assessment to full transformation in 90 days. We map your deal workflow, identify inefficiencies, and fix them fast."
+  structuredData={structuredData}
+  tags={['PE technology process', 'M&A tech assessment', 'technology transformation', 'deal workflow optimization', '90-day tech transformation']}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-4">From assessment to transformation in 90 days</p>
+        <h1 class="font-[Geist] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-[#0A2E50] mb-6">
+          How We Turn Your Tech Stack Into a Deal Machine
+        </h1>
+        <p class="text-lg sm:text-xl text-zinc-600 leading-relaxed mb-8">
+          We do not sell software. We do not push platforms. We map your deal workflow from origination through exit, find every point where technology is slowing you down, and fix it systematically. The entire process runs in 90 days or less because PE firms do not have time for twelve-month IT projects. Here is exactly how it works.
+        </p>
+        <a href="/contact" class="inline-flex items-center justify-center px-6 py-3.5 bg-[#BF0A30] text-white font-semibold rounded-lg hover:bg-[#a00828] transition-colors">
+          Start with a Strategic Debrief
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="py-20 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+
+        <!-- Phase 01 -->
+        <div class="bg-[#0A2E50] rounded-2xl p-8 sm:p-10 lg:p-12">
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div>
+              <p class="font-[Geist] text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-3">Phase 01</p>
+              <h2 class="font-[Geist] text-2xl sm:text-3xl font-bold tracking-tighter text-white mb-2">Strategic Debrief</h2>
+              <p class="text-zinc-400 font-medium">1-2 days</p>
+            </div>
+            <div class="lg:col-span-2">
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                Everything starts with a no-cost working session. This is not a sales call disguised as a consultation. It is a focused, structured conversation where we sit down with your deal team and operations leaders to understand how your firm actually works day to day. We map your current technology stack, identify the tools you use, the ones you pay for but ignore, and the gaps where manual processes fill in for missing integrations.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-6">
+                By the end of the debrief, you will have a clear picture of your three to five highest-impact friction points and a preliminary view of what fixing them looks like. Most firms tell us this session alone gives them more clarity on their technology situation than anything they have done internally. If you decide to move forward, we already have the foundation. If you do not, you walk away with actionable insights you can implement on your own.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Map current state of all deal-related technology and workflows</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Identify quick wins that can be implemented immediately</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Deliver preliminary assessment with no obligation to continue</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 02 -->
+        <div class="bg-[#0A2E50] rounded-2xl p-8 sm:p-10 lg:p-12">
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div>
+              <p class="font-[Geist] text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-3">Phase 02</p>
+              <h2 class="font-[Geist] text-2xl sm:text-3xl font-bold tracking-tighter text-white mb-2">Deep Assessment</h2>
+              <p class="text-zinc-400 font-medium">1-2 weeks</p>
+            </div>
+            <div class="lg:col-span-2">
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                Once you decide to engage, we go deep. Our team maps every workflow from deal origination to exit, documenting each system touchpoint, every manual handoff, and the actual time spent on each step. We interview team members across the firm because the view from the managing partner's office rarely matches the reality at the analyst level. This is where hidden inefficiencies surface.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                We conduct a full technology audit covering every software license, every integration (or lack thereof), and every shadow IT tool your team has adopted on their own. We measure actual utilization against what you are paying for. We benchmark your stack against best-in-class firms in your strategy and AUM range. The output is a detailed gap analysis showing exactly where your technology is holding you back and what closing each gap is worth in recovered time and reduced cost.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-6">
+                The assessment also covers <a href="/solutions/data-security" class="text-[#BF0A30] hover:underline">security and compliance posture</a>. We identify access control gaps, data handling risks, and the distance between your current state and SOC 2 or similar compliance standards your LPs may require.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Full workflow mapping from origination through exit</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Technology audit with license utilization analysis</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Gap analysis with prioritized recommendations and ROI estimates</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 03 -->
+        <div class="bg-[#0A2E50] rounded-2xl p-8 sm:p-10 lg:p-12">
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div>
+              <p class="font-[Geist] text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-3">Phase 03</p>
+              <h2 class="font-[Geist] text-2xl sm:text-3xl font-bold tracking-tighter text-white mb-2">Build & Integrate</h2>
+              <p class="text-zinc-400 font-medium">4-6 weeks</p>
+            </div>
+            <div class="lg:col-span-2">
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                This is where the assessment turns into results. We start with the quick wins identified in Phase 02 so your team sees immediate improvements while we work on the larger structural changes. System connections come first. We integrate your CRM with your data room, connect your cap table software to your portfolio dashboard, and build the data bridges that eliminate manual re-entry across platforms.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                Workflow automation runs in parallel. We configure automated CIM intake and processing, build IC memo templates that pull data directly from your connected systems, and set up deal pipeline dashboards that update in real time instead of requiring weekly manual refreshes. Every automation is built to your firm's specific processes, not a generic template.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-6">
+                Security hardening happens throughout this phase. We implement proper access controls, configure SSO where supported, establish offboarding protocols, and set up audit trails. If SOC 2 compliance is on your roadmap, we lay the groundwork here. We also address the <a href="/challenges" class="text-[#BF0A30] hover:underline">software waste problem</a> by decommissioning redundant tools and right-sizing licenses based on actual usage data from the assessment.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">System connections and API integrations across your deal stack</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Workflow automation for CIM processing, IC memos, and reporting</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Real-time dashboards for deal pipeline and portfolio health</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Security hardening, access controls, and compliance groundwork</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 04 -->
+        <div class="bg-[#0A2E50] rounded-2xl p-8 sm:p-10 lg:p-12">
+          <div class="grid lg:grid-cols-3 gap-8">
+            <div>
+              <p class="font-[Geist] text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-3">Phase 04</p>
+              <h2 class="font-[Geist] text-2xl sm:text-3xl font-bold tracking-tighter text-white mb-2">Optimize & Scale</h2>
+              <p class="text-zinc-400 font-medium">Ongoing</p>
+            </div>
+            <div class="lg:col-span-2">
+              <p class="text-zinc-300 text-lg leading-relaxed mb-4">
+                Technology is not a one-time project. Your firm evolves, your deal flow changes, new tools emerge, and the systems we build need to evolve with you. Phase 04 is our ongoing partnership where we ensure everything continues to run and improve. We start with hands-on training so your team actually adopts the new workflows, not just the tools. Adoption is where most technology projects fail, and we treat it as a critical deliverable, not an afterthought.
+              </p>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-6">
+                Quarterly reviews let us measure what is working, identify new friction points that have emerged, and adjust the system to match how your firm is actually using it. We monitor software utilization to prevent the license bloat from returning. We stay current on new capabilities in your existing tools so you capture value from vendor updates without adding new platforms. And when your firm grows, whether through increased deal volume, new funds, or new investment strategies, we scale the systems to match.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Team training and adoption support to ensure real usage</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Quarterly performance reviews and system fine-tuning</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Ongoing license monitoring to prevent software waste recurrence</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 h-2 w-2 rounded-full bg-[#BF0A30] flex-shrink-0"></span>
+                  <span class="text-zinc-300">Continuous improvement as your firm and the market evolve</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16">
+        <h2 class="font-[Geist] text-3xl sm:text-4xl font-bold tracking-tighter text-[#0A2E50] mb-4">
+          What Makes Us Different
+        </h2>
+        <p class="text-lg text-zinc-600">
+          There are plenty of IT consultancies. Here is why PE and M&amp;A firms choose to work with us instead.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
+        <div class="border-t border-zinc-300 pt-8">
+          <h3 class="font-[Geist] text-xl font-bold tracking-tighter text-[#0A2E50] mb-3">Platform-Agnostic</h3>
+          <p class="text-zinc-600 text-lg leading-relaxed">
+            We do not resell software and we do not get commissions from vendors. DealCloud, Salesforce, Affinity, HubSpot, Carta, Allvue, iLevel -- we work with whatever you have and whatever makes sense for your firm. Our recommendations are driven entirely by what solves your problem, not by what generates revenue for a software partner. That independence is why our clients trust our assessments. You can explore the <a href="/tools" class="text-[#BF0A30] font-medium hover:underline">tools we work with</a> to see the breadth of our platform expertise.
+          </p>
+        </div>
+
+        <div class="border-t border-zinc-300 pt-8">
+          <h3 class="font-[Geist] text-xl font-bold tracking-tighter text-[#0A2E50] mb-3">Optimize Before Replacing</h3>
+          <p class="text-zinc-600 text-lg leading-relaxed">
+            Most firms are using 30% to 40% of the capability in tools they already own. Before we recommend buying anything new, we exhaust what your existing stack can do. That means configuring features you did not know existed, building integrations between tools that were never connected, and training your team on capabilities they have been working around. It is faster, cheaper, and less disruptive than ripping and replacing.
+          </p>
+        </div>
+
+        <div class="border-t border-zinc-300 pt-8">
+          <h3 class="font-[Geist] text-xl font-bold tracking-tighter text-[#0A2E50] mb-3">Conservative Approach</h3>
+          <p class="text-zinc-600 text-lg leading-relaxed">
+            We do not push bleeding-edge solutions on firms that need reliability above all else. Deal flow cannot stop for a system migration. Portfolio reporting cannot go dark during an integration project. Every change we make is staged, tested, and rolled back if it does not work. We operate with the same risk discipline that PE firms apply to their investments. Stability comes first. Innovation comes second.
+          </p>
+        </div>
+
+        <div class="border-t border-zinc-300 pt-8">
+          <h3 class="font-[Geist] text-xl font-bold tracking-tighter text-[#0A2E50] mb-3">PE &amp; M&amp;A Exclusive Focus</h3>
+          <p class="text-zinc-600 text-lg leading-relaxed">
+            We do not consult for law firms, hospitals, or retail chains. Every engagement we take is in private equity, venture capital, or M&amp;A advisory. That focus means we understand deal lifecycle workflows intimately. We know why your IC memo process is different from your competitor's. We know what LPs ask about during operational due diligence. We speak your language because it is the only language we speak. Read more about the <a href="/challenges" class="text-[#BF0A30] font-medium hover:underline">specific challenges</a> we solve every day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="font-[Geist] text-3xl sm:text-4xl font-bold tracking-tighter text-[#0A2E50] mb-4">
+          Ready to Fix Your Tech Stack?
+        </h2>
+        <p class="text-lg text-zinc-600 mb-8">
+          The Strategic Debrief is the starting point. A focused, no-cost working session where we map your current technology, identify the highest-value improvements, and give you a clear 90-day roadmap. No pitch deck, no pressure, and no obligation to continue. Most firms tell us the debrief alone is the most useful technology conversation they have had.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 bg-[#BF0A30] text-white text-lg font-semibold rounded-lg hover:bg-[#a00828] transition-colors">
+            Start with a Strategic Debrief
+          </a>
+          <a href="/blog" class="inline-flex items-center justify-center px-8 py-4 border-2 border-[#0A2E50] text-[#0A2E50] text-lg font-semibold rounded-lg hover:bg-[#0A2E50] hover:text-white transition-colors">
+            Read Our Insights
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

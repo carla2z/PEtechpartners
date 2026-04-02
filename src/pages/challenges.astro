@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'PE & M&A Technology Challenges',
+  url: 'https://petechpartners.com/challenges',
+  description: 'Disconnected CRMs, manual deal workflows, software waste, and security gaps cost PE firms millions. Here is what we see and fix.',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+  },
+};
+---
+
+<BaseLayout
+  title="PE & M&A Technology Challenges | PE Tech Partners"
+  description="Disconnected CRMs, manual deal workflows, software waste, and security gaps cost PE firms millions. Here's what we see — and fix."
+  structuredData={structuredData}
+  tags={['PE technology challenges', 'M&A workflow problems', 'private equity software waste', 'deal flow inefficiency', 'PE firm technology gaps']}
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-[#BF0A30] mb-4">The problem no one talks about</p>
+        <h1 class="font-[Geist] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-[#0A2E50] mb-6">
+          The Technology Gap Killing Your Deal Flow
+        </h1>
+        <p class="text-lg sm:text-xl text-zinc-600 leading-relaxed mb-8">
+          Most PE and M&amp;A firms run on a patchwork of disconnected tools. The CRM doesn't talk to the data room. The cap table lives in a spreadsheet someone emailed six months ago. Portfolio dashboards are rebuilt manually every quarter. Every handoff between systems is a place where deals slow down, data gets lost, and money walks out the door. We see it in almost every firm we assess, and we know exactly how to fix it.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="inline-flex items-center justify-center px-6 py-3.5 bg-[#BF0A30] text-white font-semibold rounded-lg hover:bg-[#a00828] transition-colors">
+            Secure a Strategic Debrief
+          </a>
+          <a href="/solutions" class="inline-flex items-center justify-center px-6 py-3.5 border-2 border-[#0A2E50] text-[#0A2E50] font-semibold rounded-lg hover:bg-[#0A2E50] hover:text-white transition-colors">
+            See Our Solutions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenge Blocks -->
+  <section class="py-20 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16">
+        <h2 class="font-[Geist] text-3xl sm:text-4xl font-bold tracking-tighter text-[#0A2E50] mb-4">
+          Five Problems Draining Your Firm
+        </h2>
+        <p class="text-lg text-zinc-600">
+          These are the patterns we see in firm after firm. They compound over time, and they never fix themselves.
+        </p>
+      </div>
+
+      <!-- Challenge 1: Disconnected Systems -->
+      <div class="border-t border-zinc-300 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-[Geist] text-xl sm:text-2xl font-bold tracking-tighter text-[#0A2E50]">Disconnected Systems</h3>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              Your CRM holds relationship data. Your data room holds deal documents. Your cap table software tracks ownership structures. Your portfolio dashboard tracks performance. None of them talk to each other. Every time a deal moves forward, someone copies data from one system to another, introducing errors and burning hours that should go toward sourcing or diligence.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              We see firms running DealCloud alongside Salesforce alongside a homegrown Access database that one analyst built three years ago. Affinity captures relationship intelligence that never reaches the deal team. HubSpot tracks marketing touches that the partners never see. The result is a fragmented picture of every deal in your pipeline and a team that spends more time finding information than acting on it.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+              The cost is not just inefficiency. It is missed signals. When your relationship data is siloed from your deal data, you miss the warm introduction that could have won a competitive auction. When your portfolio dashboard refreshes quarterly instead of daily, you miss the early warning signs that a portfolio company is underperforming.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 2: Manual Workflows -->
+      <div class="border-t border-zinc-300 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-[Geist] text-xl sm:text-2xl font-bold tracking-tighter text-[#0A2E50]">Manual Workflows</h3>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              Your analysts are spending 40% or more of their working hours on tasks that should be automated. CIM processing, IC memo formatting, data entry across multiple platforms, diligence checklist tracking, VDR document management. These are high-volume, repetitive activities that eat into the time your team should be spending on analysis, sourcing, and relationship building.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              Consider the lifecycle of a single deal. A CIM arrives via email. Someone downloads it, reads it, manually enters the key metrics into the CRM, updates the deal tracker spreadsheet, creates a preliminary analysis document, and notifies the relevant partners. That process takes two to four hours per deal across your team. If you are reviewing 200 CIMs a year, you are burning 400 to 800 analyst hours on document processing alone.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+              IC memo preparation is even worse. Analysts pull data from five or six different sources, reformat it into your firm's template, cross-reference comparable transactions, and assemble the final document. A single IC memo can take 15 to 20 hours when it should take three. These are not skills problems. They are systems problems. And they have straightforward <a href="/solutions/workflow-automation" class="text-[#BF0A30] font-medium hover:underline">workflow automation</a> solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 3: Software Waste -->
+      <div class="border-t border-zinc-300 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-[Geist] text-xl sm:text-2xl font-bold tracking-tighter text-[#0A2E50]">Software Waste</h3>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              The average PE firm carries more than $158,000 annually in forgotten software subscriptions. Licenses purchased for former employees who left months ago. Enterprise tiers that were never downgraded after a pilot. Overlapping tools that do the same thing because different teams bought different solutions without coordinating. The number climbs fast, and it is almost never tracked.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              Our audits consistently find that 38% of software applications in a typical firm are unused or barely used. That is not a rounding error. It is a structural problem driven by decentralized purchasing decisions, no central software inventory, and the fact that canceling a subscription is never anyone's top priority. The average time before a dead license is even noticed is 14 months.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+              Beyond the raw dollar waste, software sprawl creates a second problem: confusion. When your team has three different project management tools, two communication platforms, and no clear standard for which tool to use when, productivity drops. Onboarding a new analyst means teaching them a dozen tools instead of a unified system. We help firms <a href="/tools" class="text-[#BF0A30] font-medium hover:underline">rationalize their tool stack</a> and reclaim budget that should be going toward deal-making.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 4: Security Gaps -->
+      <div class="border-t border-zinc-300 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-[Geist] text-xl sm:text-2xl font-bold tracking-tighter text-[#0A2E50]">Security Gaps</h3>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              Sensitive deal documents are still being shared via email attachments. Confidential financial models sit in personal Dropbox accounts. Former employees retain access to data rooms weeks after departure. Password policies are inconsistent or nonexistent. Most PE firms we assess have no SOC 2 compliance and no formal data governance framework.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              The risk here is not theoretical. A single data breach involving pre-announcement deal information can trigger regulatory action, destroy trust with counterparties, and expose the firm to material liability. Limited partners are increasingly demanding evidence of robust cybersecurity practices during due diligence on the GP itself. Firms without a clear security posture are losing LP commitments to competitors who can demonstrate proper controls.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+              The fix does not require a massive security overhaul. It requires implementing proper access controls, encrypting sensitive data at rest and in transit, establishing offboarding protocols that actually revoke access, and building audit trails that prove compliance. These are <a href="/solutions/data-security" class="text-[#BF0A30] font-medium hover:underline">solvable problems</a> with existing tools, properly configured.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge 5: Scaling Bottlenecks -->
+      <div class="border-t border-zinc-300 py-12 border-b">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-[Geist] text-xl sm:text-2xl font-bold tracking-tighter text-[#0A2E50]">Scaling Bottlenecks</h3>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              When deal flow increases, most firms respond by adding headcount. Another analyst. Another associate. Another VP. The assumption is that more people equals more capacity. But when the underlying systems are broken, adding people just adds complexity. Each new hire needs to learn the same tangled set of disconnected tools. Onboarding takes months instead of weeks because the processes are undocumented and inconsistent.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed mb-4">
+              The firms that scale efficiently do the opposite. They automate the repetitive work first, then add headcount strategically for tasks that genuinely require human judgment. A single analyst supported by well-integrated systems can outperform three analysts working in disconnected spreadsheets. The math is simple, but it requires investing in the technology layer before investing in more seats.
+            </p>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+              We have seen firms double their deal review capacity without adding a single person, simply by connecting their systems and automating the handoffs between them. That is the difference between growing your team and growing your firm's capability. The technology should scale before the headcount does.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Real Cost -->
+  <section class="py-20 bg-[#0A2E50]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16">
+        <h2 class="font-[Geist] text-3xl sm:text-4xl font-bold tracking-tighter text-white mb-4">
+          The Real Cost
+        </h2>
+        <p class="text-lg text-zinc-300">
+          These are not abstract risks. They are measurable losses that compound every quarter. When we run a full technology assessment, the numbers are consistent across firm size and strategy.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="border-t-2 border-[#BF0A30] pt-8">
+          <p class="font-[Geist] text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-3">$2M-$4M</p>
+          <p class="text-zinc-300 text-lg">
+            Annual cost of hidden system inefficiencies. Duplicated work, manual data entry, lost deals due to slow response, and wasted software spend. Most firms do not measure this because the costs are distributed across departments and buried in overhead.
+          </p>
+        </div>
+        <div class="border-t-2 border-[#BF0A30] pt-8">
+          <p class="font-[Geist] text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-3">14 months</p>
+          <p class="text-zinc-300 text-lg">
+            Average time before a dead software license is noticed and canceled. In that window, you are paying full price for a tool no one uses. Multiply that across 20 to 40 software subscriptions and the waste is staggering.
+          </p>
+        </div>
+        <div class="border-t-2 border-[#BF0A30] pt-8">
+          <p class="font-[Geist] text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-3">50%</p>
+          <p class="text-zinc-300 text-lg">
+            The typical utilization rate of software licenses in PE firms. Half of every dollar you spend on technology is delivering value. The other half is sitting idle. Fixing this does not require buying new software. It requires understanding what you already have and making it work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="font-[Geist] text-3xl sm:text-4xl font-bold tracking-tighter text-[#0A2E50] mb-4">
+          Stop Losing Money to Broken Systems
+        </h2>
+        <p class="text-lg text-zinc-600 mb-8">
+          The Strategic Debrief is a no-cost working session where we map your current technology stack, identify the highest-impact friction points, and outline a concrete path to fixing them. No pitch deck. No sales pressure. Just a clear-eyed assessment of where your systems are costing you deals and dollars.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 bg-[#BF0A30] text-white text-lg font-semibold rounded-lg hover:bg-[#a00828] transition-colors">
+            Secure a Strategic Debrief
+          </a>
+          <a href="/process" class="inline-flex items-center justify-center px-8 py-4 border-2 border-[#0A2E50] text-[#0A2E50] text-lg font-semibold rounded-lg hover:bg-[#0A2E50] hover:text-white transition-colors">
+            See Our Process
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
