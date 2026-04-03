@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContactForm from '../components/ContactForm';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -100,10 +99,16 @@ const structuredData = {
           </div>
         </div>
 
-        <!-- Right: Form -->
+        <!-- Right: Booking Widget -->
         <div class="lg:py-8">
-          <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-10">
-            <ContactForm client:load />
+          <div class="rounded-2xl border border-zinc-200 bg-white overflow-hidden" style="min-height: 600px;">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/fvPLjshWkugb373tQClO"
+              width="100%"
+              height="600"
+              frameborder="0"
+              style="border: none;"
+            ></iframe>
           </div>
         </div>
       </div>
