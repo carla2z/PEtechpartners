@@ -1,13 +1,12 @@
 ---
 title: "The $4.88M Question Every PE Operator Should Ask Before the Next Board Meeting"
-description: "Cybersecurity and AI risk are no longer IT line items — they're operating metrics. Here's the math that shows why, and what to do about it."
+description: "Cyber and AI risk are now operating metrics. Here's the math on a $120M ARR platform — and what to do about it."
 pubDate: 2026-04-08
 author: "Carl de Prado"
 tags: ["private equity", "cybersecurity", "AI risk", "value creation", "M&A"]
+category: "Cybersecurity"
+readTime: "5 min read"
 draft: false
-slug: "the-488m-question-pe-operators"
-image: "/images/blog/488m-question-cover.jpg"
-imageAlt: "The $4.88M question every PE operator should ask"
 ---
 
 Here is the uncomfortable math: the average cost of a data breach hit $4.88M last year, according to IBM's Cost of a Data Breach Report. For a portfolio company running at a 15% EBITDA margin, that single incident wipes out the profitability of roughly $32.5M in revenue. On a 10x multiple, it erases nearly half a billion dollars of enterprise value at exit. And yet, in diligence after diligence, we keep seeing the same pattern: cybersecurity and AI governance are treated as IT line items rather than value-creation levers.
