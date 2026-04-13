@@ -1,6 +1,6 @@
 ---
 title: "AI-Risk Diligence: The 'Walk Away' Factor — A Best-Practice Guide for PE and M&A Firms in 2026"
-description: "AI-Risk Diligence and the 'Walk Away' Factor represent the operational difference between firms that use AI to kill bad deals early and firms that bleed time and capital chasing transactions they should have exited weeks before LOI."
+description: "Use AI to kill bad deals early. The difference between firms protecting capital and discovering red flags too late."
 pubDate: 2026-04-13
 image: "/images/generated/blog-ai-risk-diligence-walk-away-factor-pe-ma-firms-2026.png"
 imageAlt: "AI-Risk Diligence framework for PE and M&A firms - identifying deal-breaking red flags and the walk-away threshold in 2026"
