@@ -1,0 +1,439 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '2026 Comparison Matrix: DealCloud vs. Affinity vs. Salesforce for PE',
+  description: 'A side-by-side technical and functional evaluation of the leading CRM platforms for Private Equity, M&A, and Investment Banking.',
+  image: 'https://outgoing-oyster-428.convex.cloud/api/storage/caf00325-29f2-4a18-bc40-18ab1ebbbf20',
+  datePublished: '2026-04-13',
+  author: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+  },
+};
+---
+
+<BaseLayout
+  title="2026 CRM Comparison: DealCloud vs. Affinity vs. Salesforce | PE Tech Partners"
+  description="Technical side-by-side evaluation of DealCloud, Affinity, and Salesforce for private equity firms. Compare features, implementation timelines, and relationship intelligence capabilities."
+  structuredData={structuredData}
+  tags={['dealcloud', 'affinity', 'salesforce', 'CRM', 'private equity', 'M&A']}
+>
+  <style>
+    .lp-container {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: #fff;
+    }
+
+    .lp-hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 12px;
+        margin-bottom: 60px;
+    }
+
+    .lp-hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #0d1b2a;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    .lp-hero p {
+        font-size: 1.25rem;
+        color: #4a5568;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .lp-section {
+        margin-bottom: 80px;
+    }
+
+    .lp-section h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #1b263b;
+        margin-bottom: 30px;
+        border-left: 5px solid #0056b3;
+        padding-left: 20px;
+    }
+
+    .lp-section h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        color: #415a77;
+    }
+
+    .lp-table-wrapper {
+        overflow-x: auto;
+        margin: 40px 0;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .lp-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+        text-align: left;
+    }
+
+    .lp-comparison-table th {
+        background-color: #0d1b2a;
+        color: #ffffff;
+        padding: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+    }
+
+    .lp-comparison-table td {
+        padding: 20px;
+        border-bottom: 1px solid #e2e8f0;
+        vertical-align: top;
+        font-size: 0.95rem;
+    }
+
+    .lp-comparison-table tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+
+    .lp-comparison-table tr:hover {
+        background-color: #edf2f7;
+    }
+
+    .lp-feature-label {
+        font-weight: 700;
+        color: #0d1b2a;
+        width: 20%;
+    }
+
+    .lp-highlight-blue {
+        color: #0056b3;
+        font-weight: 600;
+    }
+
+    .lp-highlight-green {
+        color: #2d6a4f;
+        font-weight: 600;
+    }
+
+    .lp-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .lp-card {
+        padding: 30px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+    .lp-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .lp-card h4 {
+        margin-top: 0;
+        font-size: 1.25rem;
+        color: #0d1b2a;
+        margin-bottom: 15px;
+    }
+
+    .lp-stats-box {
+        background-color: #1b263b;
+        color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        text-align: center;
+        margin: 60px 0;
+    }
+
+    .lp-stat-item span {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #778da9;
+    }
+
+    .lp-stat-item p {
+        margin-top: 10px;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .lp-faq-container {
+        margin-top: 40px;
+    }
+
+    .lp-faq-item {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .lp-faq-item h4 {
+        font-size: 1.15rem;
+        color: #0d1b2a;
+        margin-bottom: 10px;
+    }
+
+    .lp-cta-block {
+        background: #0d1b2a;
+        color: #ffffff;
+        padding: 60px 40px;
+        border-radius: 16px;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .lp-cta-block h2 {
+        color: #ffffff;
+        border: none;
+        padding: 0;
+        font-size: 2.5rem;
+    }
+
+    .lp-cta-button {
+        display: inline-block;
+        background-color: #00b4d8;
+        color: #ffffff;
+        padding: 18px 36px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 30px;
+        transition: background-color 0.2s;
+    }
+
+    .lp-cta-button:hover {
+        background-color: #0096c7;
+    }
+
+    .lp-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .lp-badge-tech { background-color: #e0f2fe; color: #0369a1; }
+
+    @media (max-width: 768px) {
+        .lp-hero h1 { font-size: 2.25rem; }
+        .lp-section h2 { font-size: 1.75rem; }
+        .lp-stats-box { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <article class="lp-container">
+    <!-- Hero Section -->
+    <header class="lp-hero">
+        <span class="lp-badge lp-badge-tech">2026 PE Tech Outlook</span>
+        <h1>2026 Comparison Matrix: DealCloud vs. Affinity vs. Salesforce for PE</h1>
+        <p>A side-by-side technical and functional evaluation of the leading CRM platforms for Private Equity, M&A, and Investment Banking. Move beyond manual record-keeping into the era of Relationship Intelligence.</p>
+    </header>
+
+    <!-- Intro Text -->
+    <section class="lp-section">
+        <img src="https://outgoing-oyster-428.convex.cloud/api/storage/caf00325-29f2-4a18-bc40-18ab1ebbbf20" alt="Landing page illustration" style="max-width:100%;height:auto;border-radius:8px;margin:24px 0;" />
+        <h2>The Shift to Deal Intelligence</h2>
+        <p>In 2026, the gap between "top-tier" and "laggard" private equity firms is defined by how they leverage data. You've likely invested significant capital into your tech stack, yet your deal team is still manually entering contacts or digging through Excel for comps. If your analysts are bouncing between DealCloud, PitchBook, and email just to prepare for an IC memo, you aren't just losing time—you're losing deals.</p>
+        <p>Smart firms have moved away from basic CRM functions. They now prioritize <strong>Passive Activity Capture</strong> and <strong>Relationship Intelligence</strong> to automate the "busywork" and focus on sourcing. This matrix evaluates the three dominant players in the PE space to help you determine which platform aligns with your firm's unique workflows.</p>
+    </section>
+
+    <!-- The Main Matrix -->
+    <section class="lp-section">
+        <h2>Comparison Matrix: Functional & Technical Analysis</h2>
+        <div class="lp-table-wrapper">
+            <table class="lp-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>DealCloud (Intapp)</th>
+                        <th>Affinity</th>
+                        <th>Salesforce (PE-Wrapped)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="lp-feature-label">Best For</td>
+                        <td>Large institutional firms & complex governance requirements.</td>
+                        <td class="lp-highlight-green">Mid-market sourcing & relationship-heavy deal teams.</td>
+                        <td>Firms seeking a full-stack ecosystem (CRM + Marketing + ERP).</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">Data Entry Model</td>
+                        <td>Hybrid (Manual entries + Microsoft 365 Add-ins).</td>
+                        <td class="lp-highlight-blue">Fully Passive (Auto-captures email and calendar data).</td>
+                        <td>Heavy Manual (unless integrated with expensive 3rd party tools).</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">Relationship Intelligence</td>
+                        <td>Advanced analytics based on manual and system data.</td>
+                        <td class="lp-highlight-blue">Automated relationship scoring based on interaction frequency.</td>
+                        <td>Basic reporting; requires Custom Objects for "Intelligence."</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">PitchBook/Preqin Sync</td>
+                        <td>Native data connector with deep enrichment.</td>
+                        <td>Data enrichment from 40+ sources (including PitchBook).</td>
+                        <td>Requires API custom build or AppExchange plugins.</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">Implementation Timeline</td>
+                        <td>6 months – 2 years (Consultant-heavy).</td>
+                        <td class="lp-highlight-green">&lt; 60 Days (Turnkey/Rapid adoption).</td>
+                        <td>3 – 12 months (Developer-heavy).</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">Compliance & IC Governance</td>
+                        <td class="lp-highlight-blue">Institutional grade; enforced "gates" for deal progression.</td>
+                        <td>Standard GDPR; lighter on complex "IC" workflows.</td>
+                        <td>Highly configurable; requires significant manual setup.</td>
+                    </tr>
+                    <tr>
+                        <td class="lp-feature-label">Mobile Experience</td>
+                        <td>Robust mobile deal management & task tracking.</td>
+                        <td>Optimized for sourcing and relationship lookup on the go.</td>
+                        <td>Generic Mobile App; needs PE-specific customization.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Key Statistics Section -->
+    <section class="lp-stats-box">
+        <div class="lp-stat-item">
+            <span>200 hrs</span>
+            <p>Annual time lost per dealmaker to manual CRM entry in 2026.</p>
+        </div>
+        <div class="lp-stat-item">
+            <span>50%</span>
+            <p>Failure rate of CRMs requiring manual activity logging.</p>
+        </div>
+        <div class="lp-stat-item">
+            <span>85%</span>
+            <p>Firms prioritizing passive capture in 2026 evaluations.</p>
+        </div>
+    </section>
+
+    <!-- Deep Dive: DealCloud -->
+    <section class="lp-section">
+        <h2>DealCloud: The Institutional Standard</h2>
+        <p>DealCloud (by Intapp) remains the heavyweight champion for large-scale institutional firms. Its strength lies in its ability to mirror highly complex firm structures and enforce Investment Committee (IC) governance.</p>
+        <h3>Core Strengths in 2026</h3>
+        <ul>
+            <li><strong>Governance Gates:</strong> Unlike generic CRMs, DealCloud allows firms to set hard "gates." A deal cannot progress from Due Diligence to IC Approval without specific documentation being uploaded and verified.</li>
+            <li><strong>Intapp Assist:</strong> The 2026 iteration of Intapp Assist uses AI to summarize deal history, helping partners prepare for calls in seconds rather than minutes.</li>
+            <li><strong>Microsoft Ecosystem:</strong> Deep integration with Outlook and Excel ensures that while it requires more management, it lives where dealmakers already work.</li>
+        </ul>
+        <p><em>The Trade-off:</em> High cost of ownership (TCO) and a lengthy implementation process. You typically need internal or external specialists to keep the system running as the firm evolves.</p>
+    </section>
+
+    <!-- Deep Dive: Affinity -->
+    <section class="lp-section">
+        <img src="https://outgoing-oyster-428.convex.cloud/api/storage/2ee041d4-8e63-4dbb-b73d-9b1fc3b89e58" alt="Landing page illustration" style="max-width:100%;height:auto;border-radius:8px;margin:24px 0;" />
+        <h2>Affinity: The Sourcing Powerhouse</h2>
+        <p>Affinity has disrupted the mid-market by solving the "data entry tax." By automatically ingesting every email and calendar event, it creates a real-time map of the firm's collective network without requiring the deal team to lift a finger.</p>
+        <h3>Core Strengths in 2026</h3>
+        <ul>
+            <li><strong>Automated Relationship Scores:</strong> Affinity doesn't just list contacts; it scores them. You can instantly see which VP has the warmest "in" at a target company based on interaction recency and seniority.</li>
+            <li><strong>Rapid Deployment:</strong> While other platforms take months to configure, Affinity can often be fully operational in under 8 weeks.</li>
+            <li><strong>Deal Assist:</strong> The built-in AI assistant allows users to query their own database using natural language: <em>"Summarize our history with this founder and list all co-investments."</em></li>
+        </ul>
+        <p><em>The Trade-off:</em> While it's unmatched for sourcing, it may lack the rigid "audit trail" and administrative "locked gates" required by some mega-funds.</p>
+    </section>
+
+    <!-- Deep Dive: Salesforce -->
+    <section class="lp-section">
+        <h2>Salesforce: The Infinite Canvas</h2>
+        <p>Salesforce is rarely used "out of the box" for PE. Most firms use a "PE-wrapped" version or hire developers to build custom objects for deal flow, fund accounting, and portfolio monitoring.</p>
+        <h3>Core Strengths in 2026</h3>
+        <ul>
+            <li><strong>Limitless Scalability:</strong> If your firm expands into retail wealth, complex marketing automation, or proprietary ERP functions, Salesforce can handle it all.</li>
+            <li><strong>AppExchange:</strong> The largest ecosystem of third-party plugins in the world, allowing you to "bolt-on" almost any functionality.</li>
+        </ul>
+        <p><em>The Trade-off:</em> Without heavy customization, Salesforce feels generic. The manual data entry burden is significantly higher than its competitors, often leading to "stale data" as associates prioritize deals over CRM hygiene.</p>
+    </section>
+
+    <!-- The PE Tech Partners Methodology -->
+    <section class="lp-section">
+        <img src="https://outgoing-oyster-428.convex.cloud/api/storage/868d0a30-2c0c-4b6c-a483-5e7e000817ee" alt="Landing page illustration" style="max-width:100%;height:auto;border-radius:8px;margin:24px 0;" />
+        <h2>Why Tech Alignment Matters</h2>
+        <p>At PE Tech Partners, we believe the tools aren't broken—they're just not talking to each other. We help firms move from manual chaos to a streamlined deal machine using our three-step framework:</p>
+        <div class="lp-card-grid">
+            <div class="lp-card">
+                <h4>01 Assess</h4>
+                <p>We map your entire deal process—from origination to exit—to uncover where time is lost across systems and workflows.</p>
+            </div>
+            <div class="lp-card">
+                <h4>02 Align</h4>
+                <p>We integrate your CRM, data rooms, and cap tables. We automate CIMs, IC memos, and diligence tracking so your team stays focused.</p>
+            </div>
+            <div class="lp-card">
+                <h4>03 Amplify</h4>
+                <p>With real-time dashboards for pipeline velocity and portfolio health, your team gains a massive competitive edge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="lp-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="lp-faq-container">
+            <div class="lp-faq-item">
+                <h4>How much does a 2026 PE CRM typically cost?</h4>
+                <p>For mid-sized firms, enterprise-grade platforms typically range from $75,000 to $150,000+ per year. This usually includes seat licenses and required data modules like PitchBook or Preqin integrations. Total Cost of Ownership (TCO) should also factor in implementation and ongoing maintenance.</p>
+            </div>
+            <div class="lp-faq-item">
+                <h4>Is DealCloud or Affinity better for sourcing?</h4>
+                <p>Affinity is generally superior for sourcing due to its "Relationship Intelligence" and passive capture, which ensures no contact or intro is missed. DealCloud is often preferred for managing the back-half of the deal (diligence, compliance, and closing) due to its rigid governance structures.</p>
+            </div>
+            <div class="lp-faq-item">
+                <h4>Why do so many CRM implementations fail in PE?</h4>
+                <p>Failure usually happens at the "Data Entry Tax" level. If associates and VPs are forced to manually log every email and phone call, they eventually stop using the system. Adoption is 100% higher when the technology works in the background via passive capture.</p>
+            </div>
+            <div class="lp-faq-item">
+                <h4>Can we integrate PitchBook directly into these systems?</h4>
+                <p>Yes. DealCloud has a native connector. Affinity offers data enrichment for 40+ sources. Salesforce requires third-party tools or API work to sync accurately. This is a primary focus for PE Tech Partners—making these data streams talk to each other.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="lp-cta-block">
+        <h2>Ready to Make Your Tech a Weapon?</h2>
+        <p>Stop fighting your software. Let's spend 30 minutes looking at what you've got and mapping the fastest path to deal acceleration. We live and breathe DealCloud, Affinity, and the PE deal flow.</p>
+        <a href="/contact" class="lp-cta-button">Get Your Free Alignment Assessment</a>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">No sales BS. Just straight talk on how to crush from first call to signed term sheet.</p>
+    </section>
+  </article>
+</BaseLayout>
