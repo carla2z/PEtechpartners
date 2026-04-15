@@ -4,6 +4,7 @@ import FAQ from '../components/FAQ';
 import ScrollReveal from '../components/ScrollReveal';
 import AnimatedCounter from '../components/AnimatedCounter';
 import MagneticButton from '../components/MagneticButton';
+import NYCSkyline from '../components/NYCSkyline.astro';
 import HeroTicker from '../components/HeroTicker';
 
 const structuredData = {
@@ -125,6 +126,9 @@ const faqSchema = {
     class="relative min-h-[100dvh] bg-navy-950 bg-grain overflow-hidden"
     style="background-image: radial-gradient(ellipse at top right, rgba(191,10,48,0.08) 0%, transparent 60%)"
   >
+    <!-- Animated NYC skyline backdrop -->
+    <NYCSkyline />
+
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[100dvh] flex flex-col justify-center py-24 lg:py-0">
 
       <div class="flex flex-col lg:flex-row lg:items-center gap-16 lg:gap-20">
