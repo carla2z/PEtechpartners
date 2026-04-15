@@ -2,7 +2,7 @@
 title: "Step-by-Step Tech Assessment: What We Look For"
 description: "A detailed look inside PE Tech Partners' technology assessment process for PE firms and M&A targets, from infrastructure to integration readiness."
 pubDate: 2026-03-04
-image: "/images/generated/blog-tech-assessment.png"
+image: "/blog-heroes/step-by-step-tech-assessment.png"
 imageAlt: "Diagnostic scan revealing technology infrastructure patterns during PE due diligence"
 tags: ["tech assessment", "due diligence", "methodology", "PE operations"]
 author: "PE Tech Partners"

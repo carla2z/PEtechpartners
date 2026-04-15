@@ -2,7 +2,7 @@
 title: "The Hidden Deal Killer: How Outdated Tech Slows Down M&A Deals"
 description: "Legacy systems silently erode deal velocity. Learn how outdated technology infrastructure delays due diligence, inflates integration costs, and kills M&A deals."
 pubDate: 2026-01-14
-image: "/images/generated/blog-hidden-deal-killer.png"
+image: "/blog-heroes/hidden-deal-killer-outdated-tech.png"
 imageAlt: "Abstract visualization of legacy technology dragging down deal velocity in M&A transactions"
 tags: ["M&A", "due diligence", "legacy systems", "deal velocity", "technology strategy"]
 author: "PE Tech Partners"

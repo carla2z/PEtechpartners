@@ -2,7 +2,7 @@
 title: "Cybersecurity Red Flags in Target Companies"
 description: "The critical cybersecurity warning signs to watch for during M&A due diligence, and how to assess cyber risk before it becomes your problem."
 pubDate: 2026-02-20
-image: "/images/generated/blog-cybersecurity.png"
+image: "/blog-heroes/cybersecurity-red-flags-target-companies.png"
 imageAlt: "Security warning indicators on abstract digital shield representing M&A cybersecurity risk"
 tags: ["cybersecurity", "due diligence", "risk assessment", "M&A", "compliance"]
 author: "PE Tech Partners"

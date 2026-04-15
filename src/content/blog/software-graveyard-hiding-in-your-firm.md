@@ -2,7 +2,7 @@
 title: "The $158,000 Software Graveyard Hiding in Your M&A Firm"
 description: "Most PE and M&A firms waste six figures annually on unused enterprise software. Here is how to identify, quantify, and eliminate dead software spend."
 pubDate: 2026-02-06
-image: "/images/generated/blog-software-graveyard.png"
+image: "/blog-heroes/software-graveyard-hiding-in-your-firm.png"
 imageAlt: "Abstract visualization of unused enterprise software licenses wasting capital at PE firms"
 tags: ["software spend", "cost optimization", "SaaS management", "operational efficiency"]
 author: "PE Tech Partners"

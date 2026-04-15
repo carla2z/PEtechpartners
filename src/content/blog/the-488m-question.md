@@ -2,7 +2,7 @@
 title: "The $4.88M Question Every PE Operator Should Ask Before the Next Board Meeting"
 description: "Cyber and AI risk are now operating metrics. Here's the math on a $120M ARR platform — and what to do about it."
 pubDate: 2026-04-08
-image: "/images/generated/blog-the-488m-question.png"
+image: "/blog-heroes/the-488m-question.png"
 imageAlt: "The $4.88M Question - PE cybersecurity and AI risk impact on enterprise value"
 author: "Carl de Prado"
 tags: ["private equity", "cybersecurity", "AI risk", "value creation", "M&A"]

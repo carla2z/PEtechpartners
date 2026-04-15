@@ -5,6 +5,7 @@ import { IntegrationIllustration } from './compositions/illustrations/Integratio
 import { AutomationIllustration } from './compositions/illustrations/AutomationIllustration';
 import { PipelineIllustration } from './compositions/illustrations/PipelineIllustration';
 import { SecurityIllustration } from './compositions/illustrations/SecurityIllustration';
+import { BlogHero } from './compositions/BlogHero';
 
 /**
  * Remotion root — registers every composition used by render scripts.
@@ -60,6 +61,21 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1000}
         height={800}
+      />
+
+      <Composition
+        id="BlogHero"
+        component={BlogHero}
+        durationInFrames={1}
+        fps={30}
+        width={1200}
+        height={630}
+        defaultProps={{
+          title: 'Blog Post Title',
+          eyebrow: 'Strategy',
+          readTime: '10 min read',
+          motif: 'walk-away' as const,
+        }}
       />
     </>
   );

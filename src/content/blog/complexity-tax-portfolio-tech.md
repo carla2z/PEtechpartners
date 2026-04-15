@@ -2,7 +2,7 @@
 title: "The Complexity Tax: Why Most PE Portfolio Tech Drags on Valuation"
 description: "Technology complexity erodes EBITDA and compresses exit multiples. Learn how PE firms identify and reduce the complexity tax."
 pubDate: 2026-03-18
-image: "/images/generated/blog-complexity-tax.png"
+image: "/blog-heroes/complexity-tax-portfolio-tech.png"
 imageAlt: "Tangled technology complexity weighing down portfolio company valuation growth"
 tags: ["portfolio management", "EBITDA", "valuation", "technology strategy", "operational efficiency"]
 author: "PE Tech Partners"

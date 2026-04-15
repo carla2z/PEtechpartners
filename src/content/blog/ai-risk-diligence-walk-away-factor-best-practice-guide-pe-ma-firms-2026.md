@@ -2,7 +2,7 @@
 title: "AI-Risk Diligence: The 'Walk Away' Factor - A Best-Practice Guide for PE and M&A Firms in 2026"
 description: "Use AI to kill bad deals early. The difference between firms protecting capital and discovering red flags too late."
 pubDate: 2026-04-13
-image: "/images/generated/blog-ai-risk-diligence-walk-away-factor-pe-ma-firms-2026.png"
+image: "/blog-heroes/ai-risk-diligence-walk-away-factor-best-practice-guide-pe-ma-firms-2026.png"
 imageAlt: "AI-Risk Diligence framework for PE and M&A firms - identifying deal-breaking red flags and the walk-away threshold in 2026"
 tags: ["ai-risk", "diligence", "due diligence", "private equity", "M&A", "deal workflow", "risk management"]
 author: "PE Tech Partners"
