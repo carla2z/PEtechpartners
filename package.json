@@ -11,7 +11,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "render:og": "node --experimental-strip-types scripts/render-og-cards.mjs",
-    "remotion": "remotion studio remotion/index.ts"
+    "remotion": "remotion studio remotion/index.ts",
+    "render:illustrations": "node scripts/render-illustrations.mjs",
+    "render:all": "npm run render:og && npm run render:illustrations"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",

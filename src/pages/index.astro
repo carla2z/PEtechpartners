@@ -31,24 +31,28 @@ const solutions = [
     title: 'System Integration',
     desc: 'Connect your CRM, data room, cap table, and portfolio tools into one operating system. DealCloud, Salesforce, Affinity, HubSpot — we make them talk.',
     href: '/solutions/system-integration',
+    image: '/illustrations/integration.png',
   },
   {
     num: '02',
     title: 'Workflow Automation',
     desc: 'Automate CIM processing, IC memos, diligence tracking, and VDR document management. Your analysts do strategy, not data entry.',
     href: '/solutions/workflow-automation',
+    image: '/illustrations/automation.png',
   },
   {
     num: '03',
     title: 'Pipeline Management',
     desc: 'Real-time dashboards for deal velocity and portfolio health. See every deal, every stage, every bottleneck — live.',
     href: '/solutions/pipeline-management',
+    image: '/illustrations/pipeline.png',
   },
   {
     num: '04',
     title: 'Data Security',
     desc: 'SOC 2 compliant enterprise-grade protection for sensitive transaction documents. Because one breach kills the deal.',
     href: '/solutions/data-security',
+    image: '/illustrations/security.png',
   },
 ];
 
@@ -256,10 +260,18 @@ const faqSchema = {
             <ScrollReveal client:visible direction={isOdd ? 'left' : 'right'} delay={0}>
               <div class={`grid grid-cols-1 gap-8 lg:gap-12 items-center ${isOdd ? 'lg:grid-cols-[1fr_2fr]' : 'lg:grid-cols-[2fr_1fr]'}`}>
 
-                {/* Accent block */}
+                {/* Illustration block — Remotion-rendered, branded */}
                 <div class={`${isOdd ? 'order-1' : 'order-1 lg:order-2'}`}>
-                  <div class="bg-navy-800 rounded-lg shadow-stripe-lg p-10 flex items-center justify-center min-h-[180px]">
-                    <span class="text-6xl lg:text-7xl font-bold font-mono text-white/10 select-none">{s.num}</span>
+                  <div class="relative overflow-hidden rounded-lg shadow-stripe-lg bg-navy-800 aspect-[5/4]">
+                    <img
+                      src={s.image}
+                      alt={`${s.title} — PE Tech Partners illustration`}
+                      width="1000"
+                      height="800"
+                      loading="lazy"
+                      decoding="async"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 
