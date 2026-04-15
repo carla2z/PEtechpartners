@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "render:og": "node --experimental-strip-types scripts/render-og-cards.mjs",
+    "remotion": "remotion studio remotion/index.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
@@ -34,6 +36,10 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.31.10"
+    "@remotion/bundler": "^4.0.448",
+    "@remotion/cli": "^4.0.448",
+    "@remotion/renderer": "^4.0.448",
+    "drizzle-kit": "^0.31.10",
+    "remotion": "^4.0.448"
   }
 }
