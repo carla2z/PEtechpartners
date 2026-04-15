@@ -2,208 +2,110 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { COLORS, IllustrationFrame, GridOverlay, CornerLabel } from './shared';
 
-/**
- * Pipeline Management — bar chart showing deal velocity across stages.
- * Communicates: live view, deal volume per stage, bottleneck visibility.
- */
 export const PipelineIllustration: React.FC = () => {
-  const bars = [
-    { label: 'Sourced',     value: 0.85, tone: 'gold' as const },
-    { label: 'Qualified',   value: 0.68, tone: 'gold' as const },
-    { label: 'LOI',         value: 0.45, tone: 'crimson' as const },
-    { label: 'Diligence',   value: 0.55, tone: 'crimson' as const },
-    { label: 'Negotiation', value: 0.32, tone: 'white' as const },
-    { label: 'Closed',      value: 0.24, tone: 'white' as const },
+  const stages = [
+    { label: 'SOURCED',   v: 0.92, color: COLORS.gold },
+    { label: 'QUALIFIED', v: 0.78, color: COLORS.gold },
+    { label: 'LOI',       v: 0.58, color: COLORS.crimson },
+    { label: 'DILIGENCE', v: 0.68, color: COLORS.crimson },
+    { label: 'NEGOTIATE', v: 0.42, color: COLORS.whiteStrong },
+    { label: 'CLOSED',    v: 0.30, color: COLORS.whiteStrong },
   ];
-
-  const chartTop = 180;
-  const chartBottom = 600;
-  const chartHeight = chartBottom - chartTop;
-  const chartLeft = 110;
-  const chartRight = 890;
-  const barWidth = 88;
-  const barGap = ((chartRight - chartLeft) - bars.length * barWidth) / (bars.length - 1);
+  const chartX = 110, chartY = 220, chartW = 780, chartH = 380;
+  const barGap = 28;
+  const barW = (chartW - barGap * (stages.length - 1)) / stages.length;
 
   return (
     <AbsoluteFill>
       <IllustrationFrame>
-        <GridOverlay />
+        <GridOverlay opacity={0.06} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 460px 320px at 50% 60%, rgba(191,10,48,0.20) 0%, transparent 65%)',
+        }} />
 
-        {/* Ambient glow */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'radial-gradient(ellipse 500px 350px at 50% 40%, rgba(62,98,159,0.35) 0%, transparent 60%)',
-          }}
-        />
-
-        {/* Chart header */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 72,
-            left: 110,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 14,
-          }}
-        >
-          <span
-            style={{
-              fontSize: 14,
-              fontFamily: 'Geist Mono, ui-monospace, monospace',
-              color: COLORS.whiteMid,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-            }}
-          >
-            Pipeline · Q1
-          </span>
-          <div
-            style={{
-              padding: '3px 10px',
-              borderRadius: 4,
-              background: 'rgba(197,165,114,0.18)',
-              fontSize: 10,
-              color: COLORS.gold,
-              fontFamily: 'Geist Mono, ui-monospace, monospace',
-              letterSpacing: '0.15em',
-            }}
-          >
-            LIVE
-          </div>
-        </div>
-
-        {/* Stat overlay top-right */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 56,
-            right: 110,
-            textAlign: 'right',
-          }}
-        >
-          <div
-            style={{
-              fontSize: 36,
-              fontWeight: 300,
-              color: COLORS.white,
-              letterSpacing: '-0.02em',
-              fontFamily: 'Geist Mono, ui-monospace, monospace',
-            }}
-          >
-            <span style={{ color: COLORS.gold }}>47</span>
-            <span style={{ opacity: 0.6 }}> active</span>
-          </div>
-          <div
-            style={{
-              fontSize: 11,
-              color: COLORS.whiteMid,
-              fontFamily: 'Geist Mono, ui-monospace, monospace',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              marginTop: 2,
-            }}
-          >
-            deals in motion
-          </div>
-        </div>
-
-        {/* Bars */}
         <svg width="1000" height="800" style={{ position: 'absolute', inset: 0 }}>
-          {/* Gridlines */}
-          {[0.25, 0.5, 0.75, 1].map((g, i) => (
-            <line
-              key={`grid-${i}`}
-              x1={chartLeft}
-              x2={chartRight}
-              y1={chartBottom - g * chartHeight}
-              y2={chartBottom - g * chartHeight}
-              stroke="rgba(255,255,255,0.06)"
-              strokeWidth="1"
-            />
+          {/* horizontal gridlines */}
+          {[0, 0.25, 0.5, 0.75, 1].map((t, i) => (
+            <line key={i}
+                  x1={chartX} y1={chartY + chartH * (1 - t)}
+                  x2={chartX + chartW} y2={chartY + chartH * (1 - t)}
+                  stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
           ))}
-
-          {/* Baseline */}
-          <line
-            x1={chartLeft}
-            x2={chartRight}
-            y1={chartBottom}
-            y2={chartBottom}
-            stroke="rgba(197,165,114,0.4)"
-            strokeWidth="1.5"
-          />
-
-          {bars.map((b, i) => {
-            const x = chartLeft + i * (barWidth + barGap);
-            const h = b.value * chartHeight;
-            const y = chartBottom - h;
-            const color =
-              b.tone === 'gold'
-                ? COLORS.gold
-                : b.tone === 'crimson'
-                ? COLORS.crimson
-                : 'rgba(255,255,255,0.85)';
+          {/* bars */}
+          {stages.map((s, i) => {
+            const h = chartH * s.v;
+            const x = chartX + i * (barW + barGap);
+            const y = chartY + (chartH - h);
             return (
-              <g key={`bar-${i}`}>
-                {/* shadow */}
-                <rect
-                  x={x}
-                  y={y}
-                  width={barWidth}
-                  height={h}
-                  fill={color}
-                  opacity="0.18"
-                  rx="2"
-                />
-                {/* top accent */}
-                <rect
-                  x={x}
-                  y={y}
-                  width={barWidth}
-                  height={4}
-                  fill={color}
-                  rx="2"
-                />
-                {/* bar body gradient via 2 rects */}
-                <rect
-                  x={x}
-                  y={y + 4}
-                  width={barWidth}
-                  height={h - 4}
-                  fill={color}
-                  opacity="0.35"
-                />
+              <g key={i}>
+                {/* bar value label */}
+                <text x={x + barW / 2} y={y - 10}
+                      fill={COLORS.whiteStrong} fontSize="13"
+                      fontFamily="Geist Mono, monospace"
+                      textAnchor="middle" letterSpacing="0.08em">
+                  {Math.round(s.v * 100)}
+                </text>
+                {/* bar */}
+                <rect x={x} y={y} width={barW} height={h}
+                      rx="4" fill={s.color} opacity={s.color === COLORS.whiteStrong ? 0.85 : 0.94} />
+                {/* stage label */}
+                <text x={x + barW / 2} y={chartY + chartH + 28}
+                      fill="rgba(255,255,255,0.6)" fontSize="11"
+                      fontFamily="Geist Mono, monospace"
+                      textAnchor="middle" letterSpacing="0.18em" fontWeight="500">
+                  {s.label}
+                </text>
               </g>
             );
           })}
         </svg>
 
-        {/* Labels under bars */}
-        {bars.map((b, i) => {
-          const x = chartLeft + i * (barWidth + barGap);
-          return (
-            <div
-              key={`label-${i}`}
-              style={{
-                position: 'absolute',
-                left: x,
-                top: chartBottom + 16,
-                width: barWidth,
-                textAlign: 'center',
-                fontSize: 11,
-                fontFamily: 'Geist Mono, ui-monospace, monospace',
-                color: COLORS.whiteMid,
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-              }}
-            >
-              {b.label}
+        {/* header row */}
+        <div style={{
+          position: 'absolute', top: 56, left: 56, right: 56,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <span style={{
+              fontSize: 22, color: COLORS.whiteStrong, fontWeight: 300,
+              letterSpacing: '-0.02em',
+            }}>Pipeline</span>
+            <span style={{
+              fontSize: 11, fontFamily: 'Geist Mono, monospace',
+              color: COLORS.gold, letterSpacing: '0.25em',
+            }}>· Q1</span>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              padding: '4px 10px', borderRadius: 3,
+              background: 'rgba(191,10,48,0.2)', border: `1px solid ${COLORS.crimson}`,
+            }}>
+              <div style={{
+                width: 6, height: 6, borderRadius: 3, background: COLORS.crimson,
+                boxShadow: `0 0 8px ${COLORS.crimson}`,
+              }} />
+              <span style={{
+                fontSize: 10, fontFamily: 'Geist Mono, monospace',
+                color: COLORS.crimson, letterSpacing: '0.3em', fontWeight: 500,
+              }}>LIVE</span>
             </div>
-          );
-        })}
+          </div>
+          <div style={{
+            padding: '10px 16px', borderRadius: 6,
+            background: 'rgba(255,255,255,0.07)',
+            border: '1px solid rgba(255,255,255,0.2)',
+            textAlign: 'right',
+          }}>
+            <div style={{
+              fontSize: 11, color: 'rgba(255,255,255,0.55)',
+              fontFamily: 'Geist Mono, monospace', letterSpacing: '0.2em',
+            }}>ACTIVE</div>
+            <div style={{
+              fontSize: 26, color: COLORS.gold, fontWeight: 300,
+              fontFamily: 'Geist, sans-serif', letterSpacing: '-0.03em',
+            }}>47 deals</div>
+          </div>
+        </div>
 
         <CornerLabel num="03" title="Pipeline Management" />
       </IllustrationFrame>

@@ -2,182 +2,124 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { COLORS, IllustrationFrame, GridOverlay, CornerLabel } from './shared';
 
-/**
- * System Integration — central hub with 4 spoked tool nodes.
- * Communicates: DealCloud, Salesforce, Affinity, HubSpot → one operating system.
- */
 export const IntegrationIllustration: React.FC = () => {
   const nodes = [
-    { label: 'DealCloud',  angle: -140, color: COLORS.gold },
+    { label: 'DealCloud',  angle: -135, color: COLORS.gold },
     { label: 'Affinity',   angle:  -45, color: COLORS.crimson },
     { label: 'Salesforce', angle:   45, color: COLORS.white },
-    { label: 'HubSpot',    angle:  140, color: COLORS.gold },
+    { label: 'HubSpot',    angle:  135, color: COLORS.gold },
   ];
-  const center = { x: 500, y: 400 };
-  const radius = 240;
-
+  const cx = 500, cy = 400, r = 280;
   return (
     <AbsoluteFill>
       <IllustrationFrame>
-        <GridOverlay />
+        <GridOverlay opacity={0.06} />
+        {/* crimson hub glow */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 520px 400px at 50% 50%, rgba(191,10,48,0.32) 0%, transparent 62%)',
+        }} />
+        {/* gold ambient corner */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 380px 260px at 90% 8%, rgba(197,165,114,0.16) 0%, transparent 65%)',
+        }} />
 
-        {/* Ambient crimson glow behind hub */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'radial-gradient(ellipse 400px 300px at 50% 50%, rgba(191,10,48,0.28) 0%, transparent 60%)',
-          }}
-        />
-
-        {/* SVG: connecting lines + nodes */}
-        <svg
-          width="1000"
-          height="800"
-          style={{ position: 'absolute', inset: 0 }}
-        >
+        <svg width="1000" height="800" style={{ position: 'absolute', inset: 0 }}>
           <defs>
             <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor={COLORS.crimson} stopOpacity="1" />
-              <stop offset="70%" stopColor={COLORS.crimson} stopOpacity="0.8" />
+              <stop offset="70%" stopColor={COLORS.crimson} stopOpacity="0.85" />
               <stop offset="100%" stopColor={COLORS.crimson} stopOpacity="0" />
             </radialGradient>
-            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor={COLORS.gold} stopOpacity="0.2" />
-              <stop offset="50%" stopColor={COLORS.gold} stopOpacity="0.6" />
-              <stop offset="100%" stopColor={COLORS.gold} stopOpacity="0.2" />
+            <linearGradient id="linkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"  stopColor={COLORS.gold} stopOpacity="0.35" />
+              <stop offset="50%" stopColor={COLORS.gold} stopOpacity="0.85" />
+              <stop offset="100%" stopColor={COLORS.gold} stopOpacity="0.35" />
             </linearGradient>
           </defs>
 
-          {/* Orbit ring (subtle) */}
-          <circle
-            cx={center.x}
-            cy={center.y}
-            r={radius}
-            fill="none"
-            stroke="rgba(197,165,114,0.18)"
-            strokeWidth="1"
-            strokeDasharray="4,6"
-          />
+          {/* outer orbit */}
+          <circle cx={cx} cy={cy} r={r} fill="none"
+                  stroke="rgba(197,165,114,0.22)" strokeWidth="1.25"
+                  strokeDasharray="4,6" />
+          {/* mid orbit */}
+          <circle cx={cx} cy={cy} r={r - 75} fill="none"
+                  stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
 
-          {/* Connection lines */}
+          {/* connection lines + packets */}
           {nodes.map((n, i) => {
             const rad = (n.angle * Math.PI) / 180;
-            const x = center.x + radius * Math.cos(rad);
-            const y = center.y + radius * Math.sin(rad);
+            const x = cx + r * Math.cos(rad);
+            const y = cy + r * Math.sin(rad);
+            const mx = cx + (r * 0.55) * Math.cos(rad);
+            const my = cy + (r * 0.55) * Math.sin(rad);
             return (
-              <line
-                key={`line-${i}`}
-                x1={center.x}
-                y1={center.y}
-                x2={x}
-                y2={y}
-                stroke="url(#lineGrad)"
-                strokeWidth="1.5"
-              />
+              <g key={i}>
+                <line x1={cx} y1={cy} x2={x} y2={y}
+                      stroke="url(#linkGrad)" strokeWidth="2" />
+                <circle cx={mx} cy={my} r="4" fill={COLORS.gold} opacity="0.9" />
+              </g>
             );
           })}
 
-          {/* Hub glow halo */}
-          <circle
-            cx={center.x}
-            cy={center.y}
-            r="90"
-            fill="url(#hubGlow)"
-            opacity="0.45"
-          />
-          {/* Hub outer ring */}
-          <circle
-            cx={center.x}
-            cy={center.y}
-            r="60"
-            fill="none"
-            stroke={COLORS.crimson}
-            strokeWidth="1.5"
-            opacity="0.4"
-          />
-          {/* Hub core */}
-          <circle cx={center.x} cy={center.y} r="42" fill={COLORS.crimson} />
-          <circle
-            cx={center.x}
-            cy={center.y}
-            r="42"
-            fill="none"
-            stroke="rgba(255,255,255,0.15)"
-            strokeWidth="1"
-          />
+          {/* hub halo layers */}
+          <circle cx={cx} cy={cy} r="150" fill="url(#hubGlow)" opacity="0.35" />
+          <circle cx={cx} cy={cy} r="95"  fill="none"
+                  stroke={COLORS.crimson} strokeWidth="1.5" opacity="0.5" />
+          <circle cx={cx} cy={cy} r="72"  fill={COLORS.crimson} />
+          <circle cx={cx} cy={cy} r="72"  fill="none"
+                  stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+          {/* hex icon */}
+          <g transform={`translate(${cx - 22}, ${cy - 24})`}>
+            <path d="M 22 0 L 44 13 L 44 37 L 22 50 L 0 37 L 0 13 Z"
+                  fill="none" stroke="white" strokeWidth="2" />
+            <path d="M 22 0 L 22 50 M 0 13 L 44 37 M 44 13 L 0 37"
+                  stroke="white" strokeWidth="1.2" opacity="0.55" />
+          </g>
         </svg>
 
-        {/* Hub center icon */}
-        <div
-          style={{
-            position: 'absolute',
-            left: center.x - 12,
-            top: center.y - 12,
-            width: 24,
-            height: 24,
-            zIndex: 5,
-          }}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M12 2 L22 7 L22 17 L12 22 L2 17 L2 7 Z"
-              stroke="white"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            <path
-              d="M12 2 L12 22 M2 7 L22 17 M22 7 L2 17"
-              stroke="white"
-              strokeWidth="1"
-              opacity="0.6"
-            />
-          </svg>
-        </div>
-
-        {/* Tool nodes */}
+        {/* tool nodes — bigger, clearer */}
         {nodes.map((n, i) => {
           const rad = (n.angle * Math.PI) / 180;
-          const x = center.x + radius * Math.cos(rad);
-          const y = center.y + radius * Math.sin(rad);
+          const x = cx + r * Math.cos(rad);
+          const y = cy + r * Math.sin(rad);
           return (
-            <div
-              key={`node-${i}`}
-              style={{
-                position: 'absolute',
-                left: x - 60,
-                top: y - 24,
-                width: 120,
-                padding: '10px 16px',
-                borderRadius: 6,
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.14)',
-                backdropFilter: 'blur(8px)',
-                fontSize: 14,
-                color: COLORS.whiteStrong,
-                fontWeight: 500,
-                textAlign: 'center',
-                letterSpacing: '-0.01em',
-                zIndex: 5,
-              }}
-            >
-              {n.label}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 4,
-                  right: 6,
-                  width: 6,
-                  height: 6,
-                  borderRadius: 3,
-                  background: n.color,
-                  boxShadow: `0 0 8px ${n.color}`,
-                }}
-              />
+            <div key={i} style={{
+              position: 'absolute',
+              left: x - 86, top: y - 30,
+              width: 172, padding: '14px 18px',
+              borderRadius: 8,
+              background: 'rgba(255,255,255,0.07)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              backdropFilter: 'blur(8px)',
+              display: 'flex', alignItems: 'center', gap: 10,
+            }}>
+              <div style={{
+                width: 10, height: 10, borderRadius: 5, background: n.color,
+                boxShadow: `0 0 12px ${n.color}`,
+              }} />
+              <span style={{
+                fontSize: 18, color: COLORS.whiteStrong,
+                fontWeight: 500, letterSpacing: '-0.01em',
+              }}>{n.label}</span>
             </div>
           );
         })}
+
+        {/* top badge */}
+        <div style={{
+          position: 'absolute', top: 48, left: 56,
+          display: 'flex', alignItems: 'center', gap: 10,
+          padding: '6px 14px', borderRadius: 4,
+          border: `1px solid ${COLORS.gold}`, opacity: 0.9,
+        }}>
+          <div style={{ width: 6, height: 6, borderRadius: 3, background: COLORS.gold }} />
+          <span style={{
+            fontSize: 11, fontFamily: 'Geist Mono, monospace',
+            color: COLORS.gold, letterSpacing: '0.3em', fontWeight: 500,
+          }}>LIVE · 4 SYSTEMS</span>
+        </div>
 
         <CornerLabel num="01" title="System Integration" />
       </IllustrationFrame>
