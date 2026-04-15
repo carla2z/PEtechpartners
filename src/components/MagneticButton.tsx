@@ -10,8 +10,9 @@ interface MagneticButtonProps {
 }
 
 const variants = {
-  crimson: 'bg-crimson-500 text-white hover:bg-crimson-600 shadow-[0_2px_16px_rgba(191,10,48,0.25)]',
-  white: 'bg-white text-navy-800 hover:bg-zinc-100 shadow-navy',
+  crimson:
+    'bg-crimson-500 text-white hover:bg-crimson-600 shadow-[rgba(191,10,48,0.25)_0px_6px_20px_0px,rgba(0,0,0,0.08)_0px_0px_0px_1px]',
+  white: 'bg-white text-navy-800 hover:bg-zinc-50 shadow-stripe',
   ghost: 'border border-white/30 text-white hover:bg-white/10',
 };
 
@@ -51,7 +52,7 @@ export default function MagneticButton({
       onMouseLeave={handleMouseLeave}
       style={{ x: springX, y: springY }}
       whileTap={{ scale: 0.97 }}
-      className={`inline-flex items-center justify-center px-7 py-3.5 text-sm font-semibold rounded-xl transition-colors ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center px-7 py-3.5 text-sm font-medium rounded-md tracking-tight transition-colors ${variants[variant]} ${className}`}
     >
       {children}
     </motion.a>
