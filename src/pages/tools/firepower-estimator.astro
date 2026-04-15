@@ -21,6 +21,16 @@ const structuredData = {
     url: 'https://petechpartners.com',
   },
 };
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://petechpartners.com' },
+    { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://petechpartners.com/tools' },
+    { '@type': 'ListItem', position: 3, name: 'Firepower Estimator', item: 'https://petechpartners.com/tools/firepower-estimator' },
+  ],
+};
 ---
 
 <BaseLayout
@@ -29,6 +39,7 @@ const structuredData = {
   structuredData={structuredData}
   tags={['team firepower estimator', 'AI productivity calculator', 'workflow automation ROI', 'PE team efficiency']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <!-- Hero -->
   <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

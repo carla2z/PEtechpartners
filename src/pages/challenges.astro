@@ -18,6 +18,15 @@ const structuredData = {
     url: 'https://petechpartners.com',
   },
 };
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://petechpartners.com' },
+    { '@type': 'ListItem', position: 2, name: 'Challenges', item: 'https://petechpartners.com/challenges' },
+  ],
+};
 ---
 
 <BaseLayout
@@ -26,6 +35,7 @@ const structuredData = {
   structuredData={structuredData}
   tags={['PE technology challenges', 'M&A workflow problems', 'private equity software waste', 'deal flow inefficiency', 'PE firm technology gaps']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <!-- Hero -->
   <section class="pt-32 pb-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

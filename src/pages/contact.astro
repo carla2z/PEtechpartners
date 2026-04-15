@@ -28,6 +28,15 @@ const structuredData = {
     },
   },
 };
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://petechpartners.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://petechpartners.com/contact' },
+  ],
+};
 ---
 
 <BaseLayout
@@ -36,6 +45,7 @@ const structuredData = {
   structuredData={structuredData}
   tags={['contact PE Tech Partners', 'technology assessment', 'PE consulting', 'M&A technology audit']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">

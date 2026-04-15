@@ -15,6 +15,16 @@ const structuredData = {
   serviceType: 'Data Security',
   areaServed: 'US',
 };
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://petechpartners.com' },
+    { '@type': 'ListItem', position: 2, name: 'Solutions', item: 'https://petechpartners.com/solutions' },
+    { '@type': 'ListItem', position: 3, name: 'Data Security', item: 'https://petechpartners.com/solutions/data-security' },
+  ],
+};
 ---
 
 <BaseLayout
@@ -24,6 +34,7 @@ const structuredData = {
   canonicalUrl="https://petechpartners.com/solutions/data-security"
   tags={['PE cybersecurity', 'SOC 2 compliance PE', 'private equity data security', 'M&A document security']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <!-- Hero -->
   <section class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -93,6 +93,16 @@ const faqItems = [
     answer: 'Nothing. It is a no-cost, no-pressure working session where we map your current tech stack, identify the biggest friction points, and outline a 90-day path to fixing them. No pitch deck. No sales pressure.',
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
 ---
 
 <BaseLayout
@@ -102,6 +112,7 @@ const faqItems = [
   ogImage="/images/generated/og-default.png"
   tags={['private equity technology', 'M&A tech consulting', 'PE firm technology integration', 'deal workflow automation']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- 1. HERO — Full-viewport navy-950 with grain texture    -->

@@ -34,6 +34,13 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#0A2E50" />
+
+<!-- Geo targeting (firm HQ) -->
+<meta name="geo.region" content="US-NY" />
+<meta name="geo.placename" content="Montrose, NY" />
+<meta name="geo.position" content="41.2459;-73.9415" />
+<meta name="ICBM" content="41.2459, -73.9415" />
 
 <title>{title}</title>
 <meta name="description" content={description} />
