@@ -32,43 +32,43 @@ type Building = {
   crimsonChance: number; // 0..1 chance a lit window is crimson
 };
 
-const BASE_Y = 400; // bottom of SVG viewBox
+const BASE_Y = 480; // bottom of SVG viewBox
 
 const FOREGROUND: Building[] = [
   // One WTC — tapered spire (far left)
-  { x:  20, w: 86,  h: 360, top: 'spire',   cols: 5, rows: 22, density: 0.38, crimsonChance: 0.04 },
+  { x:  20, w: 86,  h: 420, top: 'spire',   cols: 5, rows: 22, density: 0.38, crimsonChance: 0.04 },
   // narrow tower
-  { x: 120, w: 62,  h: 250, top: 'flat',    cols: 4, rows: 16, density: 0.30, crimsonChance: 0.02 },
+  { x: 120, w: 62,  h: 308, top: 'flat',    cols: 4, rows: 16, density: 0.30, crimsonChance: 0.02 },
   // stepped mid-rise
-  { x: 190, w: 96,  h: 210, top: 'stepped', cols: 6, rows: 14, density: 0.46, crimsonChance: 0.05 },
+  { x: 190, w: 96,  h: 268, top: 'stepped', cols: 6, rows: 14, density: 0.46, crimsonChance: 0.05 },
   // Chrysler-style crown
-  { x: 300, w: 84,  h: 300, top: 'crown',   cols: 5, rows: 18, density: 0.42, crimsonChance: 0.06 },
+  { x: 300, w: 84,  h: 376, top: 'crown',   cols: 5, rows: 18, density: 0.42, crimsonChance: 0.06 },
   // compact tall block
-  { x: 398, w: 70,  h: 230, top: 'flat',    cols: 4, rows: 16, density: 0.34, crimsonChance: 0.03 },
+  { x: 398, w: 70,  h: 292, top: 'flat',    cols: 4, rows: 16, density: 0.34, crimsonChance: 0.03 },
   // Empire State with mast
-  { x: 480, w: 110, h: 348, top: 'mast',    cols: 7, rows: 22, density: 0.44, crimsonChance: 0.05 },
+  { x: 480, w: 110, h: 450, top: 'mast',    cols: 7, rows: 22, density: 0.44, crimsonChance: 0.05 },
   // short square
-  { x: 604, w: 72,  h: 180, top: 'flat',    cols: 4, rows: 12, density: 0.38, crimsonChance: 0.03 },
+  { x: 604, w: 72,  h: 228, top: 'flat',    cols: 4, rows: 12, density: 0.38, crimsonChance: 0.03 },
   // 432 Park slab
-  { x: 690, w: 54,  h: 328, top: 'flat',    cols: 3, rows: 22, density: 0.36, crimsonChance: 0.04 },
+  { x: 690, w: 54,  h: 420, top: 'flat',    cols: 3, rows: 22, density: 0.36, crimsonChance: 0.04 },
   // tapered tower
-  { x: 756, w: 88,  h: 256, top: 'tapered', cols: 5, rows: 17, density: 0.40, crimsonChance: 0.04 },
+  { x: 756, w: 88,  h: 320, top: 'tapered', cols: 5, rows: 17, density: 0.40, crimsonChance: 0.04 },
   // wider crown
-  { x: 858, w: 104, h: 288, top: 'crown',   cols: 6, rows: 19, density: 0.45, crimsonChance: 0.05 },
+  { x: 858, w: 104, h: 360, top: 'crown',   cols: 6, rows: 19, density: 0.45, crimsonChance: 0.05 },
   // spire block
-  { x: 976, w: 78,  h: 232, top: 'spire',   cols: 5, rows: 15, density: 0.38, crimsonChance: 0.03 },
+  { x: 976, w: 78,  h: 290, top: 'spire',   cols: 5, rows: 15, density: 0.38, crimsonChance: 0.03 },
   // stepped
-  { x: 1068, w: 96, h: 266, top: 'stepped', cols: 6, rows: 18, density: 0.44, crimsonChance: 0.05 },
+  { x: 1068, w: 96, h: 332, top: 'stepped', cols: 6, rows: 18, density: 0.44, crimsonChance: 0.05 },
   // mid tower
-  { x: 1178, w: 74, h: 208, top: 'flat',    cols: 4, rows: 14, density: 0.34, crimsonChance: 0.03 },
+  { x: 1178, w: 74, h: 258, top: 'flat',    cols: 4, rows: 14, density: 0.34, crimsonChance: 0.03 },
   // tall narrow
-  { x: 1266, w: 58, h: 278, top: 'flat',    cols: 3, rows: 18, density: 0.36, crimsonChance: 0.04 },
+  { x: 1266, w: 58, h: 346, top: 'flat',    cols: 3, rows: 18, density: 0.36, crimsonChance: 0.04 },
   // Steinway-slim
-  { x: 1338, w: 48, h: 310, top: 'tapered', cols: 3, rows: 20, density: 0.40, crimsonChance: 0.05 },
+  { x: 1338, w: 48, h: 390, top: 'tapered', cols: 3, rows: 20, density: 0.40, crimsonChance: 0.05 },
   // short block
-  { x: 1400, w: 72, h: 170, top: 'flat',    cols: 4, rows: 11, density: 0.30, crimsonChance: 0.02 },
+  { x: 1400, w: 72, h: 214, top: 'flat',    cols: 4, rows: 11, density: 0.30, crimsonChance: 0.02 },
   // last tall tower with mast
-  { x: 1486, w: 86, h: 260, top: 'mast',    cols: 5, rows: 17, density: 0.38, crimsonChance: 0.04 },
+  { x: 1486, w: 86, h: 326, top: 'mast',    cols: 5, rows: 17, density: 0.38, crimsonChance: 0.04 },
 ];
 
 /* Distant silhouette layer — simpler + shorter */
@@ -165,7 +165,7 @@ function topPath(b: Building): string {
 }
 ---
 
-<div class="nyc-skyline absolute inset-x-0 bottom-0 h-[70%] pointer-events-none select-none" aria-hidden="true">
+<div class="nyc-skyline absolute inset-x-0 bottom-0 h-[82%] pointer-events-none select-none" aria-hidden="true">
   {/* star field */}
   <div class="absolute inset-0">
     {STARS.map((s) => (
@@ -192,9 +192,17 @@ function topPath(b: Building): string {
   {/* foreground skyline with twinkling windows */}
   <svg
     class="absolute bottom-0 left-0 w-full h-auto"
-    viewBox="0 0 1600 400"
+    viewBox="0 0 1600 480"
     preserveAspectRatio="xMidYEnd slice"
   >
+    <defs>
+      <linearGradient id="nyc-horizon" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(197,165,114,0)" />
+        <stop offset="100%" stop-color="rgba(197,165,114,0.28)" />
+      </linearGradient>
+    </defs>
+    {/* soft gold horizon glow at ground level */}
+    <rect x="0" y="440" width="1600" height="40" fill="url(#nyc-horizon)" opacity="0.85" />
     {FOREGROUND.map((b, i) => (
       <g>
         {/* building silhouette */}
@@ -216,10 +224,15 @@ function topPath(b: Building): string {
     ))}
   </svg>
 
+  {/* architectural callouts — tiny monospace, blends with skyline */}
+  <div class="absolute bottom-6 right-8 text-[10px] font-mono tracking-[0.3em] text-gold-400/40 uppercase pointer-events-none">
+    Manhattan · 40.7° N
+  </div>
+
   {/* top gradient — skyline dissolves into the sky */}
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(to top, rgba(3,14,25,0) 0%, rgba(3,14,25,0.25) 45%, rgba(3,14,25,0.7) 80%, rgba(3,14,25,0.95) 100%);"
+    style="background: linear-gradient(to top, rgba(3,14,25,0) 0%, rgba(3,14,25,0.08) 35%, rgba(3,14,25,0.45) 70%, rgba(3,14,25,0.85) 100%);"
   />
 </div>
 
