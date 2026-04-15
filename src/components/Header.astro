@@ -13,8 +13,14 @@ const navLinks = [
 <header class="sticky top-0 z-40 w-full border-b border-navy-800/5 bg-[#FAFAF5]/90 backdrop-blur-xl">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5">
-        <img src="/images/logo.png" alt="PE Tech Partners" class="h-9 w-auto" />
+      <a href="/" class="flex items-center gap-2.5" aria-label="PE Tech Partners — home">
+        <span
+          aria-hidden="true"
+          class="inline-flex items-center justify-center h-9 w-9 rounded-md text-white font-bold text-sm tracking-tight"
+          style="background: linear-gradient(135deg, #BF0A30 0%, #800621 100%); box-shadow: rgba(191,10,48,0.28) 0px 4px 14px 0px, rgba(0,0,0,0.1) 0px 0px 0px 1px;"
+        >
+          PE
+        </span>
         <span class="text-lg font-medium tracking-tight text-navy-900">
           PE Tech Partners
         </span>
