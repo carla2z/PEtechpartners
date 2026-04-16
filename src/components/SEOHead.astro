@@ -36,6 +36,13 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site
 <meta name="generator" content={Astro.generator} />
 <meta name="theme-color" content="#0A2E50" />
 
+<!-- Perf: warm up the Harbor analytics origin used in <body> -->
+<link rel="preconnect" href="https://outgoing-oyster-428.convex.site" crossorigin />
+<link rel="dns-prefetch" href="https://outgoing-oyster-428.convex.site" />
+
+<!-- RSS auto-discovery -->
+<link rel="alternate" type="application/rss+xml" title="PE Tech Partners — Blog" href="/blog/rss.xml" />
+
 <!-- Geo targeting (firm HQ) -->
 <meta name="geo.region" content="US-NY" />
 <meta name="geo.placename" content="Montrose, NY" />
@@ -75,3 +82,26 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site
 {structuredData && (
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 )}
+
+<!-- Site-wide WebSite schema — enables Google sitelinks search box -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'PE Tech Partners',
+  alternateName: 'PETech Partners',
+  url: 'https://petechpartners.com',
+  publisher: {
+    '@type': 'Organization',
+    name: 'PE Tech Partners',
+    url: 'https://petechpartners.com',
+    logo: 'https://petechpartners.com/og-default.png',
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://petechpartners.com/blog?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+})} />
