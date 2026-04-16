@@ -49,6 +49,7 @@ ${postList}
 
 ## Firm Info
 
+- [LinkedIn Company Page](https://www.linkedin.com/company/petech-partners): Follow for ongoing strategy posts, deal insights, and value-creation content.
 - [Our Process](${SITE}/process): The four-phase engagement methodology — Discovery, Risk Overlay, Integration Readiness, Cost to Remediate.
 - [Common Challenges We Solve](${SITE}/challenges): The recurring technology problems we see in PE portfolios and M&A targets.
 - [Contact](${SITE}/contact): Reach Carl de Prado directly. Based in Montrose, NY. Engagements typically start with a 30-minute diagnostic call.
