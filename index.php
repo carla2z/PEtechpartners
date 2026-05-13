@@ -14,6 +14,7 @@ $year = date('Y');
 $nav_items = [
     ['href' => '#problems', 'text' => 'Challenges'],
     ['href' => '#solutions', 'text' => 'Solutions'],
+    ['href' => 'ai-consulting-private-equity-ma-advisors-northeast.php', 'text' => 'AI Consulting'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
     ['href' => 'tools.php', 'text' => 'Free Tools'],
@@ -1566,6 +1567,7 @@ $faqs = [
             <div class="image-section-text">
                 <h2>Here's How to Fix It</h2>
                 <p>Connect your deal systems, automate the busywork, and streamline everything from first outreach to signed term sheet—on your terms.</p>
+                <p>Looking specifically at AI? See our <a href="ai-consulting-private-equity-ma-advisors-northeast.php" style="color: #BF0A30; font-weight: 700;">AI consulting for PE and M&amp;A advisory firms in the Northeast</a>.</p>
                 <ul class="image-section-list">
                     <li><strong>01 Assess:</strong> Map the entire deal process—from origination to exit—to uncover where time and efficiency are lost across systems, workflows, and teams.</li>
                     <li><strong>02 Align:</strong> Integrate CRMs, data rooms, cap tables, and portfolio tools—automating CIMs, IC memos, diligence tracking, VDR downloads, and post-close reporting.</li>

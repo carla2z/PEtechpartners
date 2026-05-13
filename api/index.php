@@ -19,6 +19,7 @@ $allowed_pages = [
     'privacy.php' => 'privacy.php',
     'terms.php' => 'terms.php',
     'tools.php' => 'tools.php',
+    'ai-consulting-private-equity-ma-advisors-northeast.php' => 'ai-consulting-private-equity-ma-advisors-northeast.php',
     'blog-client-acquisition.php' => 'blog-client-acquisition.php',
     'blog-cloud-roi.php' => 'blog-cloud-roi.php',
     'blog-compliance-size.php' => 'blog-compliance-size.php',

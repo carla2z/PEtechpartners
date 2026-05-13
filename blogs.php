@@ -463,6 +463,7 @@
             </div>
 
             <div class="topic-rail" aria-label="Blog topics">
+                <a class="topic-pill" href="ai-consulting-private-equity-ma-advisors-northeast.php">AI Consulting</a>
                 <a class="topic-pill" href="blog-tech-assessment.php">Due Diligence</a>
                 <a class="topic-pill" href="blog-deal-velocity.php">Deal Velocity</a>
                 <a class="topic-pill" href="blog-value-leak.php">Value Creation</a>
