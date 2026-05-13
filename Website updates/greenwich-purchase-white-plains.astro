@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://api.leadconnectorhq.com/widget/bookings/a2zbc';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Cybersecurity & NYDFS Compliance for Greenwich, Purchase & White Plains Financial Firms',
+  description: 'Institutional-grade cybersecurity, NYDFS 23 NYCRR 500 compliance, SEC Reg S-P, and managed IT for hedge funds, RIAs, and family offices across the Westchester-Fairfield financial corridor.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'A2Z Business IT',
+    telephone: '+1-917-715-7100',
+    email: 'info@a2zbusinessit.com',
+    address: { '@type': 'PostalAddress', streetAddress: '2125 Albany Post Rd, Suite 106', addressLocality: 'Montrose', addressRegion: 'NY', postalCode: '10548', addressCountry: 'US' },
+  },
+  areaServed: [
+    { '@type': 'Place', name: 'Greenwich, CT' },
+    { '@type': 'Place', name: 'Purchase, NY' },
+    { '@type': 'Place', name: 'White Plains, NY' },
+    { '@type': 'Place', name: 'Rye, NY' },
+    { '@type': 'Place', name: 'Harrison, NY' },
+  ],
+};
+
+const stats = [
+  { value: '19+', label: 'Years of Expertise' },
+  { value: '5.0', label: 'Client Satisfaction' },
+  { value: '99.9%', label: 'Uptime Guarantee' },
+  { value: '24/7', label: 'Threat Monitoring' },
+];
+
+const risks = [
+  { title: 'Concentrated Asset Density', body: "Greenwich alone manages more hedge fund AUM per square mile than nearly any other zip code on earth. Purchase and White Plains add boutique investment firms, family offices, and corporate treasury operations. That concentration is exactly what cybercriminals scan for — high-value targets with smaller security teams than their Manhattan peers." },
+  { title: 'Dual-State Regulatory Exposure', body: 'A Greenwich firm with a Purchase or White Plains satellite office, or NY-based investors, almost always falls under NYDFS 23 NYCRR 500 in addition to Connecticut data protection law. The cybersecurity program must satisfy both, including the 2023 amendments now in full effect.' },
+  { title: 'The Executive Home Office Perimeter', body: 'Principals working from Greenwich back-country estates or Purchase residences expand the security perimeter into the home. Without enterprise-grade endpoint controls, residential networks become the soft underbelly of an otherwise hardened firm.' },
+];
+
+const complianceItems = [
+  { label: 'Multi-Factor Authentication (MFA)', body: 'Mandatory MFA for all individuals accessing internal networks, email, or systems with non-public information — fully enforced under Part 500.12.' },
+  { label: 'Asset Inventory & Management', body: 'Documented inventory of hardware, software, and data flows to satisfy Part 500.13 requirements introduced in the 2023 amendments.' },
+  { label: 'Annual Risk Assessments', body: 'Comprehensive evaluations of cybersecurity risks each year, with board-level reporting required for Class A companies under the new tier.' },
+  { label: 'Virtual CISO (vCISO) Services', body: 'Senior-level cybersecurity oversight as required by NYDFS — without the $300k+ overhead of a full-time hire on the Westchester-Fairfield payroll.' },
+];
+
+const testimonials = [
+  { quote: 'Carl received excellent ratings from our attendees. His presentation on cybersecurity compliance was thorough, practical, and accessible.', cite: 'Professional Seminar Feedback' },
+  { quote: 'Outstanding presentation on FTC regulations. Carl clearly knows his material inside and out and makes complex compliance requirements actionable.', cite: 'Compliance Workshop Participant' },
+];
+
+const services = [
+  { title: 'NYDFS-Aligned Managed IT', body: 'Total IT management built around 23 NYCRR 500 from the start — cloud migration, network optimization, 24/7 help desk, and the documentation trail your annual certification depends on.' },
+  { title: 'Business Email Compromise (BEC) Defense', body: 'Wire-fraud-via-compromised-email remains the #1 financial loss vector for hedge funds and family offices in the corridor. AI-driven email security, advanced authentication, and verified out-of-band wire procedures stop it before it reaches the inbox.' },
+  { title: 'Investor & LP Data Room Security', body: 'Secure portal architecture for sharing fund performance, subscription documents, and LP communications — with audit logs that satisfy SEC examiners and sophisticated allocators alike.' },
+  { title: 'Executive Endpoint Hardening', body: 'Enterprise endpoint protection, EDR, and managed VPN extended to principals working from Greenwich or Purchase residences. Same security posture in the home office as in the Stamford or White Plains workplace.' },
+];
+
+const serviceAreas = [
+  { label: 'Greenwich Avenue & Back Country', body: 'Hedge fund principals and family offices operating between in-town offices and high-security residential setups.' },
+  { label: 'Purchase, NY & SUNY Purchase Corridor', body: 'Wealth management firms and corporate-adjacent boutiques along Anderson Hill Road and the Westchester Avenue belt.' },
+  { label: 'White Plains Financial District', body: 'Boutique investment advisors and broker-dealers near the Westchester County Courthouse and Bank of America Plaza.' },
+  { label: 'Rye, Harrison & Larchmont', body: 'RIAs and CPAs serving high-net-worth clients along the I-95 / I-287 commute corridor.' },
+];
+
+const faqs = [
+  { q: 'Our firm is based in Greenwich, CT — does NYDFS still apply to us?', a: 'In most cases, yes — if your firm has any New York-licensed advisors, a New York satellite office, NY-based investors with non-public information stored on your systems, or you are a NY-regulated entity such as an insurance producer. We assess your specific facts and map the overlap with Connecticut data protection requirements so you only build the program once, not twice.' },
+  { q: 'How quickly can a boutique firm in Purchase or White Plains reach NYDFS Part 500 readiness?', a: 'A boutique firm of 10–40 people can typically reach full Part 500 readiness in 60–90 days, depending on the starting baseline. The longest lift is usually the documented risk assessment, the asset inventory under Part 500.13, and getting MFA enforced across legacy systems. We sequence the work so the highest-risk gaps close in the first two weeks.' },
+  { q: 'Can a Virtual CISO satisfy the senior-level oversight requirement for a small fund?', a: 'Yes. The 2023 NYDFS amendments explicitly permit a "Virtual CISO" or qualified third-party service provider to fulfill the CISO role for firms that do not need a full-time executive. For most Greenwich, Purchase, and White Plains firms under $500M AUM, a vCISO arrangement is the most defensible and cost-effective option.' },
+  { q: 'How do you protect a principal who works from a back-country Greenwich estate?', a: 'We treat the residence as a fully managed endpoint: enterprise EDR on every device, a hardware firewall on the residential circuit, a managed VPN tunnel back to the office network, MFA on all access, and isolation of personal devices from firm data. The principal gets the same security posture at home as in the office, without IT-by-spouse on weekends.' },
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://a2zbusinessit.com' },
+    { '@type': 'ListItem', position: 2, name: 'Greenwich, Purchase & White Plains', item: 'https://a2zbusinessit.com/greenwich-purchase-white-plains' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Greenwich, Purchase & White Plains Cybersecurity & NYDFS Compliance | A2Z Business IT"
+  description="Institutional cybersecurity, NYDFS 23 NYCRR 500 compliance, SEC Reg S-P, and managed IT for hedge funds, RIAs, and family offices across the Westchester-Fairfield financial corridor."
+  ogImage="/og-greenwich.png"
+  structuredData={structuredData}
+  tags={['Greenwich cybersecurity', 'Purchase NY IT', 'White Plains hedge fund IT', 'NYDFS compliance', 'family office cybersecurity']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="relative bg-[#0A1323] text-white overflow-hidden">
+    <img src="/images/heroes/hero-greenwich.jpg" alt="Greenwich Avenue financial district at dusk with corporate office towers" class="absolute inset-0 w-full h-full object-cover opacity-45" loading="eager" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0A1323] via-[#0A1323]/85 to-[#0A1323]/40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium text-[#0D9488] mb-3">Greenwich, CT &middot; Purchase &amp; White Plains, NY</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-5">
+          Cybersecurity &amp; NYDFS Compliance for the Westchester &ndash; Fairfield Financial Corridor
+        </h1>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
+          Institutional-grade security, NYDFS 23 NYCRR 500 readiness, and managed IT for hedge funds, RIAs, family offices, and boutique investment firms operating between Greenwich, Purchase, and White Plains.
+        </p>
+        <a href={bookingUrl} class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-zinc-900 bg-white rounded-xl hover:bg-zinc-100 active:scale-[0.98] transition-all">
+          Schedule Your Free Security Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#B22234]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {stats.map((s) => (
+          <div>
+            <div class="text-4xl md:text-5xl font-bold tracking-tighter mb-1">{s.value}</div>
+            <p class="text-xs uppercase tracking-wider text-red-100">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-medium text-[#B22234] mb-3">Local Expertise</p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Securing the Highest Concentration of Asset Management in the Tri-State Area</h2>
+      <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      <div class="space-y-5 text-lg text-zinc-600 leading-relaxed">
+        <p>The corridor from Greenwich through Purchase and into White Plains is one of the densest concentrations of hedge funds, family offices, and boutique RIAs anywhere in the world. Principals routinely operate across two states, three offices, and a residential workspace — all in the same week. The data flowing through those endpoints is among the most sensitive in modern finance.</p>
+        <p>At <strong class="text-zinc-900">A2Z Business IT</strong>, we build cybersecurity programs that match the regulatory exposure of NY-based firms with the operational style of Fairfield County. With 19+ years of experience inside the financial and legal sectors, we deliver the strategic infrastructure these firms need to "Run Your Business Fearlessly."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Unique Risks</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Why Firms in the Greenwich Corridor Face Unique Risk</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {risks.map((r) => (
+          <div class="rounded-2xl bg-white border border-zinc-200 p-8 hover:border-[#B22234]/30 hover:shadow-lg hover:shadow-[#B22234]/5 transition-all">
+            <h3 class="text-xl font-bold text-zinc-900 mb-3">{r.title}</h3>
+            <p class="text-zinc-600 leading-relaxed">{r.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Compliance Frameworks</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Cross-Border Compliance Built Around NYDFS, SEC, and FINRA</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg text-zinc-600 leading-relaxed">A Greenwich firm with NY exposure typically has more regulators watching than a pure-Manhattan peer. We build one program that satisfies them all.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl bg-[#1B2A4A] text-white p-8 lg:p-10">
+          <h3 class="text-2xl font-bold mb-4">NYDFS 23 NYCRR 500 (2023 Amendments)</h3>
+          <p class="text-slate-300 leading-relaxed mb-6">The 2023 amendments raised the floor materially: documented asset inventories, board-level cyber reporting for Class A companies, and a tightened MFA mandate. We deliver the program and the documentation trail your annual certification depends on:</p>
+          <ul class="space-y-4">
+            {complianceItems.map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#0D9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2.5}>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <div>
+                  <span class="font-semibold text-white">{item.label}:</span>
+                  <span class="text-slate-300"> {item.body}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white border border-zinc-200 p-8 lg:p-10">
+          <h3 class="text-2xl font-bold text-zinc-900 mb-4">SEC Reg S-P, Reg S-ID &amp; FINRA Rule 3110</h3>
+          <p class="text-zinc-600 leading-relaxed mb-5">For RIAs and broker-dealers, the SEC treats cybersecurity as a fiduciary duty. Reg S-P amendments now require written incident response programs, customer notification within 30 days, and documented third-party risk management.</p>
+          <p class="text-zinc-600 leading-relaxed">We implement Written Supervisory Procedures (WSPs), tested incident response runbooks, and the vendor due diligence required to defend your program in an SEC exam or a Form ADV update.</p>
+          <div class="mt-8 pt-8 border-t border-zinc-200">
+            <a href="/services/cybersecurity" class="inline-flex items-center text-sm font-medium text-[#B22234]">
+              Explore our cybersecurity services
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-[#1B2A4A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#0D9488] mb-3">Trusted Voices</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-3">Trusted by Financial Professionals</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map((t) => (
+          <figure class="rounded-2xl bg-[#111C33] border border-slate-700 p-8 lg:p-10">
+            <svg class="w-8 h-8 text-[#0D9488] mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+            </svg>
+            <blockquote class="text-lg text-slate-200 leading-relaxed mb-5">"{t.quote}"</blockquote>
+            <figcaption class="text-sm text-slate-400">&mdash; {t.cite}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Core Solutions</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Core Solutions for Hedge Funds, RIAs &amp; Family Offices</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {services.map((s) => (
+          <div class="rounded-2xl bg-white border border-zinc-200 p-8 lg:p-10 hover:border-[#B22234]/30 hover:shadow-lg hover:shadow-[#B22234]/5 transition-all">
+            <h3 class="text-xl font-bold text-zinc-900 mb-3">{s.title}</h3>
+            <p class="text-zinc-600 leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Service Area</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Serving the Greenwich, Purchase &amp; White Plains Financial Corridor</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg text-zinc-600 leading-relaxed">A2Z Business IT is headquartered in Montrose, NY, with engineers regularly on-site across the corridor. We work directly with firms operating near:</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {serviceAreas.map((a) => (
+          <div class="flex items-start gap-4 rounded-2xl bg-white border border-zinc-200 p-6 lg:p-8">
+            <div class="w-10 h-10 rounded-full bg-[#B22234]/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-[#B22234]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={1.75}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-1">{a.label}</h3>
+              <p class="text-sm text-zinc-600 leading-relaxed">{a.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Frequently Asked</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Common Questions from Hedge Funds, RIAs &amp; Family Offices</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <details class="group rounded-2xl bg-white border border-zinc-200 p-6 lg:p-8 open:shadow-lg open:shadow-[#B22234]/5 open:border-[#B22234]/30 transition-all">
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
+              <h3 class="text-lg font-bold text-zinc-900">{f.q}</h3>
+              <svg class="w-5 h-5 text-[#B22234] shrink-0 mt-1 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-zinc-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-[#1B2A4A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-4">Run Your Fund Fearlessly</h2>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">Schedule a free 30-minute consultation. We'll assess your current cybersecurity posture against NYDFS, SEC Reg S-P, and your investor due-diligence expectations — and give you a prioritized path to readiness.</p>
+      <a href={bookingUrl} class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-zinc-900 bg-white rounded-xl hover:bg-zinc-100 active:scale-[0.98] transition-all mb-10">
+        Schedule Free Consultation
+      </a>
+      <div class="pt-10 border-t border-slate-700 text-slate-400 space-y-2">
+        <p class="font-semibold text-white">A2Z Business IT</p>
+        <p>2125 Albany Post Rd, Suite 106, Montrose, NY 10548</p>
+        <p>Phone: <a href="tel:+19177157100" class="text-white hover:text-[#0D9488] transition-colors">(917) 715-7100</a> <span class="mx-2 text-slate-600">|</span> Email: <a href="mailto:info@a2zbusinessit.com" class="text-white hover:text-[#0D9488] transition-colors">info@a2zbusinessit.com</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

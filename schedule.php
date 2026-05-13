@@ -51,9 +51,11 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'calculator.php', 'text' => 'Your Hidden Software Graveyard']
+    ['href' => 'schedule.php', 'text' => 'Secure a Strategic Debrief']
 ];
+$year = date('Y');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -367,10 +369,67 @@ $nav_items = [
         }
 
         /* Mobile Responsive */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 280px;
+            height: 100%;
+            background: #0A2E50;
+            padding: 72px 24px 24px;
+            z-index: 1002;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav-drawer.active { transform: translateX(0); }
+        .mobile-nav-overlay.active { display: block; }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: none; border: none;
+            color: white; font-size: 28px;
+            cursor: pointer; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .mobile-nav-drawer a {
+            color: white; text-decoration: none;
+            font-weight: 600; font-size: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-drawer a:hover { color: #87CEEB; }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .hamburger-btn { display: flex; }
 
             .schedule-header h1 {
                 font-size: 2rem;
@@ -419,8 +478,17 @@ $nav_items = [
                     </li>
                 <?php endforeach; ?>
             </ul>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">&#9776;</button>
         </nav>
     </header>
+
+    <div class="mobile-nav-overlay" id="navOverlay"></div>
+    <div class="mobile-nav-drawer" id="navDrawer">
+        <button class="mobile-nav-close" id="navClose" aria-label="Close menu">&times;</button>
+        <?php foreach ($nav_items as $item): ?>
+            <a href="<?= htmlspecialchars($item['href']) ?>"><?= htmlspecialchars($item['text']) ?></a>
+        <?php endforeach; ?>
+    </div>
 
     <div class="schedule-container">
         <div class="schedule-header">
@@ -455,7 +523,7 @@ $nav_items = [
                 <p style="margin-bottom: 12px;"><strong>PE Tech Partners</strong></p>
                 <p style="margin-bottom: 8px;">2125 Albany Post Rd Suite 106<br>Montrose, NY 10548</p>
                 <p style="margin-bottom: 12px;">Phone: 917-715-7100</p>
-                <p>&copy; 2025 PE Tech Partners. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> PE Tech Partners. All rights reserved.</p>
             </div>
             <div style="text-align: right;">
                 <p style="margin-bottom: 8px;"><a href="terms.php" style="color: #87CEEB; text-decoration: none;">Terms of Service</a></p>
@@ -466,5 +534,17 @@ $nav_items = [
     </footer>
 
     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navOverlay   = document.getElementById('navOverlay');
+        const navDrawer    = document.getElementById('navDrawer');
+        const navClose     = document.getElementById('navClose');
+        function openNav()  { navDrawer.classList.add('active'); navOverlay.classList.add('active'); }
+        function closeNav() { navDrawer.classList.remove('active'); navOverlay.classList.remove('active'); }
+        hamburgerBtn.addEventListener('click', openNav);
+        navClose.addEventListener('click', closeNav);
+        navOverlay.addEventListener('click', closeNav);
+        navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    </script>
 </body>
 </html>

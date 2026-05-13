@@ -374,8 +374,9 @@
                 <a href="index.php#solutions">Solutions</a>
                 <a href="process.php">Our Process</a>
                 <a href="blogs.php">Blog</a>
+                <a href="tools.php">Free Tools</a>
                 <a href="testimonials.php">Testimonials</a>
-                <a href="calculator.php">Your Hidden Software Graveyard</a>
+                <a href="schedule.php">Secure a Strategic Debrief</a>
             </nav>
         </div>
     </header>
@@ -384,12 +385,31 @@
         <div class="container">
             <h1>Insights & Intelligence</h1>
             <p>Expert perspectives on private equity technology integration, M&A best practices, and operational excellence.</p>
+            <p style="margin-top: 16px;">
+                <a href="tools.php" class="read-more" style="font-size: 17px;">Try Our Free PE & M&A Tools →</a>
+            </p>
         </div>
     </section>
 
     <section class="blog-section">
         <div class="container">
             <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="attached_assets/stock_images/technology_integrati_141ff25d.jpg" alt="PE and M&A free tools">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Free Tools</span>
+                            <span>•</span>
+                            <span>Interactive</span>
+                        </div>
+                        <h3>Free PE & M&A Calculators: Delay Cost, Automation ROI, and Software Waste</h3>
+                        <p class="blog-excerpt">Run quick numbers for diligence drag, analyst automation upside, and stack overlap. Built to help deal teams prioritize high-ROI tech moves.</p>
+                        <a href="tools.php" class="read-more">Open Tools Hub →</a>
+                    </div>
+                </div>
+
                 <div class="blog-card">
                     <div class="blog-image">
                         <img src="attached_assets/stock_images/business_technology__2b5cb298.jpg" alt="IT Complexity">
@@ -653,7 +673,8 @@
         <div class="container">
             <h2>Ready to Discuss Your Tech Strategy?</h2>
             <p>Book a confidential alignment assessment and discover how we help PE firms turn technology into a competitive advantage.</p>
-            <a href="schedule.php" class="btn btn-primary">Schedule Your Assessment</a>
+            <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
+            <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 12px; font-style: italic;">No cost. No pressure. High clarity.</p>
         </div>
     </section>
 
@@ -663,7 +684,7 @@
                 <p style="margin-bottom: 12px;"><strong>PE Tech Partners</strong></p>
                 <p style="margin-bottom: 8px;">2125 Albany Post Rd Suite 106<br>Montrose, NY 10548</p>
                 <p style="margin-bottom: 12px;">Phone: 917-715-7100</p>
-                <p>&copy; 2025 PE Tech Partners. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> PE Tech Partners. All rights reserved.</p>
             </div>
             <div style="text-align: right;">
                 <p style="margin-bottom: 8px;"><a href="terms.php" style="color: #87CEEB; text-decoration: none;">Terms of Service</a></p>

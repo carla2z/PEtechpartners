@@ -9,8 +9,9 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'schedule.php', 'text' => 'Storm the Data Room']
+    ['href' => 'schedule.php', 'text' => 'Secure a Strategic Debrief']
 ];
 ?>
 <!DOCTYPE html>
@@ -286,12 +287,13 @@ $nav_items = [
 
     <footer>
         <div class="footer-content">
-            <a href="index.php#offer" class="btn btn-primary">Secure a Strategic Debrief</a>
+            <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
+            <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 8px; font-style: italic;">No cost. No pressure. High clarity.</p>
         </div>
     </footer>
 
     <div class="slide-tab">
-        <a href="index.php#offer" class="slide-tab-button">BOOK NOW</a>
+        <a href="schedule.php" class="slide-tab-button">BOOK NOW</a>
     </div>
 </body>
 </html>

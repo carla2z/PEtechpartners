@@ -5,6 +5,7 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
     ['href' => 'schedule.php', 'text' => 'Storm the Data Room']
 ];

@@ -54,6 +54,7 @@
                 <a href="index.php#solutions">Solutions</a>
                 <a href="process.php">Our Process</a>
                 <a href="blogs.php">Blog</a>
+                <a href="tools.php">Free Tools</a>
                 <a href="schedule.php">Storm the Data Room</a>
             </nav>
         </div>

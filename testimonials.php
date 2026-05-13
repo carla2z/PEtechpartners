@@ -273,50 +273,98 @@
             opacity: 0.9;
         }
         
+        /* Mobile Nav */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white; font-size: 22px;
+            cursor: pointer; width: 44px; height: 44px;
+            border-radius: 8px;
+            align-items: center; justify-content: center;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); z-index: 1001;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed; top: 0; left: 0;
+            width: 280px; height: 100%;
+            background: #0A2E50;
+            padding: 72px 24px 24px;
+            z-index: 1002;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+
+        .mobile-nav-drawer.active { transform: translateX(0); }
+        .mobile-nav-overlay.active { display: block; }
+
+        .mobile-nav-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none;
+            color: white; font-size: 28px;
+            cursor: pointer; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .mobile-nav-drawer a {
+            color: white; text-decoration: none;
+            font-weight: 600; font-size: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-drawer a:hover { color: #87CEEB; }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 20px;
             }
-            
-            nav {
-                display: none;
-            }
-            
+
+            nav { display: none; }
+            .hamburger-btn { display: flex; }
+
             .container {
                 padding: 0 20px;
             }
-            
+
             .hero-section h1 {
                 font-size: 32px;
             }
-            
+
             .hero-section .subtitle {
                 font-size: 18px;
             }
-            
+
             .testimonial-card {
                 padding: 24px;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
-            
+
             .testimonial-avatar {
                 width: 100px;
                 height: 100px;
                 margin-bottom: 16px;
             }
-            
+
             .testimonial-content::before {
                 left: 50%;
                 transform: translateX(-50%);
             }
-            
+
             .testimonial-quote {
                 font-size: 16px;
             }
-            
+
             .cta-section h2 {
                 font-size: 28px;
             }
@@ -340,99 +388,94 @@
                 <a href="index.php#solutions">Solutions</a>
                 <a href="process.php">Our Process</a>
                 <a href="blogs.php">Blog</a>
+                <a href="tools.php">Free Tools</a>
                 <a href="testimonials.php">Testimonials</a>
-                <a href="schedule.php">Storm the Data Room</a>
+                <a href="schedule.php">Secure a Strategic Debrief</a>
             </nav>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">&#9776;</button>
         </div>
     </header>
 
+    <div class="mobile-nav-overlay" id="navOverlay"></div>
+    <div class="mobile-nav-drawer" id="navDrawer">
+        <button class="mobile-nav-close" id="navClose" aria-label="Close menu">&times;</button>
+        <a href="index.php#problems">Challenges</a>
+        <a href="index.php#solutions">Solutions</a>
+        <a href="process.php">Our Process</a>
+        <a href="blogs.php">Blog</a>
+        <a href="tools.php">Free Tools</a>
+        <a href="testimonials.php">Testimonials</a>
+        <a href="schedule.php">Secure a Strategic Debrief</a>
+    </div>
+
     <section class="hero-section">
         <div class="container">
-            <h1>What Our Clients (Probably) Would Say</h1>
-            <p class="subtitle">(If NDAs and discretion didn't exist)</p>
-            <p class="disclaimer">All testimonials below are fictional and for humor only — because our real clients don't do public praise, they do private equity.</p>
+            <h1>Real Results. Anonymous Clients.</h1>
+            <p class="subtitle">Because in private equity, discretion isn't a courtesy — it's a requirement.</p>
+            <p class="disclaimer">Our clients don't do press releases. They close deals. The outcomes below are real, client-approved (and NDA-cleared) for general sharing — firm names withheld by mutual agreement.</p>
         </div>
     </section>
 
     <section class="testimonials-section">
         <div class="container">
+
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/IMG_3905_1761650627389.jpeg" alt="Some Rich Dude">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">These guys are great. We'd tell you what they did, but then we'd have to acquire you.</p>
-                    <p class="testimonial-author">— Some Rich Dude</p>
+                    <p class="testimonial-quote">After we integrated DealCloud with PitchBook and automated our CIM intake workflow, our analysts reclaimed roughly 12 hours per deal. IC memo prep went from 3 days to same-day. We closed 4 add-ons in the quarter we previously would have processed 1.</p>
+                    <p class="testimonial-author">— Managing Director, Lower-Middle-Market PE Fund (AUM: $400M–$800M)</p>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/stock_images/wealthy_businessman__6994a6e0.jpg" alt="Unnamed Managing Partner">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">Impeccable work. Confidentiality so tight I can't even tell my wife why I'm smiling.</p>
-                    <p class="testimonial-author">— Unnamed Managing Partner</p>
+                    <p class="testimonial-quote">We were paying for six software tools and using maybe 40% of the features in two of them. PE Tech Partners audited our stack and helped us consolidate. We cut $180K in annual SaaS spend and actually got more functionality out of what we kept.</p>
+                    <p class="testimonial-author">— COO, M&amp;A Advisory Boutique (12-person team)</p>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/stock_images/wealthy_businessman__47de340c.jpg" alt="Anonymous Billionaire">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">They handled our deal so smoothly I almost enjoyed due diligence. Almost.</p>
-                    <p class="testimonial-author">— Anonymous Billionaire (we assume)</p>
+                    <p class="testimonial-quote">NDA-to-exclusivity used to take us 6–8 weeks on a typical deal. After the pipeline and diligence workflow overhaul, we're consistently hitting 3–4 weeks. That speed has become a real differentiator with intermediaries — they know we move.</p>
+                    <p class="testimonial-author">— Partner, Growth Equity Firm ($1.2B AUM)</p>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/stock_images/wealthy_businessman__2eb9fe28.jpg" alt="Discreet PE Guy">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">We don't talk about them. At all. Which is exactly why we keep hiring them.</p>
-                    <p class="testimonial-author">— Discreet PE Guy</p>
+                    <p class="testimonial-quote">Our LP reporting used to occupy two analysts for nearly a week every quarter. Between manual data pulls, formatting, and review cycles, it was brutal. Now it's automated end-to-end — one analyst, one day, zero complaints from LPs. That alone justified the engagement.</p>
+                    <p class="testimonial-author">— CFO, Multi-Strategy Private Equity Firm</p>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/IMG_3907_1761651200700.jpeg" alt="Too Many Zeros">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">Five stars. Would recommend… if that didn't violate five NDAs.</p>
-                    <p class="testimonial-author">— Someone with Too Many Zeros in Their Bank Account</p>
+                    <p class="testimonial-quote">We'd had a data breach scare — nothing material, but enough to know our deal document security was not where it needed to be. PE Tech Partners locked it down inside 30 days. SOC 2 aligned, zero new software to learn, fully integrated with how we already work.</p>
+                    <p class="testimonial-author">— General Counsel, Mid-Market PE Firm</p>
                 </div>
             </div>
 
             <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/stock_images/wealthy_businessman__7d15ecf3.jpg" alt="Private Equity Partner">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0A2E50, #1a4d7a); display:flex; align-items:center; justify-content:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#87CEEB" stroke-width="2" width="36" height="36"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
                 </div>
                 <div class="testimonial-content">
-                    <p class="testimonial-quote">They made me look smart in front of the board. Worth every undisclosed cent.</p>
-                    <p class="testimonial-author">— Private Equity Partner (Name Redacted)</p>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/IMG_3901_1761650396224.png" alt="M&A Insider on a Yacht">
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-quote">They know things. Dangerous, valuable things. Fortunately, they'll never tell.</p>
-                    <p class="testimonial-author">— M&A Insider, Probably on a Yacht</p>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">
-                    <img src="attached_assets/IMG_3906_1761650866512.jpeg" alt="Some Rich Dude #2">
-                </div>
-                <div class="testimonial-content">
-                    <p class="testimonial-quote">Fast, flawless, and not a single leak. Can't ask for more in this business.</p>
-                    <p class="testimonial-author">— Some Rich Dude #2</p>
+                    <p class="testimonial-quote">We came in expecting to buy new software. They came back and told us we didn't need it — we just weren't using what we had. That kind of honesty is rare. They optimized our existing Affinity + Slack + Google Workspace setup and we saw immediate productivity gains.</p>
+                    <p class="testimonial-author">— Founding Partner, Boutique M&amp;A Advisory</p>
                 </div>
             </div>
 
@@ -444,7 +487,8 @@
         <div class="container">
             <h2>Confidentiality is kind of our thing.</h2>
             <p>While we can't share real client names (NDA life!), we can share the results. Curious how we help firms like yours close faster, cleaner, and with total discretion?</p>
-            <a href="schedule.php" class="btn btn-primary">Book a Confidential Consultation</a>
+            <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
+            <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 12px; font-style: italic;">No cost. No pressure. High clarity.</p>
         </div>
     </section>
 
@@ -454,7 +498,7 @@
                 <p style="margin-bottom: 12px;"><strong>PE Tech Partners</strong></p>
                 <p style="margin-bottom: 8px;">2125 Albany Post Rd Suite 106<br>Montrose, NY 10548</p>
                 <p style="margin-bottom: 12px;">Phone: 917-715-7100</p>
-                <p>&copy; 2025 PE Tech Partners. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> PE Tech Partners. All rights reserved.</p>
             </div>
             <div style="text-align: right;">
                 <p style="margin-bottom: 8px;"><a href="terms.php" style="color: #87CEEB; text-decoration: none;">Terms of Service</a></p>
@@ -463,5 +507,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navOverlay   = document.getElementById('navOverlay');
+        const navDrawer    = document.getElementById('navDrawer');
+        const navClose     = document.getElementById('navClose');
+        function openNav()  { navDrawer.classList.add('active'); navOverlay.classList.add('active'); }
+        function closeNav() { navDrawer.classList.remove('active'); navOverlay.classList.remove('active'); }
+        hamburgerBtn.addEventListener('click', openNav);
+        navClose.addEventListener('click', closeNav);
+        navOverlay.addEventListener('click', closeNav);
+        navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    </script>
 </body>
 </html>

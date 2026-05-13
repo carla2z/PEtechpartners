@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrative Workload Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a2e50;
+      --slate: #13283d;
+      --sky: #87ceeb;
+      --sky-deep: #57a9ca;
+      --paper: #ffffff;
+      --mist: #f3f8fc;
+      --cloud: #e4edf4;
+      --text: #183248;
+      --muted: #66798d;
+      --success: #1faa59;
+      --warning: #d99100;
+      --danger: #d94352;
+      --shadow: 0 20px 45px rgba(10, 46, 80, 0.1);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(135, 206, 235, 0.24), transparent 24%),
+        linear-gradient(180deg, #f8fbfe 0%, #edf4f8 100%);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1420px, calc(100% - 28px));
+      margin: 20px auto 40px;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(10, 46, 80, 0.98), rgba(19, 40, 61, 0.95)),
+        var(--navy);
+      color: white;
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -80px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(135, 206, 235, 0.26), transparent 60%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 24px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2.3rem, 4vw, 4.3rem);
+      line-height: 1.02;
+      max-width: 11ch;
+      margin-top: 14px;
+    }
+
+    .hero-copy {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.65;
+      max-width: 64ch;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .glass,
+    .task-card,
+    .timeline-card,
+    .service-card,
+    .editor-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card {
+      padding: 18px;
+    }
+
+    .stat-card span {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.92rem;
+      display: block;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 2rem;
+    }
+
+    .capacity {
+      padding: 22px;
+    }
+
+    .capacity h2 {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 16px;
+    }
+
+    .capacity-bar {
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.14);
+      margin: 12px 0 10px;
+    }
+
+    .capacity-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #f7b733 0%, #e63946 100%);
+    }
+
+    .capacity-notes {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .capacity-note {
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .capacity-note small {
+      display: block;
+      color: rgba(255, 255, 255, 0.74);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(10, 46, 80, 0.05);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-head p {
+      margin-top: 8px;
+      color: var(--muted);
+      max-width: 68ch;
+      line-height: 1.6;
+    }
+
+    .pill-row,
+    .task-top,
+    .task-meta,
+    .service-meta,
+    .timeline-meta,
+    .toolbar-actions,
+    .editor-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill,
+    .badge,
+    .priority,
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill {
+      background: var(--mist);
+      color: var(--muted);
+    }
+
+    .pill::before,
+    .status::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .summary-grid,
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .summary-card,
+    .service-card,
+    .editor-panel {
+      padding: 18px;
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      background: linear-gradient(180deg, #fbfdff 0%, #f4f9fc 100%);
+      color: var(--text);
+    }
+
+    .summary-card strong,
+    .service-card strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--navy);
+      margin: 10px 0 4px;
+    }
+
+    .summary-card p,
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .editor-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 18px;
+    }
+
+    .editor-panel h3 {
+      margin-bottom: 8px;
+    }
+
+    .editor-panel p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(10, 46, 80, 0.12);
+      background: white;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text);
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
+    .range-wrap {
+      display: grid;
+      gap: 8px;
+    }
+
+    .range-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .range-output {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--navy);
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--sky-deep);
+      box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.2);
+    }
+
+    .button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 16px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .button.primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .button.secondary {
+      background: var(--mist);
+      color: var(--navy);
+    }
+
+    .button.ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(10, 46, 80, 0.12);
+    }
+
+    .button.danger {
+      background: rgba(217, 67, 82, 0.1);
+      color: var(--danger);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      max-height: 420px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .mini-item {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      background: white;
+    }
+
+    .mini-item.active {
+      border-color: var(--sky-deep);
+      box-shadow: 0 0 0 4px rgba(135, 206, 235, 0.18);
+    }
+
+    .mini-item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .mini-item small {
+      color: var(--muted);
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.2fr auto auto auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .search,
+    .toolbar select {
+      border-radius: 999px;
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      background: var(--mist);
+      min-height: 50px;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px;
+    }
+
+    .search input,
+    .toolbar select {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .task-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      box-shadow: 0 14px 28px rgba(10, 46, 80, 0.06);
+      padding: 20px;
+      color: var(--text);
+      display: grid;
+      gap: 16px;
+    }
+
+    .task-card h3 {
+      font-size: 1.12rem;
+      line-height: 1.3;
+      margin-top: 8px;
+    }
+
+    .task-card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .badge {
+      background: rgba(10, 46, 80, 0.06);
+      color: var(--navy);
+    }
+
+    .status {
+      background: #eff8ff;
+      color: var(--sky-deep);
+    }
+
+    .status.warning {
+      background: #fff7e6;
+      color: var(--warning);
+    }
+
+    .status.danger {
+      background: #fff1f3;
+      color: var(--danger);
+    }
+
+    .priority {
+      background: rgba(247, 183, 51, 0.16);
+      color: #996300;
+    }
+
+    .priority.high {
+      background: rgba(217, 67, 82, 0.12);
+      color: var(--danger);
+    }
+
+    .progress {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--cloud);
+    }
+
+    .progress > div {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--sky) 0%, var(--navy) 100%);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      background: var(--mist);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .metric strong {
+      font-size: 1.05rem;
+    }
+
+    .task-footer {
+      border-top: 1px solid rgba(10, 46, 80, 0.08);
+      padding-top: 12px;
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 24px;
+      border: 1px dashed rgba(10, 46, 80, 0.18);
+      border-radius: 18px;
+      text-align: center;
+      color: var(--muted);
+      background: var(--mist);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-card {
+      display: grid;
+      grid-template-columns: 120px 14px 1fr;
+      gap: 18px;
+      padding: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfe 100%);
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      color: var(--text);
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .timeline-node {
+      position: relative;
+    }
+
+    .timeline-node::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--navy);
+      box-shadow: 0 0 0 5px rgba(135, 206, 235, 0.2);
+    }
+
+    .timeline-node::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 6px;
+      width: 2px;
+      height: calc(100% + 22px);
+      background: linear-gradient(180deg, rgba(10, 46, 80, 0.24), rgba(135, 206, 235, 0.24));
+    }
+
+    .timeline-card:last-child .timeline-node::after {
+      display: none;
+    }
+
+    .timeline-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .callout {
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      background: linear-gradient(90deg, rgba(135, 206, 235, 0.12), rgba(10, 46, 80, 0.06));
+      border: 1px solid rgba(10, 46, 80, 0.08);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 1180px) {
+      .hero-grid,
+      .summary-grid,
+      .service-grid,
+      .editor-layout,
+      .task-grid,
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 18px, 100%);
+        margin-top: 10px;
+      }
+
+      .hero,
+      .section {
+        padding: 20px;
+      }
+
+      .hero-stats,
+      .field-grid,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-card {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-node {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .button,
+      .editor-panel,
+      .toolbar {
+        display: none;
+      }
+
+      .hero,
+      .section,
+      .task-card,
+      .timeline-card,
+      .summary-card,
+      .service-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Admin Capacity Overview</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Administrative capacity across active departmental priorities.</h1>
+          <p class="hero-copy">
+            This dashboard gives leadership a current view of work already in motion, remaining capacity, and the
+            tradeoffs required when new requests are introduced. It is intended to support realistic planning,
+            cleaner prioritization, and more sustainable timelines across departments.
+          </p>
+          <div class="hero-stats">
+            <div class="glass stat-card">
+              <span>Active projects</span>
+              <strong id="visibleCount">0</strong>
+            </div>
+            <div class="glass stat-card">
+              <span>Departments supported</span>
+              <strong id="departmentCount">0</strong>
+            </div>
+            <div class="glass stat-card">
+              <span>Project hours available per day</span>
+              <strong id="dailyHoursDisplay">1-2 hrs</strong>
+              <span style="margin-top: 6px;">Weekly capacity used: <strong id="capacityUsed" style="font-size: 1rem; display: inline; margin: 0;">0%</strong></span>
+            </div>
+            <div class="glass stat-card">
+              <span>Next realistic start for new work</span>
+              <strong id="nextStartDisplay">Now</strong>
+              <span id="nextStartSubnote" style="margin-top: 6px;">Based on current commitments and available project time.</span>
+            </div>
+          </div>
+        </div>
+        <aside class="glass capacity">
+          <h2>Current Weekly Capacity</h2>
+          <div class="pill-row">
+            <span class="pill" id="capacityLabel" style="color: var(--success);">Capacity available</span>
+            <span class="pill">Use this before committing to new work</span>
+          </div>
+          <div class="capacity-bar">
+            <div class="capacity-fill" id="capacityFill" style="width: 0%;"></div>
+          </div>
+          <strong id="capacityNote">No workload entered yet.</strong>
+          <div class="capacity-notes">
+            <div class="capacity-note">
+              <strong>How this helps</strong>
+              <small>Department heads can see what is already committed and why new work may need a later date or a tradeoff.</small>
+            </div>
+            <div class="capacity-note">
+              <strong>Daily availability reality</strong>
+              <small id="dailyHoursNote">Project work is typically limited to 1 to 2 hours per day after daily operational duties are covered.</small>
+            </div>
+            <div class="capacity-note">
+              <strong>Interruption risk</strong>
+              <small id="interruptionNote">If the admin is pulled into urgent operational support, project work may pause and timelines should shift accordingly.</small>
+            </div>
+            <div class="capacity-note">
+              <strong>New work can realistically begin</strong>
+              <small id="nextStartNote">A new request can start now if no higher-priority interruption occurs.</small>
+            </div>
+            <div class="capacity-note">
+              <strong>Planning rule</strong>
+              <small>If a request must move faster, something else should move back. The workload should be reprioritized openly, not absorbed silently.</small>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Quick Update Panel</h2>
+            <p>
+              This is the admin-facing editing area. Add a new request, update an existing item, or clear the form
+              to start fresh. Changes are saved automatically in the browser on this computer.
+            </p>
+          </div>
+          <div class="editor-actions">
+            <button class="button secondary" id="loadSamplesButton" type="button">Load Sample Data</button>
+            <button class="button ghost" id="resetStorageButton" type="button">Reset Saved Data</button>
+          </div>
+        </div>
+        <div class="editor-layout">
+          <div class="editor-panel">
+            <h3>Edit Work Item</h3>
+            <p id="formModeLabel">Adding a new work item.</p>
+            <form id="taskForm">
+              <input type="hidden" id="taskId">
+              <div class="field-grid">
+                <div class="field">
+                  <label for="taskDepartment">Department</label>
+                  <select id="taskDepartment" required>
+                    <option value="">Select department</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Finance">Finance</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Leadership">Leadership</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="taskRequester">Requested By</label>
+                  <input id="taskRequester" type="text" placeholder="Name or team" required>
+                </div>
+                <div class="field full">
+                  <label for="taskTitle">Project or Request Name</label>
+                  <input id="taskTitle" type="text" placeholder="Example: Month-End Close Coordination" required>
+                </div>
+                <div class="field full">
+                  <label for="taskDescription">Description</label>
+                  <textarea id="taskDescription" placeholder="Describe what support is being provided." required></textarea>
+                </div>
+                <div class="field">
+                  <label for="taskStatus">Status</label>
+                  <select id="taskStatus" required>
+                    <option value="On Track">On Track</option>
+                    <option value="Needs Coordination">Needs Coordination</option>
+                    <option value="Deadline Pressure">Deadline Pressure</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="taskPriority">Priority Label</label>
+                  <select id="taskPriority" required>
+                    <option value="Low lift">Low lift</option>
+                    <option value="Medium priority">Medium priority</option>
+                    <option value="High priority">High priority</option>
+                    <option value="Recurring">Recurring</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="taskCompletion">Completion %</label>
+                  <div class="range-wrap">
+                    <div class="range-head">
+                      <span>Drag to update progress</span>
+                      <span class="range-output" id="taskCompletionValue">50%</span>
+                    </div>
+                    <input id="taskCompletion" type="range" min="0" max="100" value="50" step="1" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="taskDueDate">Due Date</label>
+                  <input id="taskDueDate" type="date" required>
+                </div>
+                <div class="field full">
+                  <label for="taskCurrentAsk">Current Ask</label>
+                  <input id="taskCurrentAsk" type="text" placeholder="What needs to happen right now?" required>
+                </div>
+                <div class="field full">
+                  <label for="taskDependency">Dependency / Risk</label>
+                  <input id="taskDependency" type="text" placeholder="What could delay this?" required>
+                </div>
+              </div>
+              <div class="editor-actions" style="margin-top: 16px;">
+                <button class="button primary" type="submit" id="saveTaskButton">Save Work Item</button>
+                <button class="button ghost" type="button" id="clearFormButton">Clear Form</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="editor-panel">
+            <h3>Current Work List</h3>
+            <p>Select an item to edit it. The admin can keep this list current in a few seconds before meetings.</p>
+            <div class="mini-list" id="miniList"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Workload Summary</h2>
+            <p>
+              This updates automatically from the work items below. It gives leadership a simple view of demand,
+              number of departments supported, and the current level of deadline pressure.
+            </p>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h3>Requests in progress</h3>
+            <strong id="summaryRequests">0</strong>
+            <p>All open work currently being handled by the admin across teams.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Departments requesting support</h3>
+            <strong id="summaryDepartments">0</strong>
+            <p>Shows how many groups are drawing on the same administrative capacity.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Items needing follow-up</h3>
+            <strong id="summaryCoordination">0</strong>
+            <p>Tasks that require cross-team coordination and reduce uninterrupted execution time.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Items under deadline pressure</h3>
+            <strong id="summaryPressure">0</strong>
+            <p>Use this to show when new urgent work would create an overload problem.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Operating Constraints</h2>
+            <p>
+              These are the practical limits leadership should account for before assigning new project deadlines.
+              Project support does not happen in a full-time vacuum. It happens around daily responsibilities and reactive support needs.
+            </p>
+          </div>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h3>Daily project time</h3>
+            <strong id="constraintDailyHours">1-2 hrs</strong>
+            <p>Most of the day is consumed by recurring administrative responsibilities before project work begins.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Recurring daily duties</h3>
+            <strong>Always on</strong>
+            <p>Calendar support, follow-ups, scheduling, coordination, and general admin coverage continue every day.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Interruption risk</h3>
+            <strong id="constraintInterruption">High</strong>
+            <p>Urgent day-of requests can immediately pull attention away from project work and pause timelines.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Planning implication</h3>
+            <strong>Limited throughput</strong>
+            <p>Reasonable deadlines should be based on actual available hours, not total calendar days.</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top: 18px;">
+          <strong id="nextStartCallout">New requests can be started immediately only when current obligations and interruptions leave room.</strong>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Service Expectations</h2>
+            <p>
+              These set guardrails for future requests. They make it easier to explain reasonable turnaround times
+              without forcing the admin into ad hoc commitments.
+            </p>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>Quick tasks</h3>
+            <strong>1-2 days</strong>
+            <p>Small updates, basic scheduling, simple document changes, and quick follow-up items within available project hours.</p>
+            <div class="service-meta">
+              <span class="pill">Low complexity</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <h3>Standard requests</h3>
+            <strong>3-5 days</strong>
+            <p>Requests that require coordination, gathering inputs, or more than one review cycle across limited daily project time.</p>
+            <div class="service-meta">
+              <span class="pill">Moderate complexity</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <h3>Project support</h3>
+            <strong>1-2 weeks</strong>
+            <p>Cross-functional work, tracking, packaging, and recurring support for active initiatives that may pause when operational priorities intervene.</p>
+            <div class="service-meta">
+              <span class="pill">Cross-functional</span>
+            </div>
+          </article>
+          <article class="service-card">
+            <h3>Urgent requests</h3>
+            <strong>Require reprioritization</strong>
+            <p>If something must move faster, a current item should be delayed or reassigned deliberately, especially when same-day operational issues interrupt planned project time.</p>
+            <div class="service-meta">
+              <span class="pill" style="color: var(--danger);">Leadership tradeoff</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Active Commitments</h2>
+            <p>
+            This is the meeting-ready view. Search or filter the portfolio to show exactly what is already in motion,
+            which department requested it, and what timeline risk currently exists given limited daily project hours.
+          </p>
+          </div>
+          <div class="pill-row">
+            <span class="pill" style="color: var(--success);">On track</span>
+            <span class="pill" style="color: var(--warning);">Needs coordination</span>
+            <span class="pill" style="color: var(--danger);">Deadline pressure</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="#66798d" stroke-width="2"></circle>
+              <path d="M20 20L16.6 16.6" stroke="#66798d" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <input id="searchInput" type="search" placeholder="Search by department, project, requester, or due date">
+          </label>
+          <select id="departmentFilter" aria-label="Filter by department">
+            <option value="all">All departments</option>
+          </select>
+          <select id="statusFilter" aria-label="Filter by workload status">
+            <option value="all">All statuses</option>
+            <option value="On Track">On Track</option>
+            <option value="Needs Coordination">Needs Coordination</option>
+            <option value="Deadline Pressure">Deadline Pressure</option>
+          </select>
+          <div class="toolbar-actions">
+            <button class="button secondary" id="exportButton" type="button">Export Data</button>
+          </div>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          Add a work item in the Quick Update Panel to start building the admin workload view.
+        </div>
+        <div class="task-grid" id="taskGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>Decision Timeline for New Requests</h2>
+            <p>
+              This gives department heads a consistent framework for what should happen when they ask for something new.
+            </p>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card">
+            <div class="timeline-date">Step 1</div>
+            <div class="timeline-node"></div>
+            <div>
+              <h3>Log the request</h3>
+              <p>Capture the work item in the page so it is visible alongside everything else already in motion.</p>
+              <div class="timeline-meta">
+                <span class="pill">Add the request first</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">Step 2</div>
+            <div class="timeline-node"></div>
+            <div>
+              <h3>Check current capacity</h3>
+              <p>Use the top capacity section to see whether the admin can absorb the request without causing overload, given that project work may only have 1 to 2 hours available in a normal day.</p>
+              <div class="timeline-meta">
+                <span class="pill">Review visible workload</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">Step 3</div>
+            <div class="timeline-node"></div>
+            <div>
+              <h3>Set a realistic timeline</h3>
+              <p>Use the service expectations section to set a due date based on complexity, available project hours, and the possibility of operational interruptions.</p>
+              <div class="timeline-meta">
+                <span class="pill">Choose a reasonable turnaround</span>
+              </div>
+            </div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-date">Step 4</div>
+            <div class="timeline-node"></div>
+            <div>
+              <h3>Escalate tradeoffs if needed</h3>
+              <p>If the request must move sooner, leadership should explicitly decide what work gets delayed.</p>
+              <div class="timeline-meta">
+                <span class="pill" style="color: var(--danger);">Reprioritize openly</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="callout">
+          <strong>Suggested meeting language:</strong>
+          “Here is the current workload, here is the remaining capacity, and based on the type of request this is the realistic turnaround. If this needs to move faster, we should decide together what gets deprioritized.”
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'admin-workload-portfolio-v2';
+    const SAMPLE_TASKS = [
+      {
+        id: 'sample-1',
+        department: 'Operations',
+        requester: 'Maria Jones',
+        title: 'Vendor Consolidation Support',
+        description: 'Managing contract comparisons, owner tracking, and meeting materials for an operations-led consolidation effort.',
+        status: 'On Track',
+        priority: 'Medium priority',
+        completion: 72,
+        dueDate: '2026-04-22',
+        currentAsk: 'Prep final shortlist and circulate summary.',
+        dependency: 'Leadership approval on preferred vendors.'
+      },
+      {
+        id: 'sample-2',
+        department: 'Finance',
+        requester: 'David Lee',
+        title: 'Month-End Close Coordination',
+        description: 'Supporting meeting schedules, issue tracking, documentation updates, and follow-up flow for a compressed close timeline.',
+        status: 'Deadline Pressure',
+        priority: 'High priority',
+        completion: 56,
+        dueDate: '2026-04-18',
+        currentAsk: 'Keep exception tracker current and prep recap notes.',
+        dependency: 'New urgent requests this week will delay delivery here or elsewhere.'
+      },
+      {
+        id: 'sample-3',
+        department: 'IT',
+        requester: 'Samantha Perez',
+        title: 'Access Audit Follow-Through',
+        description: 'Tracking departmental responses, permissions updates, and cleanup steps tied to the access review effort.',
+        status: 'Needs Coordination',
+        priority: 'Medium priority',
+        completion: 67,
+        dueDate: '2026-04-30',
+        currentAsk: 'Consolidate department responses and update the audit sheet.',
+        dependency: 'Two managers still owe approvals.'
+      },
+      {
+        id: 'sample-4',
+        department: 'Leadership',
+        requester: 'Leadership Team',
+        title: 'Standing Leadership Support',
+        description: 'Recurring calendar management, meeting preparation, follow-up notes, and general support that continues alongside project work.',
+        status: 'On Track',
+        priority: 'Recurring',
+        completion: 78,
+        dueDate: '2026-04-17',
+        currentAsk: 'Maintain daily support and prep weekly meetings.',
+        dependency: 'Recurring work reduces true capacity for one-off requests.'
+      }
+    ];
+
+    const DEFAULT_CAPACITY = {
+      percentUsed: '',
+      note: ''
+    };
+
+    const state = {
+      tasks: [],
+      editingId: null,
+      capacityOverride: { ...DEFAULT_CAPACITY }
+    };
+
+    const taskForm = document.getElementById('taskForm');
+    const taskId = document.getElementById('taskId');
+    const taskDepartment = document.getElementById('taskDepartment');
+    const taskRequester = document.getElementById('taskRequester');
+    const taskTitle = document.getElementById('taskTitle');
+    const taskDescription = document.getElementById('taskDescription');
+    const taskStatus = document.getElementById('taskStatus');
+    const taskPriority = document.getElementById('taskPriority');
+    const taskCompletion = document.getElementById('taskCompletion');
+    const taskCompletionValue = document.getElementById('taskCompletionValue');
+    const taskDueDate = document.getElementById('taskDueDate');
+    const taskCurrentAsk = document.getElementById('taskCurrentAsk');
+    const taskDependency = document.getElementById('taskDependency');
+    const formModeLabel = document.getElementById('formModeLabel');
+    const clearFormButton = document.getElementById('clearFormButton');
+    const loadSamplesButton = document.getElementById('loadSamplesButton');
+    const resetStorageButton = document.getElementById('resetStorageButton');
+    const miniList = document.getElementById('miniList');
+    const taskGrid = document.getElementById('taskGrid');
+    const emptyState = document.getElementById('emptyState');
+    const searchInput = document.getElementById('searchInput');
+    const departmentFilter = document.getElementById('departmentFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const exportButton = document.getElementById('exportButton');
+    const visibleCount = document.getElementById('visibleCount');
+    const departmentCount = document.getElementById('departmentCount');
+    const capacityUsed = document.getElementById('capacityUsed');
+    const dailyHoursDisplay = document.getElementById('dailyHoursDisplay');
+    const dailyHoursNote = document.getElementById('dailyHoursNote');
+    const interruptionNote = document.getElementById('interruptionNote');
+    const nextStartDisplay = document.getElementById('nextStartDisplay');
+    const nextStartSubnote = document.getElementById('nextStartSubnote');
+    const nextStartNote = document.getElementById('nextStartNote');
+    const nextStartCallout = document.getElementById('nextStartCallout');
+    const constraintDailyHours = document.getElementById('constraintDailyHours');
+    const constraintInterruption = document.getElementById('constraintInterruption');
+    const capacityFill = document.getElementById('capacityFill');
+    const capacityNote = document.getElementById('capacityNote');
+    const capacityLabel = document.getElementById('capacityLabel');
+    const summaryRequests = document.getElementById('summaryRequests');
+    const summaryDepartments = document.getElementById('summaryDepartments');
+    const summaryCoordination = document.getElementById('summaryCoordination');
+    const summaryPressure = document.getElementById('summaryPressure');
+
+    const capacityPanel = document.querySelector('.capacity');
+    const capacityEditor = document.createElement('div');
+    capacityEditor.className = 'capacity-note';
+    capacityEditor.innerHTML = `
+      <strong>Manual capacity override</strong>
+      <small>Set capacity manually when recurring duties or offline work are not reflected in the task list.</small>
+      <div class="field-grid" style="margin-top: 12px;">
+        <div class="field">
+          <label for="capacityPercentInput">Weekly capacity used %</label>
+          <input id="capacityPercentInput" type="number" min="0" max="100" placeholder="Leave blank for automatic">
+        </div>
+        <div class="field">
+          <label for="capacityNoteInput">Capacity note</label>
+          <input id="capacityNoteInput" type="text" placeholder="Example: Board prep and travel this week">
+        </div>
+      </div>
+      <div class="editor-actions" style="margin-top: 12px;">
+        <button class="button secondary" type="button" id="saveCapacityButton">Save Capacity</button>
+        <button class="button ghost" type="button" id="clearCapacityButton">Use Automatic Capacity</button>
+      </div>
+    `;
+    capacityPanel.appendChild(capacityEditor);
+
+    const capacityPercentInput = document.getElementById('capacityPercentInput');
+    const capacityNoteInput = document.getElementById('capacityNoteInput');
+    const saveCapacityButton = document.getElementById('saveCapacityButton');
+    const clearCapacityButton = document.getElementById('clearCapacityButton');
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        tasks: state.tasks,
+        capacityOverride: state.capacityOverride
+      }));
+    }
+
+    function loadState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            state.tasks = parsed;
+            state.capacityOverride = { ...DEFAULT_CAPACITY };
+          } else {
+            state.tasks = Array.isArray(parsed.tasks) ? parsed.tasks : [];
+            state.capacityOverride = {
+              percentUsed: parsed.capacityOverride?.percentUsed ?? '',
+              note: parsed.capacityOverride?.note ?? ''
+            };
+          }
+          return;
+        } catch (error) {
+          console.error('Failed to parse saved data.', error);
+        }
+      }
+      state.tasks = [];
+      state.capacityOverride = { ...DEFAULT_CAPACITY };
+    }
+
+    function normalizeCompletion(value) {
+      const number = Number(value);
+      if (Number.isNaN(number)) return 0;
+      return Math.max(0, Math.min(100, number));
+    }
+
+    function formatDisplayDate(value) {
+      if (!value) return '';
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+
+      const [year, month, day] = value.split('-').map(Number);
+      const date = new Date(year, month - 1, day);
+      return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    }
+
+    function addBusinessDays(startDate, days) {
+      const date = new Date(startDate);
+      let remaining = days;
+
+      while (remaining > 0) {
+        date.setDate(date.getDate() + 1);
+        const day = date.getDay();
+        if (day !== 0 && day !== 6) remaining -= 1;
+      }
+
+      return date;
+    }
+
+    function getStatusClass(status) {
+      if (status === 'Deadline Pressure') return 'danger';
+      if (status === 'Needs Coordination') return 'warning';
+      return '';
+    }
+
+    function getPriorityClass(priority) {
+      return priority === 'High priority' ? 'high' : '';
+    }
+
+    function updateDepartmentFilter() {
+      const previous = departmentFilter.value;
+      const departments = Array.from(new Set(state.tasks.map((task) => task.department))).sort();
+      departmentFilter.innerHTML = '<option value="all">All departments</option>';
+      departments.forEach((department) => {
+        const option = document.createElement('option');
+        option.value = department;
+        option.textContent = department;
+        departmentFilter.appendChild(option);
+      });
+      departmentFilter.value = departments.includes(previous) ? previous : 'all';
+    }
+
+    function renderMiniList() {
+      miniList.innerHTML = '';
+
+      if (!state.tasks.length) {
+        const empty = document.createElement('div');
+        empty.className = 'mini-item';
+        empty.innerHTML = '<strong>No saved work items yet.</strong><small>Add the first one with the form on the left.</small>';
+        miniList.appendChild(empty);
+        return;
+      }
+
+      state.tasks.forEach((task) => {
+        const item = document.createElement('div');
+        item.className = `mini-item${state.editingId === task.id ? ' active' : ''}`;
+        item.innerHTML = `
+          <div class="mini-item-header">
+            <div>
+              <strong>${task.title}</strong>
+              <small>${task.department} • ${task.requester} • ${formatDisplayDate(task.dueDate)}</small>
+            </div>
+            <span class="status ${getStatusClass(task.status)}">${task.status}</span>
+          </div>
+          <div class="editor-actions">
+            <button class="button secondary" type="button" data-action="edit" data-id="${task.id}">Edit</button>
+            <button class="button danger" type="button" data-action="delete" data-id="${task.id}">Delete</button>
+          </div>
+        `;
+        miniList.appendChild(item);
+      });
+    }
+
+    function renderTasks() {
+      const query = searchInput.value.trim().toLowerCase();
+      const department = departmentFilter.value;
+      const status = statusFilter.value;
+
+      taskGrid.innerHTML = '';
+
+      const filtered = state.tasks.filter((task) => {
+        const haystack = [
+          task.department,
+          task.requester,
+          task.title,
+          task.description,
+          task.dueDate,
+          task.currentAsk,
+          task.dependency
+        ].join(' ').toLowerCase();
+
+        const queryMatch = !query || haystack.includes(query);
+        const departmentMatch = department === 'all' || task.department === department;
+        const statusMatch = status === 'all' || task.status === status;
+        return queryMatch && departmentMatch && statusMatch;
+      });
+
+      filtered.forEach((task) => {
+        const card = document.createElement('article');
+        card.className = 'task-card';
+        card.innerHTML = `
+          <div class="task-top">
+            <span class="badge">${task.department}</span>
+            <span class="priority ${getPriorityClass(task.priority)}">${task.priority}</span>
+          </div>
+          <div>
+            <span class="status ${getStatusClass(task.status)}">${task.status}</span>
+            <h3>${task.title}</h3>
+          </div>
+          <p>${task.description}</p>
+          <div>
+            <div class="task-meta">
+              <strong>Completion</strong>
+              <span>${task.completion}%</span>
+            </div>
+            <div class="progress"><div style="width: ${task.completion}%;"></div></div>
+          </div>
+          <div class="metric-grid">
+            <div class="metric">
+              <span>Requested by</span>
+              <strong>${task.requester}</strong>
+            </div>
+            <div class="metric">
+              <span>Due</span>
+              <strong>${formatDisplayDate(task.dueDate)}</strong>
+            </div>
+          </div>
+          <div class="task-footer">
+            <span>Current ask: ${task.currentAsk}</span>
+            <span>Dependency / risk: ${task.dependency}</span>
+          </div>
+        `;
+        taskGrid.appendChild(card);
+      });
+
+      emptyState.style.display = filtered.length ? 'none' : 'block';
+      visibleCount.textContent = filtered.length;
+    }
+
+    function renderSummary() {
+      const total = state.tasks.length;
+      const departments = new Set(state.tasks.map((task) => task.department));
+      const coordination = state.tasks.filter((task) => task.status === 'Needs Coordination').length;
+      const pressure = state.tasks.filter((task) => task.status === 'Deadline Pressure').length;
+      const automaticCapacity = Math.min(100, Math.round(total * 12 + pressure * 10 + coordination * 5));
+      const overrideValue = state.capacityOverride.percentUsed;
+      const hasOverride = overrideValue !== '' && overrideValue !== null && overrideValue !== undefined;
+      const capacity = hasOverride ? normalizeCompletion(overrideValue) : automaticCapacity;
+      const today = new Date();
+      const startDelayDays = capacity >= 95 ? 10 : capacity >= 85 ? 5 : capacity >= 70 ? 3 : capacity >= 50 ? 1 : 0;
+      const nextStartDate = addBusinessDays(today, startDelayDays);
+      const nextStartLabel = startDelayDays === 0
+        ? 'Now'
+        : formatDisplayDate(nextStartDate.toISOString().slice(0, 10));
+
+      summaryRequests.textContent = total;
+      summaryDepartments.textContent = departments.size;
+      summaryCoordination.textContent = coordination;
+      summaryPressure.textContent = pressure;
+      departmentCount.textContent = departments.size;
+      capacityUsed.textContent = `${capacity}%`;
+      dailyHoursDisplay.textContent = '1-2 hrs';
+      dailyHoursNote.textContent = 'Project work is typically limited to 1 to 2 hours per day after daily operational duties are covered.';
+      interruptionNote.textContent = 'If the admin is pulled into urgent operational support, project work may pause and timelines should shift accordingly.';
+      nextStartDisplay.textContent = nextStartLabel;
+      nextStartSubnote.textContent = startDelayDays === 0
+        ? 'Based on current commitments and available project time.'
+        : `New project work is likely to begin after existing commitments free up time.`;
+      constraintDailyHours.textContent = '1-2 hrs';
+      constraintInterruption.textContent = pressure > 0 ? 'High' : 'Moderate';
+      capacityFill.style.width = `${capacity}%`;
+      capacityPercentInput.value = hasOverride ? capacity : '';
+      capacityNoteInput.value = state.capacityOverride.note || '';
+
+      if (!total) {
+        if (hasOverride) {
+          capacityLabel.textContent = 'Manual capacity set';
+          capacityLabel.style.color = capacity >= 85 ? 'var(--danger)' : capacity >= 60 ? 'var(--warning)' : 'var(--success)';
+          capacityNote.textContent = state.capacityOverride.note || `Manual weekly capacity is set to ${capacity}% used.`;
+        } else {
+          capacityLabel.textContent = 'Capacity available';
+          capacityLabel.style.color = 'var(--success)';
+          capacityNote.textContent = 'No workload entered yet.';
+        }
+      } else if (capacity >= 85) {
+        capacityLabel.textContent = hasOverride ? 'Manual capacity set' : 'Near capacity';
+        capacityLabel.style.color = 'var(--danger)';
+        capacityNote.textContent = state.capacityOverride.note || `Workload is heavy. Only about ${Math.max(0, 100 - capacity)}% capacity remains for new requests without tradeoffs.`;
+      } else if (capacity >= 60) {
+        capacityLabel.textContent = hasOverride ? 'Manual capacity set' : 'Moderate load';
+        capacityLabel.style.color = 'var(--warning)';
+        capacityNote.textContent = state.capacityOverride.note || `Current workload is manageable but limited. About ${100 - capacity}% capacity remains.`;
+      } else {
+        capacityLabel.textContent = hasOverride ? 'Manual capacity set' : 'Capacity available';
+        capacityLabel.style.color = 'var(--success)';
+        capacityNote.textContent = state.capacityOverride.note || `Current portfolio is lighter. About ${100 - capacity}% capacity remains for new requests.`;
+      }
+
+      nextStartNote.textContent = startDelayDays === 0
+        ? 'A new request can start now if no higher-priority interruption occurs.'
+        : `A new request should realistically start around ${nextStartLabel} unless another item is deprioritized.`;
+      nextStartCallout.textContent = startDelayDays === 0
+        ? 'New requests can be started immediately only when current obligations and interruptions leave room.'
+        : `Based on the current workload, new project work should realistically begin around ${nextStartLabel}. If it needs to begin sooner, another commitment should move.`;
+
+      const visible = Number(visibleCount.textContent) || 0;
+      if (!searchInput.value && departmentFilter.value === 'all' && statusFilter.value === 'all') {
+        visibleCount.textContent = total;
+      } else {
+        visibleCount.textContent = visible;
+      }
+    }
+
+    function renderAll() {
+      updateDepartmentFilter();
+      renderMiniList();
+      renderTasks();
+      renderSummary();
+    }
+
+    function clearForm() {
+      taskForm.reset();
+      taskId.value = '';
+      taskCompletion.value = 50;
+      taskCompletionValue.textContent = '50%';
+      state.editingId = null;
+      formModeLabel.textContent = 'Adding a new work item.';
+      renderMiniList();
+    }
+
+    function fillForm(task) {
+      taskId.value = task.id;
+      taskDepartment.value = task.department;
+      taskRequester.value = task.requester;
+      taskTitle.value = task.title;
+      taskDescription.value = task.description;
+      taskStatus.value = task.status;
+      taskPriority.value = task.priority;
+      taskCompletion.value = task.completion;
+      taskCompletionValue.textContent = `${task.completion}%`;
+      taskDueDate.value = task.dueDate;
+      taskCurrentAsk.value = task.currentAsk;
+      taskDependency.value = task.dependency;
+      state.editingId = task.id;
+      formModeLabel.textContent = `Editing: ${task.title}`;
+      renderMiniList();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function upsertTaskFromForm(event) {
+      event.preventDefault();
+
+      const task = {
+        id: taskId.value || `task-${Date.now()}`,
+        department: taskDepartment.value.trim(),
+        requester: taskRequester.value.trim(),
+        title: taskTitle.value.trim(),
+        description: taskDescription.value.trim(),
+        status: taskStatus.value,
+        priority: taskPriority.value,
+        completion: normalizeCompletion(taskCompletion.value),
+        dueDate: taskDueDate.value.trim(),
+        currentAsk: taskCurrentAsk.value.trim(),
+        dependency: taskDependency.value.trim()
+      };
+
+      const existingIndex = state.tasks.findIndex((item) => item.id === task.id);
+      if (existingIndex >= 0) {
+        state.tasks[existingIndex] = task;
+      } else {
+        state.tasks.unshift(task);
+      }
+
+      saveState();
+      clearForm();
+      renderAll();
+    }
+
+    function handleMiniListClick(event) {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+
+      const { action, id } = button.dataset;
+      const task = state.tasks.find((item) => item.id === id);
+      if (!task) return;
+
+      if (action === 'edit') {
+        fillForm(task);
+      }
+
+      if (action === 'delete') {
+        state.tasks = state.tasks.filter((item) => item.id !== id);
+        if (state.editingId === id) clearForm();
+        saveState();
+        renderAll();
+      }
+    }
+
+    function exportData() {
+      const blob = new Blob([JSON.stringify({
+        tasks: state.tasks,
+        capacityOverride: state.capacityOverride
+      }, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'admin-workload-data.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    taskForm.addEventListener('submit', upsertTaskFromForm);
+    taskCompletion.addEventListener('input', () => {
+      taskCompletionValue.textContent = `${taskCompletion.value}%`;
+    });
+    clearFormButton.addEventListener('click', clearForm);
+    miniList.addEventListener('click', handleMiniListClick);
+    searchInput.addEventListener('input', renderAll);
+    departmentFilter.addEventListener('change', renderAll);
+    statusFilter.addEventListener('change', renderAll);
+    exportButton.addEventListener('click', exportData);
+
+    loadSamplesButton.addEventListener('click', () => {
+      state.tasks = SAMPLE_TASKS.map((task) => ({ ...task }));
+      saveState();
+      clearForm();
+      renderAll();
+    });
+
+    resetStorageButton.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      state.tasks = [];
+      state.capacityOverride = { ...DEFAULT_CAPACITY };
+      clearForm();
+      renderAll();
+    });
+
+    saveCapacityButton.addEventListener('click', () => {
+      state.capacityOverride = {
+        percentUsed: capacityPercentInput.value === '' ? '' : normalizeCompletion(capacityPercentInput.value),
+        note: capacityNoteInput.value.trim()
+      };
+      saveState();
+      renderAll();
+    });
+
+    clearCapacityButton.addEventListener('click', () => {
+      state.capacityOverride = { ...DEFAULT_CAPACITY };
+      saveState();
+      renderAll();
+    });
+
+    loadState();
+    renderAll();
+  </script>
+</body>
+</html>

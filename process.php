@@ -8,9 +8,11 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'calculator.php', 'text' => 'Your Hidden Software Graveyard']
+    ['href' => 'schedule.php', 'text' => 'Secure a Strategic Debrief']
 ];
+$year = date('Y');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,6 +116,55 @@ $nav_items = [
             color: #87CEEB;
         }
 
+        /* Mobile Nav */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white; font-size: 22px;
+            cursor: pointer; width: 44px; height: 44px;
+            border-radius: 8px;
+            align-items: center; justify-content: center;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); z-index: 1001;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed; top: 0; left: 0;
+            width: 280px; height: 100%;
+            background: #0A2E50;
+            padding: 72px 24px 24px;
+            z-index: 1002;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+
+        .mobile-nav-drawer.active { transform: translateX(0); }
+        .mobile-nav-overlay.active { display: block; }
+
+        .mobile-nav-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none;
+            color: white; font-size: 28px;
+            cursor: pointer; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .mobile-nav-drawer a {
+            color: white; text-decoration: none;
+            font-weight: 600; font-size: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-drawer a:hover { color: #87CEEB; }
+
         /* Gamma Embed Container */
         .gamma-container {
             width: 100%;
@@ -193,9 +244,8 @@ $nav_items = [
                 display: block;
             }
 
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .hamburger-btn { display: flex; }
             
             header {
                 position: fixed;
@@ -260,8 +310,17 @@ $nav_items = [
                     </li>
                 <?php endforeach; ?>
             </ul>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">&#9776;</button>
         </nav>
     </header>
+
+    <div class="mobile-nav-overlay" id="navOverlay"></div>
+    <div class="mobile-nav-drawer" id="navDrawer">
+        <button class="mobile-nav-close" id="navClose" aria-label="Close menu">&times;</button>
+        <?php foreach ($nav_items as $item): ?>
+            <a href="<?= htmlspecialchars($item['href']) ?>"><?= htmlspecialchars($item['text']) ?></a>
+        <?php endforeach; ?>
+    </div>
 
     <div class="gamma-container">
         <iframe src="https://the-pe-tech-edge-best-pr-48ztpod.gamma.site/" title="PE Tech Edge Process" allowfullscreen></iframe>
@@ -273,13 +332,14 @@ $nav_items = [
                 <p style="margin-bottom: 12px;"><strong>PE Tech Partners</strong></p>
                 <p style="margin-bottom: 8px;">2125 Albany Post Rd Suite 106<br>Montrose, NY 10548</p>
                 <p style="margin-bottom: 12px;">Phone: 917-715-7100</p>
-                <p>&copy; 2025 PE Tech Partners. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> PE Tech Partners. All rights reserved.</p>
             </div>
             <div style="text-align: right;">
                 <p style="margin-bottom: 8px;"><a href="terms.php" style="color: #87CEEB; text-decoration: none;">Terms of Service</a></p>
                 <p style="margin-bottom: 8px;"><a href="privacy.php" style="color: #87CEEB; text-decoration: none;">Privacy Policy</a></p>
                 <p style="margin-bottom: 12px;"><a href="schedule.php" style="color: #87CEEB; text-decoration: none;">Contact Us</a></p>
-                <a href="index.php#offer" class="btn btn-primary" style="display: inline-block; margin-top: 8px;">Secure a Strategic Debrief</a>
+                <a href="schedule.php" class="btn btn-primary" style="display: inline-block; margin-top: 8px;">Secure a Strategic Debrief</a>
+                <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 8px; font-style: italic;">No cost. No pressure. High clarity.</p>
             </div>
         </div>
     </footer>
@@ -287,5 +347,18 @@ $nav_items = [
     <div class="slide-tab">
         <a href="index.php#offer" class="slide-tab-button">BOOK NOW</a>
     </div>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navOverlay   = document.getElementById('navOverlay');
+        const navDrawer    = document.getElementById('navDrawer');
+        const navClose     = document.getElementById('navClose');
+        function openNav()  { navDrawer.classList.add('active'); navOverlay.classList.add('active'); }
+        function closeNav() { navDrawer.classList.remove('active'); navOverlay.classList.remove('active'); }
+        hamburgerBtn.addEventListener('click', openNav);
+        navClose.addEventListener('click', closeNav);
+        navOverlay.addEventListener('click', closeNav);
+        navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    </script>
 </body>
 </html>

@@ -4,8 +4,9 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'calculator.php', 'text' => 'Your Hidden Software Graveyard']
+    ['href' => 'schedule.php', 'text' => 'Secure a Strategic Debrief']
 ];
 ?>
 <!DOCTYPE html>
@@ -336,8 +337,8 @@ $nav_items = [
         <div class="cta-section">
             <h2>See What You're Actually Paying For</h2>
             <p>Run your own numbers and see the scale of your potential savings.</p>
-            <a href="calculator.php" class="btn">Open Software Waste Calculator</a>
-            <a href="schedule.php" class="btn btn-secondary">Book a 20-Minute Audit</a>
+            <a href="schedule.php" class="btn">Secure a Strategic Debrief</a>
+            <p style="color: #666; font-size: 14px; margin-top: 12px; font-style: italic;">No cost. No pressure. High clarity.</p>
         </div>
     </article>
 

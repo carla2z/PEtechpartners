@@ -1,0 +1,315 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://api.leadconnectorhq.com/widget/bookings/a2zbc';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Managed IT, Cybersecurity & Business Automation for Tarrytown, Ossining & Irvington',
+  description: 'Practical managed IT services, cybersecurity, and business automation for small and mid-size businesses, accounting firms, law offices, real estate agencies, and professional services along the Hudson River Towns.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'A2Z Business IT',
+    telephone: '+1-917-715-7100',
+    email: 'info@a2zbusinessit.com',
+    address: { '@type': 'PostalAddress', streetAddress: '2125 Albany Post Rd, Suite 106', addressLocality: 'Montrose', addressRegion: 'NY', postalCode: '10548', addressCountry: 'US' },
+  },
+  areaServed: [
+    { '@type': 'Place', name: 'Tarrytown, NY' },
+    { '@type': 'Place', name: 'Ossining, NY' },
+    { '@type': 'Place', name: 'Irvington, NY' },
+    { '@type': 'Place', name: 'Sleepy Hollow, NY' },
+    { '@type': 'Place', name: 'Briarcliff Manor, NY' },
+  ],
+};
+
+const stats = [
+  { value: '19+', label: 'Years of Expertise' },
+  { value: '5.0', label: 'Client Satisfaction' },
+  { value: '99.9%', label: 'Uptime Guarantee' },
+  { value: '24/7', label: 'Help Desk Coverage' },
+];
+
+const risks = [
+  { title: 'Growing Without IT Outgrowing You', body: "Small and mid-size businesses across Tarrytown, Ossining, and Irvington often start with one or two laptops and a Dropbox account, then add staff, locations, and software faster than the foundation can handle. We build IT environments that scale cleanly — not ones you have to keep rescuing." },
+  { title: 'Cybercrime Has Found the River Towns', body: 'Phishing, ransomware, and business email compromise attacks no longer skip past smaller firms. Accountants, attorneys, real estate offices, and medical practices in the Hudson Valley are now everyday targets — often because they assumed they were too small to notice.' },
+  { title: 'Manual Work That Should Have Been Automated Years Ago', body: 'Client intake forms re-typed into the CRM. Invoices manually emailed and filed. Reports rebuilt from scratch every month. We help local professional firms eliminate the busywork — so the team can spend its time on the work clients actually pay for.' },
+];
+
+const outcomes = [
+  { label: 'Predictable Monthly IT Costs', body: 'A flat managed-IT fee instead of surprise emergency invoices every time something breaks at the worst possible moment.' },
+  { label: 'Help Desk That Picks Up the Phone', body: 'Phone, email, and remote support staffed by humans who already know your environment — not a ticket queue you never hear back from.' },
+  { label: 'Cybersecurity Without the Enterprise Price Tag', body: 'MFA, EDR, email security, secure backups, and employee phishing training — built for a 5-to-50-person firm, not a Fortune 500.' },
+  { label: 'Workflow Automation That Actually Sticks', body: 'Document routing, client intake, reporting, and AI-assisted document review built into your existing tools — Microsoft 365, your CRM, and your accounting platform.' },
+];
+
+const testimonials = [
+  { quote: 'Carl received excellent ratings from our attendees. His presentation on cybersecurity compliance was thorough, practical, and accessible.', cite: 'Professional Seminar Feedback' },
+  { quote: 'Outstanding presentation on FTC regulations. Carl clearly knows his material inside and out and makes complex compliance requirements actionable.', cite: 'Compliance Workshop Participant' },
+];
+
+const services = [
+  { title: 'Managed IT Services', body: 'Full-service IT for growing professional firms — proactive monitoring, patching, cloud and Microsoft 365 management, vendor coordination, and the strategic planning to keep technology a step ahead of your hiring plan.' },
+  { title: 'Cybersecurity & FTC Safeguards', body: 'Risk assessment, MFA, endpoint protection, email security, secure backups, and staff training. We make sure the firm meets the FTC Safeguards Rule and any industry-specific requirements without slowing the team down.' },
+  { title: 'Business Automation & AI', body: 'Practical automation across the workflows your team already runs — client intake, document processing, invoicing, reporting, and CRM hygiene. Real AI use cases that save hours per week, not buzzwords.' },
+  { title: 'Help Desk & Onsite Support', body: 'Day-to-day support for the people who actually use the systems — laptop issues, email problems, new-hire onboarding, hardware procurement. Same-day onsite when needed across the river towns.' },
+];
+
+const serviceAreas = [
+  { label: 'Tarrytown & Sleepy Hollow', body: 'Professional services, hospitality, and growing creative firms along Main Street and the Route 9 corridor.' },
+  { label: 'Ossining Waterfront & Croton Avenue', body: 'Accounting practices, attorneys, medical offices, and real estate brokerages serving the lower Westchester river towns.' },
+  { label: 'Irvington & Dobbs Ferry', body: 'Independent professional firms and small businesses along Main Street and the Broadway / Route 9 corridor.' },
+  { label: 'Briarcliff Manor & Pleasantville', body: 'Boutique firms and growing employers in the surrounding river towns who need real IT support without a full-time in-house hire.' },
+];
+
+const faqs = [
+  { q: 'We are a 12-person firm in Tarrytown — do we really need managed IT, or just on-call help?', a: 'Once you cross roughly 5–10 employees, on-call help starts costing more than managed IT in real dollars: the lost time of staff waiting on issues, the patch and security gaps that compound, and the inevitable emergency invoice at the end of every quarter. A managed plan converts unpredictable IT costs and downtime into a flat monthly number — and you get the security, backups, and monitoring you cannot reasonably DIY at that size.' },
+  { q: 'How long does it take to migrate a small firm to a fully managed IT setup?', a: 'For a typical 5-to-30-person professional firm in the river towns, full migration takes 2–6 weeks. We start with an assessment, fix the highest-risk gaps in the first two weeks (MFA, backups, patching, basic email security), then layer in monitoring, documentation, and workflow improvements over the following month.' },
+  { q: 'Can business automation actually help a small professional services firm, or is that just for big companies?', a: 'It is often more impactful at smaller firms, because every hour you reclaim is a meaningful percentage of total team capacity. Common quick wins for accounting, legal, and real estate firms in Ossining and Irvington include automated client intake, document classification and routing, invoice processing, and CRM data hygiene — usually saving 5–15 hours per week per affected role.' },
+  { q: 'What does the FTC Safeguards Rule mean for a small firm in the river towns?', a: 'The FTC Safeguards Rule applies to "financial institutions" defined far more broadly than most people think — tax preparers, mortgage brokers, finders, auto dealers, and several other small-business categories all fall under it. The rule requires a written information security program, MFA, encryption, vendor due diligence, and an incident response plan. We build that program for you so the firm is compliant and defensible.' },
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://a2zbusinessit.com' },
+    { '@type': 'ListItem', position: 2, name: 'Tarrytown, Ossining & Irvington', item: 'https://a2zbusinessit.com/tarrytown-ossining-irvington' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Managed IT, Cybersecurity & Automation for Tarrytown, Ossining & Irvington | A2Z Business IT"
+  description="Practical managed IT, cybersecurity, and business automation for small and mid-size firms across Tarrytown, Ossining, Irvington, and the Hudson River Towns of Westchester County."
+  ogImage="/og-river-towns.png"
+  structuredData={structuredData}
+  tags={['Tarrytown managed IT', 'Ossining IT services', 'Irvington cybersecurity', 'Hudson river towns IT', 'small business managed IT']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="relative bg-[#0A1323] text-white overflow-hidden">
+    <img src="/images/heroes/hero-river-towns.jpg" alt="Hudson River waterfront looking toward Tarrytown with the Cuomo Bridge in the background" class="absolute inset-0 w-full h-full object-cover opacity-45" loading="eager" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0A1323] via-[#0A1323]/85 to-[#0A1323]/40"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium text-[#0D9488] mb-3">Tarrytown &middot; Ossining &middot; Irvington, NY</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-5">
+          Managed IT, Cybersecurity &amp; Automation for Hudson River Town Businesses
+        </h1>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
+          Practical IT, real cybersecurity, and workflow automation for accounting firms, attorneys, real estate, medical practices, and growing small businesses across the Hudson river towns &mdash; built for 5-to-50-person teams, not the Fortune 500.
+        </p>
+        <a href={bookingUrl} class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-zinc-900 bg-white rounded-xl hover:bg-zinc-100 active:scale-[0.98] transition-all">
+          Schedule Your Free IT Assessment
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#B22234]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {stats.map((s) => (
+          <div>
+            <div class="text-4xl md:text-5xl font-bold tracking-tighter mb-1">{s.value}</div>
+            <p class="text-xs uppercase tracking-wider text-red-100">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-medium text-[#B22234] mb-3">Local Expertise</p>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">IT That Grows With You &mdash; Not Around You</h2>
+      <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      <div class="space-y-5 text-lg text-zinc-600 leading-relaxed">
+        <p>The Hudson river towns are home to thousands of small and mid-size firms that quietly run Westchester County: accounting practices in Tarrytown, attorneys and real estate brokerages in Ossining, growing professional services in Irvington and Dobbs Ferry. They all face the same problem: technology that worked at 5 employees is breaking at 15, and nobody has time to step back and rebuild it cleanly.</p>
+        <p>At <strong class="text-zinc-900">A2Z Business IT</strong>, we are the partner that does that rebuild, then runs it for you. With 19+ years serving Westchester businesses, we deliver the IT, security, and automation infrastructure local firms need to "Run Your Business Fearlessly" &mdash; without ever needing a full-time in-house IT hire.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Where Small Firms Get Stuck</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Three Patterns We See Every Week in the River Towns</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {risks.map((r) => (
+          <div class="rounded-2xl bg-white border border-zinc-200 p-8 hover:border-[#B22234]/30 hover:shadow-lg hover:shadow-[#B22234]/5 transition-all">
+            <h3 class="text-xl font-bold text-zinc-900 mb-3">{r.title}</h3>
+            <p class="text-zinc-600 leading-relaxed">{r.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">What You Actually Get</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">What Managed IT Looks Like for a Hudson River Town Firm</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg text-zinc-600 leading-relaxed">No 200-page proposals. No fear-marketing. Just the practical outcomes that move a 5-to-50-person firm forward.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl bg-[#1B2A4A] text-white p-8 lg:p-10">
+          <h3 class="text-2xl font-bold mb-4">The Outcomes We Deliver</h3>
+          <p class="text-slate-300 leading-relaxed mb-6">We build IT environments that solve real problems for owners, partners, and operations leads in the river towns:</p>
+          <ul class="space-y-4">
+            {outcomes.map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 mt-0.5 shrink-0 text-[#0D9488]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2.5}>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <div>
+                  <span class="font-semibold text-white">{item.label}:</span>
+                  <span class="text-slate-300"> {item.body}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white border border-zinc-200 p-8 lg:p-10">
+          <h3 class="text-2xl font-bold text-zinc-900 mb-4">Our Four-Step Workflow</h3>
+          <p class="text-zinc-600 leading-relaxed mb-5"><strong class="text-zinc-900">Assess.</strong> Inventory the environment &mdash; devices, users, software, workflows, and known pain.</p>
+          <p class="text-zinc-600 leading-relaxed mb-5"><strong class="text-zinc-900">Identify.</strong> Prioritize the highest-impact risks and the workflows costing the most time.</p>
+          <p class="text-zinc-600 leading-relaxed mb-5"><strong class="text-zinc-900">Fix.</strong> Remediate the gaps in a documented, sequenced order &mdash; security first, then operational improvements.</p>
+          <p class="text-zinc-600 leading-relaxed">
+            <strong class="text-zinc-900">Keep it running.</strong> Monitoring, patching, help desk, and quarterly reviews. The system stays healthy without you babysitting it.
+          </p>
+          <div class="mt-8 pt-8 border-t border-zinc-200">
+            <a href="/services/managed-it" class="inline-flex items-center text-sm font-medium text-[#B22234]">
+              Explore our managed IT services
+              <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-[#1B2A4A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#0D9488] mb-3">Trusted Voices</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-3">Trusted by Westchester Professionals</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map((t) => (
+          <figure class="rounded-2xl bg-[#111C33] border border-slate-700 p-8 lg:p-10">
+            <svg class="w-8 h-8 text-[#0D9488] mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+            </svg>
+            <blockquote class="text-lg text-slate-200 leading-relaxed mb-5">"{t.quote}"</blockquote>
+            <figcaption class="text-sm text-slate-400">&mdash; {t.cite}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Core Solutions</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Four Services Built for Small &amp; Mid-Size River Town Firms</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {services.map((s) => (
+          <div class="rounded-2xl bg-white border border-zinc-200 p-8 lg:p-10 hover:border-[#B22234]/30 hover:shadow-lg hover:shadow-[#B22234]/5 transition-all">
+            <h3 class="text-xl font-bold text-zinc-900 mb-3">{s.title}</h3>
+            <p class="text-zinc-600 leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-zinc-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Service Area</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Serving the Hudson River Town Business Community</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+        <p class="text-lg text-zinc-600 leading-relaxed">A2Z Business IT is headquartered nearby in Montrose, NY. Our engineers regularly handle on-site work and same-day support across:</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {serviceAreas.map((a) => (
+          <div class="flex items-start gap-4 rounded-2xl bg-white border border-zinc-200 p-6 lg:p-8">
+            <div class="w-10 h-10 rounded-full bg-[#B22234]/10 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-[#B22234]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={1.75}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-1">{a.label}</h3>
+              <p class="text-sm text-zinc-600 leading-relaxed">{a.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <p class="text-sm font-medium text-[#B22234] mb-3">Frequently Asked</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#1B2A4A] mb-3">Common Questions from River Town Business Owners</h2>
+        <div class="w-12 h-1 bg-[#B22234] mb-6"></div>
+      </div>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <details class="group rounded-2xl bg-white border border-zinc-200 p-6 lg:p-8 open:shadow-lg open:shadow-[#B22234]/5 open:border-[#B22234]/30 transition-all">
+            <summary class="flex items-start justify-between gap-4 cursor-pointer list-none">
+              <h3 class="text-lg font-bold text-zinc-900">{f.q}</h3>
+              <svg class="w-5 h-5 text-[#B22234] shrink-0 mt-1 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width={2}>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-zinc-600 leading-relaxed">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-[#1B2A4A]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-white mb-4">Stop Worrying About IT. Get Back to Running Your Business.</h2>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">Schedule a free 30-minute consultation. We will walk your environment, surface the three biggest risks and the three biggest time-sinks, and give you a prioritized plan to fix both.</p>
+      <a href={bookingUrl} class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-zinc-900 bg-white rounded-xl hover:bg-zinc-100 active:scale-[0.98] transition-all mb-10">
+        Schedule Free Consultation
+      </a>
+      <div class="pt-10 border-t border-slate-700 text-slate-400 space-y-2">
+        <p class="font-semibold text-white">A2Z Business IT</p>
+        <p>2125 Albany Post Rd, Suite 106, Montrose, NY 10548</p>
+        <p>Phone: <a href="tel:+19177157100" class="text-white hover:text-[#0D9488] transition-colors">(917) 715-7100</a> <span class="mx-2 text-slate-600">|</span> Email: <a href="mailto:info@a2zbusinessit.com" class="text-white hover:text-[#0D9488] transition-colors">info@a2zbusinessit.com</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

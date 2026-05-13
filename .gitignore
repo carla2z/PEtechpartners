@@ -3,3 +3,9 @@
 .upm/
 .cache/
 *.log
+.env.php
+csi Data Base-6/
+.claude/worktrees/
+.local/
+.DS_Store
+no-journal/

@@ -35,20 +35,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Message is required";
     }
     
-    // If no errors, process the form
+    // If no errors, send the email
     if (empty($errors)) {
-        // In a real application, you would:
-        // - Send an email to your team
-        // - Store in a database
-        // - Integrate with a CRM
-        // For now, we'll just show a success message
-        
-        $success_message = "Thank you for reaching out! We'll be in touch within 24 hours to discuss how we can help align your tech stack.";
-        
-        // Clear form fields after successful submission
-        $name = $email = $company = $phone = $deal_stage = $message = '';
+        $to = 'info@petechpartners.com';
+        $subject = 'New Contact Form Submission – PE Tech Partners';
+
+        $deal_stage_map = [
+            'sourcing'    => 'Deal Sourcing',
+            'diligence'   => 'Due Diligence',
+            'integration' => 'Post-Acquisition Integration',
+            'portfolio'   => 'Portfolio Management',
+            'exit'        => 'Exit Planning',
+            'general'     => 'General Inquiry',
+        ];
+        $deal_stage_label = isset($deal_stage_map[$deal_stage]) ? $deal_stage_map[$deal_stage] : 'Not specified';
+
+        $email_body  = "New inquiry submitted via petechpartners.com:\n\n";
+        $email_body .= "Name:       {$name}\n";
+        $email_body .= "Email:      {$email}\n";
+        $email_body .= "Company:    {$company}\n";
+        $email_body .= "Phone:      " . ($phone ?: 'Not provided') . "\n";
+        $email_body .= "Deal Stage: {$deal_stage_label}\n\n";
+        $email_body .= "Message:\n{$message}\n";
+
+        $headers  = "From: website@petechpartners.com\r\n";
+        $headers .= "Reply-To: {$email}\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+
+        $mail_sent = mail($to, $subject, $email_body, $headers);
+
+        if ($mail_sent) {
+            $success_message = "Thank you, {$name}! Your message has been sent. We'll be in touch within 24 hours.";
+            $name = $email = $company = $phone = $deal_stage = $message = '';
+        } else {
+            $errors[] = "There was a problem sending your message. Please email us directly at info@petechpartners.com or call 917-715-7100.";
+        }
     }
 }
+
+$year = date('Y');
 
 // Logo
 $logo_svg = "attached_assets/Home_1761834398568.png";
@@ -59,8 +84,9 @@ $nav_items = [
     ['href' => 'index.php#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'schedule.php', 'text' => 'Storm the Data Room']
+    ['href' => 'schedule.php', 'text' => 'Secure a Strategic Debrief']
 ];
 ?>
 <!DOCTYPE html>
@@ -359,9 +385,87 @@ $nav_items = [
         }
 
         /* Mobile Responsive */
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 280px;
+            height: 100%;
+            background: #0A2E50;
+            padding: 72px 24px 24px;
+            z-index: 1002;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-nav-drawer.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav-drawer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-drawer a:hover {
+            color: #87CEEB;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+
+            .hamburger-btn {
+                display: flex;
             }
 
             .contact-header h1 {
@@ -475,15 +579,25 @@ $nav_items = [
             <ul class="nav-links">
                 <?php foreach ($nav_items as $item): ?>
                     <li>
-                        <a href="<?= htmlspecialchars($item['href']) ?>" 
+                        <a href="<?= htmlspecialchars($item['href']) ?>"
                            class="<?= ($item['text'] === 'Contact') ? 'active' : '' ?>">
                             <?= htmlspecialchars($item['text']) ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
             </ul>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">&#9776;</button>
         </nav>
     </header>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-overlay" id="navOverlay"></div>
+    <div class="mobile-nav-drawer" id="navDrawer">
+        <button class="mobile-nav-close" id="navClose" aria-label="Close menu">&times;</button>
+        <?php foreach ($nav_items as $item): ?>
+            <a href="<?= htmlspecialchars($item['href']) ?>"><?= htmlspecialchars($item['text']) ?></a>
+        <?php endforeach; ?>
+    </div>
 
     <div class="contact-container">
         <div class="contact-header">
@@ -610,26 +724,29 @@ $nav_items = [
     </div>
 
     <script>
-        // Check if calendar iframe loads successfully, show fallback if not
+        // Mobile Nav
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navOverlay   = document.getElementById('navOverlay');
+        const navDrawer    = document.getElementById('navDrawer');
+        const navClose     = document.getElementById('navClose');
+
+        function openNav() { navDrawer.classList.add('active'); navOverlay.classList.add('active'); }
+        function closeNav() { navDrawer.classList.remove('active'); navOverlay.classList.remove('active'); }
+
+        hamburgerBtn.addEventListener('click', openNav);
+        navClose.addEventListener('click', closeNav);
+        navOverlay.addEventListener('click', closeNav);
+        navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+        // Calendar iframe fallback
         var calendarFrame = document.getElementById('calendar-frame');
         var fallback = document.getElementById('calendar-fallback');
-        
-        calendarFrame.addEventListener('error', function() {
-            calendarFrame.style.display = 'none';
-            fallback.style.display = 'block';
-        });
-        
-        // Timeout fallback in case iframe is blocked
-        setTimeout(function() {
-            try {
-                // Try to access iframe content - if blocked, this will throw an error
-                if (!calendarFrame.contentWindow) {
-                    throw new Error('Calendar blocked');
-                }
-            } catch (e) {
-                // Don't automatically show fallback - let user try first
-            }
-        }, 3000);
+        if (calendarFrame) {
+            calendarFrame.addEventListener('error', function() {
+                calendarFrame.style.display = 'none';
+                fallback.style.display = 'block';
+            });
+        }
     </script>
 </body>
 </html>

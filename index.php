@@ -16,8 +16,9 @@ $nav_items = [
     ['href' => '#solutions', 'text' => 'Solutions'],
     ['href' => 'process.php', 'text' => 'Our Process'],
     ['href' => 'blogs.php', 'text' => 'Blog'],
+    ['href' => 'tools.php', 'text' => 'Free Tools'],
     ['href' => 'testimonials.php', 'text' => 'Testimonials'],
-    ['href' => 'calculator.php', 'text' => 'Your Hidden Software Graveyard']
+    ['href' => 'calculator.php', 'text' => 'Software Waste Calc']
 ];
 
 // Logo
@@ -1497,22 +1498,14 @@ $faqs = [
                 <div class="logo-icon-wrapper">
                     <img src="<?php echo $logo_svg; ?>" alt="<?php echo htmlspecialchars($company_name); ?> Logo">
                 </div>
-                <div class="logo-text">
-                    <div class="logo-main">
-                        <span class="pe">PE</span> <span class="tech">TECH</span> <span class="partners">PARTNERS</span>
-                    </div>
-                    <div class="logo-tagline"><?php echo htmlspecialchars($tagline); ?></div>
-                    <div class="logo-subtitle">STRATEGIC SOLUTIONS FOR PE & M&A FIRMS</div>
-                </div>
             </div>
             <h1>Close More Deals with Tech That Actually Works</h1>
-            <p class="subtitle">You've got the tools. We make 'em play nice together so your team can focus on sourcing, analyzing, and closing deals—not fighting software.</p>
+            <p class="subtitle">Strategic Solutions for PE &amp; M&amp;A Firms. You've got the tools. We make 'em play nice together so your team can focus on sourcing, analyzing, and closing deals, not fighting software.</p>
             <div class="cta-buttons">
                 <div class="cta-primary-group">
                     <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
                     <p class="cta-subtitle">No cost. No pressure. High clarity.</p>
                 </div>
-                <a href="calculator.php" class="btn btn-secondary">Open Software Waste Calculator</a>
             </div>
         </div>
     </header>
