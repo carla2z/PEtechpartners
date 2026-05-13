@@ -303,6 +303,7 @@ $nav_items = [
             .container { padding: 0 20px; }
         }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>

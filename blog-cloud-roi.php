@@ -38,6 +38,7 @@
         footer { background: #0A2E50; color: white; padding: 40px 0; text-align: center; }
         @media (max-width: 768px) { .container { padding: 0 20px; } h1 { font-size: 32px; } nav { display: none; } }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>

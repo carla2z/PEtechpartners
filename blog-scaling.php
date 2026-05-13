@@ -45,6 +45,7 @@
         footer p { opacity: 0.8; font-size: 14px; }
         @media (max-width: 768px) { .container { padding: 0 20px; } h1 { font-size: 32px; } nav { display: none; } }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>

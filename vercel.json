@@ -1,41 +1,37 @@
 {
-  "redirects": [
-    { "source": "/index.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blogs.php", "destination": "/", "statusCode": 301 },
-    { "source": "/contact.php", "destination": "/", "statusCode": 301 },
-    { "source": "/schedule.php", "destination": "/", "statusCode": 301 },
-    { "source": "/process.php", "destination": "/", "statusCode": 301 },
-    { "source": "/calculator.php", "destination": "/", "statusCode": 301 },
-    { "source": "/testimonials.php", "destination": "/", "statusCode": 301 },
-    { "source": "/privacy.php", "destination": "/", "statusCode": 301 },
-    { "source": "/terms.php", "destination": "/", "statusCode": 301 },
-    { "source": "/tools.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-cybersecurity.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-client-acquisition.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-cloud-roi.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-compliance-size.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-connected-ecosystem.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-deal-velocity.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-hidden-deal-killer.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-it-complexity.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-migration.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-non-technical-manager.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-operational-efficiency.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-scaling.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-software-graveyard.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-tech-arms-dealer.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-tech-assessment.php", "destination": "/", "statusCode": 301 },
-    { "source": "/blog-value-leak.php", "destination": "/", "statusCode": 301 },
-    { "source": "/:path*.php", "destination": "/", "statusCode": 301 }
-  ],
-  "headers": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.9.0"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
+      "src": "/(assets|attached_assets|deal-scorecard)/(.*)",
+      "dest": "/$1/$2",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      }
+    },
+    {
+      "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico|.*\\.(?:css|js|png|jpg|jpeg|gif|webp|svg|pdf|ico|txt|xml))",
+      "dest": "/$1",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      }
     }
   ]
 }

@@ -351,8 +351,9 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
-<body>
+<body class="blog-index">
     <header>
         <div class="nav-container">
             <a href="index.php" class="logo">
@@ -382,49 +383,125 @@
     </header>
 
     <section class="hero-section">
-        <div class="container">
-            <h1>Insights & Intelligence</h1>
-            <p>Expert perspectives on private equity technology integration, M&A best practices, and operational excellence.</p>
-            <p style="margin-top: 16px;">
-                <a href="tools.php" class="read-more" style="font-size: 17px;">Try Our Free PE & M&A Tools →</a>
-            </p>
+        <div class="container hero-layout">
+            <div class="hero-copy">
+                <span class="hero-kicker">PE &amp; M&amp;A technology intelligence</span>
+                <h1>Faster diligence, cleaner integrations, stronger exits.</h1>
+                <p>Field notes, frameworks, and practical calculators for deal teams turning technology from a hidden risk into measurable value creation.</p>
+                <div class="hero-actions">
+                    <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
+                    <a href="tools.php" class="btn btn-secondary">Explore Free Tools</a>
+                </div>
+                <div class="hero-metrics" aria-label="Blog focus metrics">
+                    <div class="hero-metric">
+                        <strong>90</strong>
+                        <span>day post-close alignment playbooks</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>2.3x</strong>
+                        <span>deal velocity lens for tech readiness</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>$158K</strong>
+                        <span>software waste benchmark to investigate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" role="img" aria-label="Technology alignment dashboard preview">
+                <div class="insight-panel">
+                    <div class="panel-top">
+                        <div>
+                            <span class="panel-title">Technology Alignment Signal</span>
+                            <span class="panel-subtitle">Diligence view by value lever</span>
+                        </div>
+                        <span class="panel-status">Live</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="signal-row">
+                            <span>Deal speed</span>
+                            <span class="signal-track"><span class="signal-fill" style="width: 82%;"></span></span>
+                            <span>82%</span>
+                        </div>
+                        <div class="signal-row">
+                            <span>Integration risk</span>
+                            <span class="signal-track"><span class="signal-fill" style="width: 46%;"></span></span>
+                            <span>46%</span>
+                        </div>
+                        <div class="signal-row">
+                            <span>Value leakage</span>
+                            <span class="signal-track"><span class="signal-fill" style="width: 68%;"></span></span>
+                            <span>68%</span>
+                        </div>
+                    </div>
+                    <div class="panel-bottom">
+                        <div>
+                            <strong>17</strong>
+                            <span>insights and tools</span>
+                        </div>
+                        <div>
+                            <strong>6</strong>
+                            <span>deal-stage categories</span>
+                        </div>
+                        <div>
+                            <strong>3</strong>
+                            <span>ROI calculators</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="blog-section">
         <div class="container">
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="attached_assets/stock_images/technology_integrati_141ff25d.jpg" alt="PE and M&A free tools">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Free Tools</span>
-                            <span>•</span>
-                            <span>Interactive</span>
-                        </div>
-                        <h3>Free PE & M&A Calculators: Delay Cost, Automation ROI, and Software Waste</h3>
-                        <p class="blog-excerpt">Run quick numbers for diligence drag, analyst automation upside, and stack overlap. Built to help deal teams prioritize high-ROI tech moves.</p>
-                        <a href="tools.php" class="read-more">Open Tools Hub →</a>
-                    </div>
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">Field Notes</span>
+                    <h2>Browse by the problem slowing down the deal.</h2>
                 </div>
+                <p>Use these articles as a punchlist for diligence, integration, operational cleanup, cyber review, and portfolio-wide value creation.</p>
+            </div>
 
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_technology__2b5cb298.jpg" alt="IT Complexity">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-category">Portfolio Management</span>
-                            <span>•</span>
-                            <span>10 min read</span>
-                        </div>
-                        <h3>The Complexity Tax: Why Most PE Portfolio Tech Is a Drag on Valuation</h3>
-                        <p class="blog-excerpt">As portfolio companies grow, they often accumulate a "Complexity Tax" that silently erodes EBITDA. Learn how to identify and eliminate it.</p>
-                        <a href="blog-it-complexity.php" class="read-more">Read More →</a>
+            <div class="topic-rail" aria-label="Blog topics">
+                <a class="topic-pill" href="blog-tech-assessment.php">Due Diligence</a>
+                <a class="topic-pill" href="blog-deal-velocity.php">Deal Velocity</a>
+                <a class="topic-pill" href="blog-value-leak.php">Value Creation</a>
+                <a class="topic-pill" href="blog-connected-ecosystem.php">Portfolio Ops</a>
+                <a class="topic-pill" href="blog-cybersecurity.php">Cybersecurity</a>
+                <a class="topic-pill" href="blog-compliance-size.php">Compliance</a>
+                <a class="topic-pill" href="tools.php">Free Calculators</a>
+            </div>
+
+            <div class="featured-insight">
+                <div class="featured-media" aria-hidden="true">
+                    <div class="featured-metric-card">
+                        <strong>10+ days</strong>
+                        <span>lost each month when portfolio reporting depends on disconnected systems and manual consolidation.</span>
                     </div>
                 </div>
+                <div class="featured-copy">
+                    <span class="eyebrow">Featured Insight</span>
+                    <h3><a href="blog-it-complexity.php">The Complexity Tax: Why Most PE Portfolio Tech Is a Drag on Valuation</a></h3>
+                    <p>Growth through acquisition often creates a patchwork of legacy systems, redundant software, and conflicting IT processes. This piece shows where EBITDA quietly leaks and what top-quartile operators standardize first.</p>
+                    <div class="featured-stats">
+                        <div>
+                            <strong>ERP</strong>
+                            <span>instance sprawl</span>
+                        </div>
+                        <div>
+                            <strong>CRM</strong>
+                            <span>data fragmentation</span>
+                        </div>
+                        <div>
+                            <strong>SaaS</strong>
+                            <span>vendor overlap</span>
+                        </div>
+                    </div>
+                    <a href="blog-it-complexity.php" class="read-more">Read Featured Insight →</a>
+                </div>
+            </div>
+
+            <div class="blog-grid">
 
                 <div class="blog-card">
                     <div class="blog-image">

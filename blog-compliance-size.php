@@ -247,6 +247,7 @@ $nav_items = [
             .compliance-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>

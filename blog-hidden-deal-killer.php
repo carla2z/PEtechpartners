@@ -258,6 +258,7 @@ $nav_items = [
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>

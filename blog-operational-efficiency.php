@@ -315,6 +315,7 @@ $nav_items = [
 
         .footer-links a:hover { opacity: 1; }
     </style>
+    <link rel="stylesheet" href="assets/blog-enhancements.css">
 </head>
 <body>
     <header>
