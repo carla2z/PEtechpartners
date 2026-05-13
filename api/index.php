@@ -45,4 +45,7 @@ if (!isset($allowed_pages[$path])) {
 }
 
 header('Content-Type: text/html; charset=UTF-8');
+header('Content-Disposition: inline');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
 require $allowed_pages[$path];
