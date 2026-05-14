@@ -652,6 +652,19 @@ $video_schema = [
             line-height: 1.35;
         }
 
+        .video-copy .btn-secondary {
+            border-color: rgba(10, 46, 80, 0.18);
+            color: var(--navy);
+            background: var(--white);
+            box-shadow: 0 12px 30px rgba(10, 46, 80, 0.08);
+        }
+
+        .video-copy .btn-secondary:hover {
+            border-color: rgba(10, 46, 80, 0.32);
+            color: var(--navy-dark);
+            background: #F8FAFD;
+        }
+
         .video-frame-wrap {
             width: min(100%, 420px);
             justify-self: center;
