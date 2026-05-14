@@ -85,6 +85,26 @@ $faq_schema = [
         ],
     ],
 ];
+
+$video_schema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'VideoObject',
+    'name' => 'AI Transforms Private Equity and M&A',
+    'description' => 'A short PE Tech Partners overview of how AI can help private equity and M&A advisory teams improve deal workflows, diligence, VDR review, IC memo support, and portfolio reporting.',
+    'thumbnailUrl' => [
+        'https://i.ytimg.com/vi/Ln4YvPCIHCw/hqdefault.jpg',
+    ],
+    'embedUrl' => 'https://www.youtube-nocookie.com/embed/Ln4YvPCIHCw',
+    'url' => 'https://youtu.be/Ln4YvPCIHCw',
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => 'PE Tech Partners',
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => 'https://petechpartners.com/attached_assets/Home_1761834398568.png',
+        ],
+    ],
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,6 +126,9 @@ $faq_schema = [
     </script>
     <script type="application/ld+json">
     <?= json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
+    </script>
+    <script type="application/ld+json">
+    <?= json_encode($video_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
     </script>
     <style>
         :root {
@@ -581,6 +604,84 @@ $faq_schema = [
             line-height: 1.45;
         }
 
+        .video-band {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(135, 206, 235, 0.2), transparent 28%),
+                linear-gradient(180deg, var(--white), #F4F7FB);
+        }
+
+        .video-feature {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .video-copy h2 {
+            margin-top: 12px;
+            color: var(--navy);
+            font-size: clamp(32px, 4vw, 52px);
+            line-height: 1.1;
+            letter-spacing: 0;
+        }
+
+        .video-copy p {
+            max-width: 720px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.75;
+        }
+
+        .video-points {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 28px 0 0;
+            list-style: none;
+        }
+
+        .video-points li {
+            padding: 14px 16px;
+            border: 1px solid rgba(10, 46, 80, 0.12);
+            border-radius: 12px;
+            color: var(--navy);
+            background: rgba(255, 255, 255, 0.74);
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .video-frame-wrap {
+            width: min(100%, 420px);
+            justify-self: center;
+        }
+
+        .video-frame {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 9 / 16;
+            border: 8px solid var(--navy-dark);
+            border-radius: 24px;
+            background: var(--navy-dark);
+            box-shadow: 0 28px 70px rgba(10, 46, 80, 0.26);
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-caption {
+            margin-top: 14px;
+            color: #43536A;
+            font-size: 14px;
+            text-align: center;
+        }
+
         .split {
             display: grid;
             grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
@@ -759,7 +860,8 @@ $faq_schema = [
             }
 
             .hero-inner,
-            .split {
+            .split,
+            .video-feature {
                 grid-template-columns: 1fr;
             }
 
@@ -768,7 +870,8 @@ $faq_schema = [
             }
 
             .grid-3,
-            .proof-grid {
+            .proof-grid,
+            .video-points {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
@@ -844,9 +947,14 @@ $faq_schema = [
 
             .grid-3,
             .proof-grid,
+            .video-points,
             .region-list,
             .footer-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .video-frame-wrap {
+                width: min(100%, 340px);
             }
         }
     </style>
@@ -954,6 +1062,31 @@ $faq_schema = [
                 <div class="proof-item">
                     <strong>PortCo ops</strong>
                     <span>Use AI to standardize reporting, risk review, and repeatable value creation workflows.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-band" id="ai-video">
+            <div class="container video-feature">
+                <div class="video-copy">
+                    <span class="eyebrow">Watch the AI overview</span>
+                    <h2>AI can transform PE and M&amp;A workflows when it is built around how deals actually move.</h2>
+                    <p>This short video explains where AI creates practical leverage for deal teams: faster document review, cleaner diligence, stronger memo support, and better portfolio reporting with governance built in.</p>
+                    <ul class="video-points" aria-label="AI consulting video topics">
+                        <li>Deal workflow automation</li>
+                        <li>VDR and diligence review</li>
+                        <li>AI governance for deal teams</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a href="schedule.php" class="btn btn-primary">Discuss AI Use Cases</a>
+                        <a href="https://youtu.be/Ln4YvPCIHCw" class="btn btn-secondary" target="_blank" rel="noopener">Open on YouTube</a>
+                    </div>
+                </div>
+                <div class="video-frame-wrap">
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube-nocookie.com/embed/Ln4YvPCIHCw?rel=0&amp;modestbranding=1" title="AI Transforms Private Equity and M&amp;A" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-caption">AI Transforms Private Equity &amp; M&amp;A</p>
                 </div>
             </div>
         </section>
