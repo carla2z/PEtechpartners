@@ -3,19 +3,7 @@
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0",
-      "excludeFiles": [
-        "assets/**/*",
-        "attached_assets/**/*",
-        "public/**/*",
-        "Website updates/**/*",
-        "deal-scorecard/**/*",
-        "tools/**/*",
-        "*.docx",
-        "*.xlsx",
-        "*.md",
-        "*.js",
-        "*.html"
-      ]
+      "excludeFiles": "{assets,attached_assets,public,deal-scorecard,tools}/**/*"
     }
   },
   "routes": [
