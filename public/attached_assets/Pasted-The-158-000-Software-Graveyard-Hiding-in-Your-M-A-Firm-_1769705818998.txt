@@ -1,0 +1,61 @@
+The $158,000 Software Graveyard Hiding in Your M&A Firm
+M&A advisors and private equity firms are bleeding six figures on enterprise tools no one touches. The worst part? It's completely invisible until you look.
+Picture this: An M&A advisory firm runs a routine audit and discovers $158,000 per year in active subscriptions across their tech stack—with massive underutilization. Not "low usage." Not "seasonal tools." We're talking about enterprise-grade platforms with zero logins on multiple seats, overlapping data sources, and licenses tied to people who left years ago.
+The culprits? PitchBook seats that haven't been logged into in 14 months. A CB Insights subscription purchased for one tech sector deal that's been auto-renewing ever since. Three S&P Capital IQ licenses when only one person actively uses it. ZoomInfo enterprise tier with only 5 of 15 seats occupied. Crunchbase Pro that completely duplicates PitchBook data. A Preqin login still assigned to a departed partner. Virtual data rooms from deals that closed in 2023, still billing monthly.
+This isn't some cautionary tale about one careless firm. This is standard operating procedure across the industry.
+The "Just In Case" Trap That's Costing You Six Figures
+M&A and PE firms don't hoard unused software because they're reckless with money. They keep it because of one paralyzing fear:
+"What if we need this for the next deal and reactivating it slows us down?"
+So the licenses pile up. The problem is that enterprise-grade deal tools don't come cheap. PitchBook runs $24,000+ per user annually. CB Insights can hit $60,000. S&P Capital IQ seats cost $12,000+ each. FactSet and Bloomberg terminals? We're talking $20,000-$40,000 per seat. Preqin subscriptions run $15,000+. Even "lighter" tools like Crunchbase Pro, Grata, Dealroom, and Tracxn add up fast at $3,000-$10,000 per year.
+No single expense triggers alarm bells when budgets are tight during active deals. But collectively, they drain six figures annually—often without anyone noticing.
+The numbers tell a stark story. Companies across the United States waste over $30 billion each year on unused software. For deal teams specifically, much of this waste stems from enterprise platforms purchased under deadline pressure during live transactions and never rightsized after closing.
+You're essentially paying for peace of mind you never use. Here's the reality: If you genuinely need it again, you can resubscribe. The savings from disciplined license management dwarf any future reactivation costs.
+Inside the Deal Tools Graveyard
+According to Zylo's 2024 SaaS Management Report, the average company wastes $18 million annually on unused SaaS licenses, a figure that's climbed 7% year over year. Most organizations actually use only about half the licenses they pay for.
+In M&A and private equity environments, the causes are painfully predictable:
+Enterprise platforms with ghost seats. You bought three S&P Capital IQ licenses during a busy quarter. Two years later, only one person uses it regularly, but you're still paying for all three. Same story with ZoomInfo, FactSet, Bloomberg—enterprise tiers made sense once, but usage patterns shifted and nobody adjusted the subscription.
+Overlapping data sources. Your firm pays for PitchBook, Crunchbase Pro, CB Insights, and Dealroom simultaneously. Each claims to offer unique insights, but 80% of the data overlaps. You're paying four vendors for the same information, just packaged differently.
+Sector-specific tools that outlive their deals. Someone bought Grata for startup sourcing or Tracxn for emerging market analysis during a specific mandate. The deal closed. The subscription didn't. It's been renewing quarterly ever since.
+Team turnover creates license orphans. Analysts, associates, and contractors cycle through deals. Their Preqin access, Bloomberg terminal, or PitchBook seat doesn't get canceled—it gets forgotten. Firms spend roughly $14,000 per year just on licenses tied to people who no longer work there. But for enterprise deal tools, that number easily hits $30,000-$50,000 per departed employee.
+Deal-specific tools become permanent fixtures. Virtual data rooms, diligence platforms, analytics dashboards—purchased quickly for a specific transaction, then kept "just in case" for the next one. They're rarely reused, but the billing never stops.
+For boutique M&A firms, this waste typically runs $50,000 to $100,000 annually. For PE firms managing multiple portfolio companies with operating partners who each need their own tool access, six-figure waste is the norm, not the exception.
+This isn't about being cheap. It's about having visibility into what you're actually paying for.
+The Three Silent Killers of Your Software Budget
+Duplicate data platforms across the firm. One team swears by PitchBook, another insists on CB Insights, a third uses Crunchbase Pro for quick searches. Nobody realizes you're paying for the same private company data three times over. Add in FactSet for public company analysis and Preqin for LP/GP data, and suddenly you're spending $150,000+ on overlapping information.
+Over-licensed enterprise platforms. S&P Capital IQ, Bloomberg, FactSet, ZoomInfo—these aren't consumer tools. Each seat costs tens of thousands annually. Research indicates that roughly 38% of licenses sit completely unused in any given 30-day window. You're paying enterprise rates for seats nobody occupies.
+Zombie licenses from former staff. With annual turnover running between 12% and 15%, licenses attached to departed analysts and associates persist long after their exit interviews. Very few firms have systematic processes to shut them down. When each license costs $15,000-$40,000 annually, those ghosts add up fast.
+Your Three-Step Recovery Plan
+Ready to reclaim $50,000 to $150,000+ per year? These are realistic estimates for mid-sized M&A and PE firms, and this is where you'll see immediate ROI.
+Step 1: Centralize everything. Pull billing statements from every possible source—firm corporate cards, partner cards, department cards, PayPal accounts, any platform that could be charging you. Build one master list with these columns: Tool Name | Monthly Cost | Last Login Date | Assigned Owner | Renewal Date | Seat Count vs. Active Users.
+Most deal teams discover they have 30% to 40% more subscriptions than they thought. They also discover they're paying for 2-3x more seats than they actually need.
+Step 2: Run the 90-day usage test. For every tool on your list, ask these questions: Has anyone logged in during the past 90 days? If yes, how many actual users versus paid seats? What critical function breaks if we cancel this tomorrow? Could another tool we already own do this job?
+Research shows that roughly 38% of business applications are either completely unused or barely touched. For expensive enterprise platforms, even identifying one or two unused seats creates five-figure savings.
+Step 3: Eliminate overlap ruthlessly. Scan for redundancy across market intelligence platforms:
+
+Startup/VC data: Do you need PitchBook, CB Insights, Crunchbase, Grata, Dealroom, AND Tracxn? Pick one or two max.
+Public company analysis: FactSet, S&P Capital IQ, and Bloomberg overlap significantly. Choose based on actual workflow, not prestige.
+Alternative assets: Preqin is comprehensive—do you need supplementary platforms?
+B2B contacts: ZoomInfo is powerful but expensive. Audit seat utilization and right-size your tier.
+
+Choose one best-in-class option for each category. Standardize on it firm-wide. Cancel everything else.
+Well-managed firms routinely slash enterprise software spending by 30-40% without losing any deal velocity. When your baseline spend is $200,000-$400,000 on deal tools, that's $60,000-$160,000 back in your budget.
+What You're Really Paying For
+Unused enterprise software doesn't buy you capability or optionality. You're paying for deadline-driven impulse purchases that were never reviewed, fear-based insurance policies against hypothetical scenarios, overlapping data sources that create false comfort, post-deal subscriptions that nobody owns, and licenses tied to people who left years ago.
+None of this accelerates your deals. It just creates silent six-figure drag.
+Fewer Dead Tools, Not Fewer Tools
+Let's be clear: Quality software that genuinely speeds up transactions is worth every penny. PitchBook is invaluable if your team actually uses it. S&P Capital IQ earns its keep if it's driving deal analysis. ZoomInfo pays for itself if you're actually sourcing with it.
+The problem isn't having enterprise tools—it's paying for duplicate tools, unused seats, overlapping platforms, and subscriptions from deals that closed years ago.
+If you haven't audited your software stack in the past year, there's a strong probability that $75,000-$150,000 is currently trapped in inactive or redundant subscriptions. That's not a cost control problem. That's a governance problem.
+And governance problems are fixable.
+
+See What You're Actually Paying For
+We offer a complimentary 20-minute Software Audit designed specifically for M&A advisors and PE firms. No sales pitch. No strings attached.
+You'll receive:
+
+A complete inventory of active subscriptions, including the enterprise platforms you forgot about
+Identification of overlapping data sources (PitchBook vs. CB Insights vs. Crunchbase, etc.)
+Seat utilization analysis for expensive platforms (S&P Capital IQ, FactSet, Bloomberg, ZoomInfo)
+A list of unused licenses you can cancel immediately
+Consolidation recommendations that maintain deal velocity while cutting costs 30-40%
+
+Just a clear, actionable picture of where six figures might be leaking and exactly what to clean up.
