@@ -7,6 +7,73 @@ $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $path = rawurldecode($path);
 $path = trim($path, '/');
 
+function serve_static_file(string $path): bool
+{
+    if ($path === '' || str_contains($path, "\0") || str_contains($path, '..')) {
+        return false;
+    }
+
+    $allowed_exact = ['robots.txt', 'sitemap.xml', 'favicon.ico'];
+    $allowed_prefixes = ['assets/', 'attached_assets/', 'deal-scorecard/', 'blog/'];
+    $is_allowed = in_array($path, $allowed_exact, true);
+
+    foreach ($allowed_prefixes as $prefix) {
+        if (str_starts_with($path, $prefix)) {
+            $is_allowed = true;
+            break;
+        }
+    }
+
+    if (!$is_allowed) {
+        return false;
+    }
+
+    $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+    $mime_types = [
+        'css' => 'text/css; charset=UTF-8',
+        'js' => 'application/javascript; charset=UTF-8',
+        'png' => 'image/png',
+        'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'gif' => 'image/gif',
+        'webp' => 'image/webp',
+        'svg' => 'image/svg+xml',
+        'pdf' => 'application/pdf',
+        'ico' => 'image/x-icon',
+        'txt' => 'text/plain; charset=UTF-8',
+        'xml' => 'application/xml; charset=UTF-8',
+        'html' => 'text/html; charset=UTF-8',
+    ];
+
+    if (!isset($mime_types[$extension])) {
+        return false;
+    }
+
+    $site_root = getcwd();
+    $relative_path = str_starts_with($path, 'blog/') ? 'public/' . $path : $path;
+    $file_path = realpath($site_root . DIRECTORY_SEPARATOR . $relative_path);
+
+    if ($file_path === false || !is_file($file_path)) {
+        return false;
+    }
+
+    $root_prefix = rtrim((string) realpath($site_root), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+    if (!str_starts_with($file_path, $root_prefix)) {
+        return false;
+    }
+
+    header('Content-Type: ' . $mime_types[$extension]);
+    header('Content-Disposition: inline');
+    header('Cache-Control: public, max-age=3600');
+    header('Content-Length: ' . filesize($file_path));
+    readfile($file_path);
+    return true;
+}
+
+if (serve_static_file($path)) {
+    return;
+}
+
 $allowed_pages = [
     '' => 'index.php',
     'index.php' => 'index.php',

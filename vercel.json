@@ -2,14 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.9.0",
-      "excludeFiles": "{assets,attached_assets,public,deal-scorecard,tools}/**/*"
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
     {
       "src": "/(assets|attached_assets|deal-scorecard)/(.*)",
-      "dest": "/$1/$2",
+      "dest": "/api/index.php",
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
@@ -18,7 +17,7 @@
     },
     {
       "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico|.*\\.(?:css|js|png|jpg|jpeg|gif|webp|svg|pdf|ico|txt|xml))",
-      "dest": "/$1",
+      "dest": "/api/index.php",
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
