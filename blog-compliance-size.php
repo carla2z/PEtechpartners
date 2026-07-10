@@ -13,10 +13,31 @@ $nav_items = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compliance in M&A: Why Size Matters Not - PE Tech Partners</title>
+    <meta name="description" content="GDPR, KYC, and SEC rules hit boutique M&A advisors as hard as mega-funds. Why small PE firms can't ignore compliance—and how the right tech levels the field.">
+    <link rel="canonical" href="https://petechpartners.com/blog-compliance-size.php">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Compliance in M&A: Why Size Matters Not">
+    <meta property="og:description" content="GDPR, KYC, and SEC rules hit boutique M&A advisors as hard as mega-funds. Why small PE firms can't ignore compliance—and how the right tech levels the field.">
+    <meta property="og:url" content="https://petechpartners.com/blog-compliance-size.php">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Compliance in M&A: Why Size Matters Not","description":"GDPR, KYC, and SEC rules hit boutique M&A advisors as hard as mega-funds. Why small PE firms can't ignore compliance—and how the right tech levels the field.","url":"https://petechpartners.com/blog-compliance-size.php","publisher":{"@type":"Organization","name":"PE Tech Partners","url":"https://petechpartners.com/"}}</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm install recharts jspdf html2canvas)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(cd /Users/carldeprado/Downloads/\"PE-Tech-Partners 5\"/deal-scorecard)",
+      "Bash(npm run build)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)"
+    ]
+  }
+}

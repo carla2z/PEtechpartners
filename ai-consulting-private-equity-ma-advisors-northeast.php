@@ -109,10 +109,24 @@ $video_schema = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <link rel="icon" type="image/jpeg" href="<?= htmlspecialchars($logo_src) ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Consulting for PE &amp; M&amp;A Advisory Firms | Northeast | PE Tech Partners</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
     <meta name="description" content="AI consulting for private equity and M&A advisory firms in New York, Connecticut, Boston, New Jersey, Philadelphia, and the Northeast. Practical AI for diligence, CIM review, VDR workflows, IC memos, and portfolio reporting.">
     <link rel="canonical" href="https://petechpartners.com/ai-consulting-private-equity-ma-advisors-northeast.php">
     <meta property="og:title" content="AI Consulting for PE &amp; M&amp;A Advisory Firms in the Northeast">

@@ -1,0 +1,1405 @@
+---
+import { assessmentData } from "../data/assessment";
+import "../styles/global.css";
+
+const serializedAssessment = JSON.stringify(assessmentData);
+const reviewStep = assessmentData.sections.length + 2;
+const lastSectionStep = reviewStep - 1;
+const totalMaxScore = assessmentData.sections.reduce(
+  (sum, section) => sum + section.dimensions.length * 5,
+  0,
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A PE-Tech-Partners branded AI readiness assessment for evaluating data, staff literacy, process documentation, infrastructure, leadership, and legal exposure."
+    />
+    <title>AI Readiness Assessment | PE Tech Partners</title>
+    <link rel="icon" type="image/png" href="/pe-tech-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script id="assessment-data" type="application/json" is:inline set:html={serializedAssessment}></script>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="nav-logo" href="/" aria-label="PE Tech Partners home">
+            <span class="nav-logo-icon">
+              <img src="/pe-tech-logo.png" alt="PE Tech Partners logo" />
+            </span>
+            <span class="nav-logo-text"><span class="pe">PE</span> TECH PARTNERS</span>
+          </a>
+          <nav class="site-nav" aria-label="Site navigation">
+            <a href="/#problems">Challenges</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/ai-consulting-private-equity-ma-advisors-northeast.php">AI Consulting</a>
+            <a href="/process.php">Our Process</a>
+            <a href="/tools.php">Free Tools</a>
+            <a class="nav-cta" href="/schedule.php">Book Assessment</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-inner">
+          <div class="step-dots" id="stepDots" aria-label="Assessment progress"></div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <main class="page" id="assessmentApp">
+        <section class="panel is-active" id="step-0" aria-labelledby="landingTitle">
+          <div class="hero">
+            <div class="hero-copy">
+              <div class="hero-logo">
+                <span class="hero-logo-icon">
+                  <img src="/pe-tech-logo.png" alt="PE Tech Partners logo" />
+                </span>
+                <span>
+                  <span class="hero-logo-main"><span class="pe">PE</span> TECH PARTNERS</span>
+                  <span class="hero-logo-tagline">Strategic Solutions for PE &amp; M&amp;A Firms</span>
+                </span>
+              </div>
+              <p class="eyebrow">AI readiness for deal teams</p>
+              <h1 id="landingTitle">Find Out If Your Firm Is Actually Ready For AI</h1>
+              <p class="lede">
+                Score the systems, data, workflows, legal exposure, and leadership habits
+                that determine whether AI speeds up diligence and portfolio work or just
+                creates another expensive mess.
+              </p>
+              <div class="cta-buttons">
+                <button class="btn btn-primary" type="button" data-go-step="1">Start Assessment</button>
+                <button class="btn btn-secondary" type="button" data-open-retrieve>Retrieve Report</button>
+              </div>
+              <p class="cta-subtitle">No cost. No pressure. High clarity.</p>
+            </div>
+          </div>
+
+          <div class="action-grid" aria-label="Assessment actions">
+            <button class="action-card" type="button" data-go-step="1">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+              <h2>Start New Assessment</h2>
+              <p>
+                Begin a fresh client assessment across six categories and 30 scored
+                dimensions.
+              </p>
+            </button>
+
+            <button class="action-card" type="button" data-open-retrieve>
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3v12"></path>
+                  <path d="m7 10 5 5 5-5"></path>
+                  <path d="M5 21h14"></path>
+                </svg>
+              </span>
+              <h2>Retrieve Existing Report</h2>
+              <p>
+                Re-download a report saved in this browser using the client company
+                name and assessment password.
+              </p>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" id="step-1" aria-labelledby="setupTitle">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Assessment setup</p>
+              <h2 id="setupTitle">Client and report details</h2>
+              <p class="section-copy">
+                These details appear on the PDF cover page. Required fields are marked.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="setup-form">
+              <div class="field">
+                <label for="advisorName">Advisor / MSP Company Name *</label>
+                <input
+                  class="text-input"
+                  id="advisorName"
+                  type="text"
+                  value="PE Tech Partners"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="field">
+                <label for="clientName">Client Company Name *</label>
+                <input
+                  class="text-input"
+                  id="clientName"
+                  type="text"
+                  placeholder="Client company name"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="field">
+                <label>Advisor Logo (optional)</label>
+                <div class="logo-row">
+                  <label class="file-control">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 16l4-4 4 4 2-2 6 6"></path>
+                      <path d="M14 6h.01"></path>
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    </svg>
+                    Choose File
+                    <input id="advisorLogo" type="file" accept="image/*" data-logo-input="advisorLogo" />
+                  </label>
+                  <img class="logo-preview" id="advisorLogoPreview" alt="Advisor logo preview" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Client Logo (optional)</label>
+                <div class="logo-row">
+                  <label class="file-control">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 16l4-4 4 4 2-2 6 6"></path>
+                      <path d="M14 6h.01"></path>
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    </svg>
+                    Choose File
+                    <input id="clientLogo" type="file" accept="image/*" data-logo-input="clientLogo" />
+                  </label>
+                  <img class="logo-preview" id="clientLogoPreview" alt="Client logo preview" />
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="field">
+                <label for="password">Assessment Password *</label>
+                <p class="field-hint">
+                  This password is used to retrieve the saved report in this browser.
+                </p>
+                <input
+                  class="text-input"
+                  id="password"
+                  type="password"
+                  placeholder="Set a password"
+                  autocomplete="new-password"
+                />
+              </div>
+
+              <div class="field">
+                <label for="passwordConfirm">Confirm Password *</label>
+                <input
+                  class="text-input"
+                  id="passwordConfirm"
+                  type="password"
+                  placeholder="Confirm password"
+                  autocomplete="new-password"
+                />
+              </div>
+
+              <div class="error-message" id="setupError" role="alert"></div>
+
+              <div class="nav-row">
+                <button class="btn btn-ghost" type="button" data-go-step="0">Back</button>
+                <button class="btn btn-dark" type="button" id="beginAssessment">
+                  Begin Assessment
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {assessmentData.sections.map((_section, index) => <section class="panel" id={`step-${index + 2}`}></section>)}
+
+        <section class="panel" id={`step-${reviewStep}`} aria-labelledby="reviewTitle">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Review</p>
+              <h2 id="reviewTitle">Generate the client report</h2>
+              <p class="section-copy">
+                Review the scoring summary, then download a PDF report and save it for
+                later retrieval from this browser.
+              </p>
+            </div>
+          </div>
+
+          <div class="review-stack">
+            <div class="summary-card overall-card">
+              <p class="microcopy">Overall Readiness Score</p>
+              <div class="overall-score" id="overallScoreValue">0</div>
+              <p class="muted">out of {totalMaxScore}</p>
+              <div class="tier-pill" id="overallTierBadge">Not Ready</div>
+              <p class="tier-description" id="overallTierDescription"></p>
+            </div>
+
+            <div class="summary-card insight-card">
+              <h3>Priority Focus Areas</h3>
+              <p class="microcopy">The lowest-scoring dimensions — fix these first.</p>
+              <ul class="insight-list" id="focusAreasList"></ul>
+            </div>
+
+            <div class="summary-card insight-card">
+              <h3>Key Strengths</h3>
+              <p class="microcopy">The strongest foundations to build the first pilot on.</p>
+              <ul class="insight-list" id="strengthsList"></ul>
+            </div>
+
+            <div class="summary-card">
+              <h3>Section Scores</h3>
+              <table class="summary-table">
+                <thead>
+                  <tr>
+                    <th>Section</th>
+                    <th>Score</th>
+                    <th>Tier</th>
+                    <th>Distribution</th>
+                  </tr>
+                </thead>
+                <tbody id="summaryTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="summary-card">
+              <h3>Score Distribution</h3>
+              <div class="bar-chart" id="barChart"></div>
+            </div>
+
+            <div class="summary-card">
+              <h3>Recommended Next Actions</h3>
+              <ol class="reco-list" id="recommendationsList"></ol>
+            </div>
+          </div>
+
+          <div class="error-message" id="reportError" role="alert"></div>
+
+          <div class="nav-row">
+            <button class="btn btn-ghost" type="button" data-go-step={lastSectionStep}>Back to Assessment</button>
+            <button class="btn btn-primary" type="button" id="generateReport">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
+                <path d="M8 13h8"></path>
+                <path d="M8 17h8"></path>
+              </svg>
+              Generate PDF Report
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <div class="modal" id="retrieveModal" aria-hidden="true">
+        <div class="backdrop" data-close-modal></div>
+        <div class="modal-position">
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="retrieveTitle">
+            <button class="close-btn" type="button" data-close-modal aria-label="Close retrieve report modal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+            <h2 id="retrieveTitle">Retrieve Report</h2>
+            <p class="section-copy">
+              Enter the client company name and password used when the report was
+              generated on this browser.
+            </p>
+
+            <div class="setup-form">
+              <div class="field">
+                <label for="retrieveClientName">Client Company Name</label>
+                <input
+                  class="text-input"
+                  id="retrieveClientName"
+                  type="text"
+                  placeholder="Company name"
+                  autocomplete="organization"
+                />
+              </div>
+              <div class="field">
+                <label for="retrievePassword">Password</label>
+                <input
+                  class="text-input"
+                  id="retrievePassword"
+                  type="password"
+                  placeholder="Assessment password"
+                  autocomplete="current-password"
+                />
+              </div>
+              <div class="error-message" id="retrieveError" role="alert"></div>
+              <button class="btn btn-dark" type="button" id="retrieveReport">Download Report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading" id="loadingOverlay" aria-hidden="true">
+        <div class="backdrop"></div>
+        <div class="loading-position">
+          <div class="loading-card" role="status" aria-live="polite">
+            <div class="spinner" aria-hidden="true"></div>
+            <strong id="loadingMessage">Building your PDF report...</strong>
+            <p class="muted">This usually takes a few seconds.</p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        &copy; <span id="footerYear"></span> PE Tech Partners. All rights reserved.
+      </footer>
+    </div>
+
+    <script>
+      // @ts-nocheck
+      import { jsPDF } from "jspdf";
+
+      const rawData = document.getElementById("assessment-data")?.textContent || "{}";
+      const ASSESSMENT_DATA = JSON.parse(rawData);
+      const SECTIONS = ASSESSMENT_DATA.sections;
+      const SCORING_LABELS = ASSESSMENT_DATA.scoringLabels;
+      const READINESS_TIERS = ASSESSMENT_DATA.readinessTiers;
+      const STORAGE_PREFIX = "pe-tech-ai-assessment:v1";
+      const SECTION_MAX_SCORE = 25;
+      const TOTAL_MAX_SCORE = SECTIONS.reduce(
+        (sum, section) => sum + section.dimensions.length * 5,
+        0,
+      );
+      const REVIEW_STEP = SECTIONS.length + 2;
+      const LAST_STEP = REVIEW_STEP;
+
+      let currentStep = 0;
+      const scores = {};
+      const notes = {};
+      const setupData = {
+        advisorName: "PE Tech Partners",
+        clientName: "",
+        password: "",
+        advisorLogo: null,
+        clientLogo: null,
+      };
+
+      const loadingMessages = [
+        "Analyzing the readiness profile...",
+        "Mapping section strengths and gaps...",
+        "Preparing strategic recommendations...",
+        "Building your PDF report...",
+      ];
+
+      let loadingTimer = null;
+
+      function initAssessment() {
+        document.getElementById("footerYear").textContent = String(new Date().getFullYear());
+        buildStepDots();
+        buildAssessmentSections();
+        bindEvents();
+        updateProgress();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAssessment, { once: true });
+      } else {
+        initAssessment();
+      }
+
+      function bindEvents() {
+        document.addEventListener("click", (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+
+          const stepButton = target.closest("[data-go-step]");
+          if (stepButton) {
+            navigateToStep(Number(stepButton.getAttribute("data-go-step")));
+            return;
+          }
+
+          if (target.closest("[data-open-retrieve]")) {
+            showRetrieveModal();
+            return;
+          }
+
+          const dot = target.closest("[data-step-dot]");
+          if (dot) {
+            const step = Number(dot.getAttribute("data-step-dot"));
+            if (step === currentStep || isStepComplete(step)) navigateToStep(step);
+            return;
+          }
+
+          const scoreButton = target.closest("[data-score-btn]");
+          if (scoreButton) {
+            updateScore(
+              String(scoreButton.getAttribute("data-dimension")),
+              Number(scoreButton.getAttribute("data-value")),
+              Number(scoreButton.getAttribute("data-section")),
+            );
+            return;
+          }
+
+          const nextButton = target.closest("[data-next-section]");
+          if (nextButton) {
+            goNextSection(Number(nextButton.getAttribute("data-next-section")));
+            return;
+          }
+
+          if (target.closest("[data-close-modal]")) {
+            hideRetrieveModal();
+          }
+        });
+
+        document.addEventListener("input", (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLTextAreaElement)) return;
+          const dimension = target.getAttribute("data-notes-for");
+          if (dimension) notes[dimension] = target.value;
+        });
+
+        document.querySelectorAll("[data-logo-input]").forEach((input) => {
+          input.addEventListener("change", () => handleLogoUpload(input));
+        });
+
+        document.getElementById("beginAssessment")?.addEventListener("click", beginAssessment);
+        document.getElementById("generateReport")?.addEventListener("click", generateReport);
+        document.getElementById("retrieveReport")?.addEventListener("click", retrieveReport);
+        document.getElementById("retrievePassword")?.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") retrieveReport();
+        });
+      }
+
+      function buildStepDots() {
+        const container = document.getElementById("stepDots");
+        if (!container) return;
+
+        const labels = ["Home", "Setup", ...SECTIONS.map((section) => section.title.split(" ")[0]), "Review"];
+        container.innerHTML = "";
+        container.style.gridTemplateColumns = `repeat(${labels.length}, minmax(0, 1fr))`;
+
+        labels.forEach((label, index) => {
+          const button = document.createElement("button");
+          button.className = "step-dot";
+          button.type = "button";
+          button.setAttribute("data-step-dot", String(index));
+          button.innerHTML = `
+            <span class="step-dot-number">${index}</span>
+            <span>${label}</span>
+          `;
+          container.appendChild(button);
+        });
+      }
+
+      function buildAssessmentSections() {
+        SECTIONS.forEach((section, sectionIndex) => {
+          const stepNum = sectionIndex + 2;
+          const container = document.getElementById(`step-${stepNum}`);
+          if (!container) return;
+
+          container.setAttribute("aria-labelledby", `sectionTitle-${section.id}`);
+          container.innerHTML = `
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Section ${sectionIndex + 1} of ${SECTIONS.length}</p>
+                <h2 id="sectionTitle-${section.id}">${escapeHtml(section.title)}</h2>
+                <p class="section-copy">${escapeHtml(section.description)}</p>
+              </div>
+              <div class="score-stack">
+                <div class="score-mini">
+                  <span>Section Score</span>
+                  <strong id="sectionScore-${sectionIndex}">0/${SECTION_MAX_SCORE}</strong>
+                </div>
+                <div class="score-mini">
+                  <span>Total Score</span>
+                  <strong id="totalScore-${sectionIndex}">0/${TOTAL_MAX_SCORE}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="question-list">
+              ${section.dimensions
+                .map((dimension, dimensionIndex) => buildDimensionCard(dimension, dimensionIndex, sectionIndex))
+                .join("")}
+            </div>
+
+            <div class="error-message" id="sectionError-${sectionIndex}" role="alert">
+              Please score all dimensions before continuing.
+            </div>
+
+            <div class="nav-row">
+              <button class="btn btn-ghost" type="button" data-go-step="${stepNum - 1}">
+                ${stepNum === 2 ? "Back to Setup" : "Previous Section"}
+              </button>
+              <button class="btn btn-dark" type="button" id="nextBtn-${sectionIndex}" data-next-section="${sectionIndex}" disabled>
+                ${sectionIndex < SECTIONS.length - 1 ? "Next Section" : "Review Results"}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m13 5 7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          `;
+        });
+      }
+
+      function buildScoringGuide(dimension) {
+        const rows = [5, 4, 3, 2, 1]
+          .map((value) => {
+            const descriptor = dimension.levels?.[value] || "";
+            const textColor = value === 3 ? "#172235" : "#ffffff";
+            return `
+              <li>
+                <span class="guide-num" style="background:${scoreColor(value)};color:${textColor}">${value}</span>
+                <span class="guide-text"><strong>${escapeHtml(SCORING_LABELS[value].label)}</strong> — ${escapeHtml(descriptor)}</span>
+              </li>
+            `;
+          })
+          .join("");
+
+        return `
+          <div class="scoring-guide">
+            <span class="guide-label">Scoring guide</span>
+            <ul class="guide-list">${rows}</ul>
+          </div>
+        `;
+      }
+
+      function buildDimensionCard(dimension, dimensionIndex, sectionIndex) {
+        const scoreButtons = [1, 2, 3, 4, 5]
+          .map(
+            (value) => `
+              <button
+                class="score-btn"
+                type="button"
+                data-score-btn
+                data-value="${value}"
+                data-dimension="${escapeHtml(dimension.id)}"
+                data-section="${sectionIndex}"
+                aria-pressed="false"
+                aria-label="${value}: ${escapeHtml(SCORING_LABELS[value].label)}"
+              >${value}</button>
+            `,
+          )
+          .join("");
+
+        return `
+          <article class="question-card" id="card-${escapeHtml(dimension.id)}">
+            <div class="question-top">
+              <div>
+                <p class="question-title">${dimensionIndex + 1}. ${escapeHtml(dimension.name)}</p>
+                <p class="question-text">${escapeHtml(dimension.statement)}</p>
+                ${buildScoringGuide(dimension)}
+              </div>
+              <div class="checkmark" id="checkmark-${escapeHtml(dimension.id)}" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="m5 13 4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="score-area">
+              <div class="score-scale">
+                <span>1 · Totally broken</span>
+                <span>5 · Great</span>
+              </div>
+              <div class="score-buttons">${scoreButtons}</div>
+            </div>
+            <div class="notes-block">
+              <label for="notes-${escapeHtml(dimension.id)}">Notes</label>
+              <textarea
+                class="notes-input"
+                id="notes-${escapeHtml(dimension.id)}"
+                data-notes-for="${escapeHtml(dimension.id)}"
+                rows="2"
+                placeholder="Add observations, evidence, or context..."
+              ></textarea>
+            </div>
+          </article>
+        `;
+      }
+
+      function updateScore(dimensionId, value, sectionIndex) {
+        scores[dimensionId] = value;
+
+        document.querySelectorAll(`[data-dimension="${cssEscape(dimensionId)}"]`).forEach((button) => {
+          const isSelected = Number(button.getAttribute("data-value")) === value;
+          button.classList.toggle("is-selected", isSelected);
+          button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+        });
+
+        document.getElementById(`checkmark-${dimensionId}`)?.classList.add("is-visible");
+        updateSectionScore(sectionIndex);
+        updateTotalScoreDisplays();
+        updateNextButton(sectionIndex);
+        updateProgress();
+      }
+
+      function getSectionScore(sectionIndex) {
+        if (sectionIndex < 0 || sectionIndex >= SECTIONS.length) return 0;
+        return SECTIONS[sectionIndex].dimensions.reduce((sum, dimension) => sum + (scores[dimension.id] || 0), 0);
+      }
+
+      function getTotalScore() {
+        return SECTIONS.reduce((sum, _section, index) => sum + getSectionScore(index), 0);
+      }
+
+      function getTier(score) {
+        return READINESS_TIERS.find((tier) => score >= tier.min && score <= tier.max) || READINESS_TIERS[0];
+      }
+
+      function getSectionTier(score) {
+        if (score <= 10) return { level: "Not Ready", color: "#E63946" };
+        if (score <= 15) return { level: "Emerging", color: "#F7B733" };
+        if (score <= 20) return { level: "Developing", color: "#3BAFDA" };
+        if (score <= 23) return { level: "Ready", color: "#1FAA59" };
+        return { level: "Optimized", color: "#0A7A3D" };
+      }
+
+      function updateSectionScore(sectionIndex) {
+        const sectionScore = getSectionScore(sectionIndex);
+        const sectionScoreEl = document.getElementById(`sectionScore-${sectionIndex}`);
+        if (sectionScoreEl) sectionScoreEl.textContent = `${sectionScore}/${SECTION_MAX_SCORE}`;
+      }
+
+      function updateTotalScoreDisplays() {
+        const total = getTotalScore();
+        SECTIONS.forEach((_section, index) => {
+          const totalEl = document.getElementById(`totalScore-${index}`);
+          if (totalEl) totalEl.textContent = `${total}/${TOTAL_MAX_SCORE}`;
+        });
+      }
+
+      function updateNextButton(sectionIndex) {
+        const allScored = SECTIONS[sectionIndex].dimensions.every((dimension) => scores[dimension.id] !== undefined);
+        const button = document.getElementById(`nextBtn-${sectionIndex}`);
+        if (button instanceof HTMLButtonElement) button.disabled = !allScored;
+        if (allScored) document.getElementById(`sectionError-${sectionIndex}`)?.classList.remove("is-visible");
+      }
+
+      function goNextSection(sectionIndex) {
+        const allScored = SECTIONS[sectionIndex].dimensions.every((dimension) => scores[dimension.id] !== undefined);
+        const error = document.getElementById(`sectionError-${sectionIndex}`);
+        if (!allScored) {
+          error?.classList.add("is-visible");
+          return;
+        }
+        error?.classList.remove("is-visible");
+        navigateToStep(sectionIndex + 3);
+      }
+
+      function beginAssessment() {
+        hideError("setupError");
+
+        const advisorName = document.getElementById("advisorName")?.value.trim();
+        const clientName = document.getElementById("clientName")?.value.trim();
+        const password = document.getElementById("password")?.value || "";
+        const passwordConfirm = document.getElementById("passwordConfirm")?.value || "";
+
+        if (!advisorName) return showError("setupError", "Advisor / MSP company name is required.");
+        if (!clientName) return showError("setupError", "Client company name is required.");
+        if (!password) return showError("setupError", "Password is required.");
+        if (password.length < 4) return showError("setupError", "Password must be at least 4 characters.");
+        if (password !== passwordConfirm) return showError("setupError", "Passwords do not match.");
+
+        setupData.advisorName = advisorName;
+        setupData.clientName = clientName;
+        setupData.password = password;
+        navigateToStep(2);
+      }
+
+      function isStepComplete(step) {
+        if (step === 0) return true;
+        if (step === 1) return Boolean(setupData.advisorName && setupData.clientName && setupData.password);
+        if (step >= 2 && step < REVIEW_STEP) {
+          const sectionIndex = step - 2;
+          return SECTIONS[sectionIndex].dimensions.every((dimension) => scores[dimension.id] !== undefined);
+        }
+        if (step === REVIEW_STEP) {
+          return SECTIONS.every((section) => section.dimensions.every((dimension) => scores[dimension.id] !== undefined));
+        }
+        return false;
+      }
+
+      function navigateToStep(step) {
+        if (step < 0 || step > LAST_STEP) return;
+        if (step === REVIEW_STEP && !isStepComplete(REVIEW_STEP)) return;
+
+        document.getElementById(`step-${currentStep}`)?.classList.remove("is-active");
+        currentStep = step;
+        document.getElementById(`step-${currentStep}`)?.classList.add("is-active");
+        document.getElementById("progressWrap")?.classList.toggle("is-visible", step !== 0);
+
+        if (step === REVIEW_STEP) buildReviewSummary();
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function updateProgress() {
+        const percent = currentStep === 0 ? 0 : (currentStep / LAST_STEP) * 100;
+        const progress = document.getElementById("progressFill");
+        if (progress) progress.style.width = `${percent}%`;
+
+        document.querySelectorAll("[data-step-dot]").forEach((dot) => {
+          const step = Number(dot.getAttribute("data-step-dot"));
+          dot.classList.toggle("is-current", step === currentStep);
+          dot.classList.toggle("is-complete", step !== currentStep && isStepComplete(step));
+        });
+      }
+
+      function buildReviewSummary() {
+        const payload = buildReportPayload();
+        const total = payload.total;
+        const tier = payload.tier;
+
+        const scoreValue = document.getElementById("overallScoreValue");
+        const tierBadge = document.getElementById("overallTierBadge");
+        const tierDescription = document.getElementById("overallTierDescription");
+        if (scoreValue) {
+          scoreValue.textContent = String(total);
+          scoreValue.style.color = tier.color;
+        }
+        if (tierBadge) {
+          tierBadge.textContent = tier.level;
+          tierBadge.style.backgroundColor = tier.color;
+          tierBadge.style.color = tier.level === "Emerging" ? "#172235" : "#ffffff";
+        }
+        if (tierDescription) tierDescription.textContent = tier.description;
+
+        const focusList = document.getElementById("focusAreasList");
+        if (focusList) {
+          focusList.innerHTML = "";
+          getTopGaps(payload).forEach((gap) => {
+            const item = document.createElement("li");
+            const dot = document.createElement("span");
+            dot.className = "insight-score";
+            dot.textContent = `${gap.score}/5`;
+            dot.style.backgroundColor = scoreColor(gap.score);
+            const text = document.createElement("span");
+            text.innerHTML = `<strong>${escapeHtml(gap.name)}</strong> <span class="insight-section">${escapeHtml(gap.sectionTitle)}</span>`;
+            item.append(dot, text);
+            focusList.appendChild(item);
+          });
+        }
+
+        const strengthsList = document.getElementById("strengthsList");
+        if (strengthsList) {
+          strengthsList.innerHTML = "";
+          getTopStrengths(payload).forEach((item) => {
+            const li = document.createElement("li");
+            const dot = document.createElement("span");
+            dot.className = "insight-score";
+            dot.textContent = `${item.score}/5`;
+            dot.style.backgroundColor = scoreColor(item.score);
+            const text = document.createElement("span");
+            text.innerHTML = `<strong>${escapeHtml(item.name)}</strong> <span class="insight-section">${escapeHtml(item.sectionTitle)}</span>`;
+            li.append(dot, text);
+            strengthsList.appendChild(li);
+          });
+        }
+
+        const recoList = document.getElementById("recommendationsList");
+        if (recoList) {
+          recoList.innerHTML = "";
+          getRecommendations(payload).forEach((recommendation) => {
+            const li = document.createElement("li");
+            li.textContent = recommendation;
+            recoList.appendChild(li);
+          });
+        }
+
+        const tableBody = document.getElementById("summaryTableBody");
+        if (tableBody) {
+          tableBody.innerHTML = "";
+          SECTIONS.forEach((section, index) => {
+            const sectionScore = getSectionScore(index);
+            const sectionTier = getSectionTier(sectionScore);
+            const row = document.createElement("tr");
+
+            const sectionCell = document.createElement("td");
+            sectionCell.textContent = section.title;
+
+            const scoreCell = document.createElement("td");
+            scoreCell.textContent = `${sectionScore}/${SECTION_MAX_SCORE}`;
+            scoreCell.style.color = sectionTier.color;
+            scoreCell.style.fontWeight = "800";
+
+            const tierCell = document.createElement("td");
+            tierCell.textContent = sectionTier.level;
+
+            const distCell = document.createElement("td");
+            const track = document.createElement("div");
+            track.className = "bar-track";
+            const fill = document.createElement("div");
+            fill.className = "bar-fill";
+            fill.style.width = `${(sectionScore / SECTION_MAX_SCORE) * 100}%`;
+            fill.style.backgroundColor = sectionTier.color;
+            track.appendChild(fill);
+            distCell.appendChild(track);
+
+            row.append(sectionCell, scoreCell, tierCell, distCell);
+            tableBody.appendChild(row);
+          });
+        }
+
+        const chart = document.getElementById("barChart");
+        if (chart) {
+          chart.innerHTML = "";
+          SECTIONS.forEach((section, index) => {
+            const sectionScore = getSectionScore(index);
+            const sectionTier = getSectionTier(sectionScore);
+            const row = document.createElement("div");
+            row.className = "bar-row";
+
+            const label = document.createElement("div");
+            label.className = "bar-label";
+            label.textContent = section.title;
+
+            const track = document.createElement("div");
+            track.className = "bar-track";
+            const fill = document.createElement("div");
+            fill.className = "bar-fill";
+            fill.style.width = `${(sectionScore / SECTION_MAX_SCORE) * 100}%`;
+            fill.style.backgroundColor = sectionTier.color;
+            track.appendChild(fill);
+
+            const value = document.createElement("div");
+            value.className = "bar-value";
+            value.textContent = `${sectionScore}/${SECTION_MAX_SCORE}`;
+
+            row.append(label, track, value);
+            chart.appendChild(row);
+          });
+        }
+      }
+
+      async function handleLogoUpload(input) {
+        if (!(input instanceof HTMLInputElement)) return;
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const stateKey = input.getAttribute("data-logo-input");
+        const preview = document.getElementById(`${stateKey}Preview`);
+
+        if (!file.type.startsWith("image/")) {
+          showError("setupError", "Please choose an image file for the logo.");
+          return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+          showError("setupError", "Logo images must be under 2MB.");
+          return;
+        }
+
+        const dataUrl = await readFileAsDataUrl(file);
+        if (stateKey === "advisorLogo" || stateKey === "clientLogo") setupData[stateKey] = dataUrl;
+        if (preview instanceof HTMLImageElement) {
+          preview.src = dataUrl;
+          preview.classList.add("is-visible");
+        }
+      }
+
+      function readFileAsDataUrl(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(new Error("Unable to read image file."));
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function buildReportPayload() {
+        const sectionResults = SECTIONS.map((section, sectionIndex) => {
+          const sectionScore = getSectionScore(sectionIndex);
+          return {
+            id: section.id,
+            title: section.title,
+            description: section.description,
+            playbook: section.playbook || "",
+            score: sectionScore,
+            tier: getSectionTier(sectionScore),
+            dimensions: section.dimensions.map((dimension) => ({
+              id: dimension.id,
+              name: dimension.name,
+              statement: dimension.statement,
+              levelDescriptor: dimension.levels?.[scores[dimension.id]] || "",
+              score: scores[dimension.id] || 0,
+              scoreLabel: SCORING_LABELS[scores[dimension.id]]?.label || "Unscored",
+              notes: notes[dimension.id] || "",
+            })),
+          };
+        });
+
+        const total = getTotalScore();
+
+        return {
+          advisorName: setupData.advisorName,
+          clientName: setupData.clientName,
+          advisorLogo: setupData.advisorLogo,
+          clientLogo: setupData.clientLogo,
+          generatedAt: new Date().toISOString(),
+          total,
+          totalMaxScore: TOTAL_MAX_SCORE,
+          sectionMaxScore: SECTION_MAX_SCORE,
+          tier: getTier(total),
+          sections: sectionResults,
+        };
+      }
+
+      async function generateReport() {
+        hideError("reportError");
+        const payload = buildReportPayload();
+        showLoading();
+
+        try {
+          await wait(350);
+          await saveReport(payload);
+          downloadPdf(payload);
+        } catch (error) {
+          showError("reportError", error instanceof Error ? error.message : "Unable to generate the report.");
+        } finally {
+          hideLoading();
+        }
+      }
+
+      async function saveReport(payload) {
+        try {
+          const key = await getStorageKey(setupData.clientName, setupData.password);
+          localStorage.setItem(key, JSON.stringify(payload));
+        } catch (error) {
+          console.warn("Report could not be stored locally", error);
+        }
+      }
+
+      async function retrieveReport() {
+        hideError("retrieveError");
+        const clientName = document.getElementById("retrieveClientName")?.value.trim() || "";
+        const password = document.getElementById("retrievePassword")?.value || "";
+        const button = document.getElementById("retrieveReport");
+
+        if (!clientName) return showError("retrieveError", "Please enter the client company name.");
+        if (!password) return showError("retrieveError", "Please enter the password.");
+
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = true;
+          button.textContent = "Retrieving...";
+        }
+
+        try {
+          const key = await getStorageKey(clientName, password);
+          const stored = localStorage.getItem(key);
+          if (!stored) throw new Error("Report not found in this browser, or the password is incorrect.");
+          const payload = JSON.parse(stored);
+          downloadPdf(payload);
+          hideRetrieveModal();
+        } catch (error) {
+          showError("retrieveError", error instanceof Error ? error.message : "Unable to retrieve the report.");
+        } finally {
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = false;
+            button.textContent = "Download Report";
+          }
+        }
+      }
+
+      function downloadPdf(payload) {
+        const doc = new jsPDF({ unit: "pt", format: "letter" });
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+        const margin = 48;
+        const contentWidth = pageWidth - margin * 2;
+        let y = margin;
+
+        const navy = hexToRgb("#0A2E50");
+        const red = hexToRgb("#BF0A30");
+        const muted = hexToRgb("#64748B");
+        const ink = hexToRgb("#1A1A1A");
+
+        const addHeader = () => {
+          doc.setFillColor(navy.r, navy.g, navy.b);
+          doc.rect(0, 0, pageWidth, 68, "F");
+          doc.setFillColor(red.r, red.g, red.b);
+          doc.rect(0, 66, pageWidth, 3, "F");
+          doc.setTextColor(255, 255, 255);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(14);
+          doc.text(payload.advisorName || "PE Tech Partners", margin, 30);
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(10);
+          doc.text("AI Readiness Assessment", margin, 48);
+          y = 100;
+        };
+
+        const addFooter = () => {
+          const pageCount = doc.getNumberOfPages();
+          for (let i = 1; i <= pageCount; i += 1) {
+            doc.setPage(i);
+            doc.setTextColor(muted.r, muted.g, muted.b);
+            doc.setFontSize(9);
+            doc.text(`Page ${i} of ${pageCount}`, pageWidth - margin, pageHeight - 28, { align: "right" });
+          }
+        };
+
+        const ensureSpace = (needed) => {
+          if (y + needed <= pageHeight - margin) return;
+          doc.addPage();
+          addHeader();
+        };
+
+        const writeWrapped = (text, x, maxWidth, lineHeight = 15) => {
+          const lines = doc.splitTextToSize(text || "", maxWidth);
+          doc.text(lines, x, y);
+          y += lines.length * lineHeight;
+        };
+
+        addHeader();
+
+        if (payload.clientLogo) addLogo(doc, payload.clientLogo, pageWidth - margin - 96, 92, 96, 48);
+        if (payload.advisorLogo) addLogo(doc, payload.advisorLogo, pageWidth - margin - 202, 92, 96, 48);
+
+        doc.setTextColor(navy.r, navy.g, navy.b);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(26);
+        writeWrapped("AI Readiness Assessment", margin, contentWidth - 150, 29);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(12);
+        doc.setTextColor(ink.r, ink.g, ink.b);
+        y += 4;
+        doc.text(`Client: ${payload.clientName}`, margin, y);
+        y += 18;
+        doc.text(`Prepared by: ${payload.advisorName}`, margin, y);
+        y += 18;
+        doc.text(`Generated: ${formatDate(payload.generatedAt)}`, margin, y);
+        y += 28;
+
+        const tierColor = hexToRgb(payload.tier.color);
+        doc.setFillColor(tierColor.r, tierColor.g, tierColor.b);
+        doc.roundedRect(margin, y, contentWidth, 88, 8, 8, "F");
+        doc.setTextColor(255, 255, 255);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(34);
+        doc.text(`${payload.total}/${payload.totalMaxScore || TOTAL_MAX_SCORE}`, margin + 24, y + 42);
+        doc.setFontSize(16);
+        doc.text(payload.tier.level, margin + 24, y + 67);
+        y += 116;
+
+        doc.setTextColor(ink.r, ink.g, ink.b);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(11);
+        writeWrapped(payload.tier.description, margin, contentWidth, 15);
+        y += 18;
+
+        ensureSpace(150);
+        doc.setTextColor(navy.r, navy.g, navy.b);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("Section Summary", margin, y);
+        y += 18;
+
+        payload.sections.forEach((section) => {
+          ensureSpace(32);
+          const color = hexToRgb(section.tier.color);
+          doc.setTextColor(ink.r, ink.g, ink.b);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11);
+          doc.text(section.title, margin, y);
+          doc.setTextColor(color.r, color.g, color.b);
+          doc.text(`${section.score}/${payload.sectionMaxScore || SECTION_MAX_SCORE} ${section.tier.level}`, pageWidth - margin, y, { align: "right" });
+          y += 10;
+          doc.setDrawColor(220, 227, 238);
+          doc.line(margin, y, pageWidth - margin, y);
+          y += 16;
+        });
+
+        ensureSpace(120);
+        doc.setTextColor(navy.r, navy.g, navy.b);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("Priority Focus Areas", margin, y);
+        y += 18;
+
+        getTopGaps(payload).forEach((gap) => {
+          ensureSpace(26);
+          const dotColor = hexToRgb(scoreColor(gap.score));
+          doc.setFillColor(dotColor.r, dotColor.g, dotColor.b);
+          doc.circle(margin + 4, y - 4, 4, "F");
+          doc.setTextColor(ink.r, ink.g, ink.b);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11);
+          doc.text(`${gap.name} (${gap.score}/5)`, margin + 16, y);
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(muted.r, muted.g, muted.b);
+          doc.text(gap.sectionTitle, pageWidth - margin, y, { align: "right" });
+          y += 18;
+        });
+        y += 6;
+
+        ensureSpace(140);
+        doc.setTextColor(navy.r, navy.g, navy.b);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("Recommended Next Actions", margin, y);
+        y += 20;
+
+        getRecommendations(payload).forEach((recommendation, index) => {
+          ensureSpace(48);
+          doc.setTextColor(red.r, red.g, red.b);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11);
+          doc.text(`${index + 1}.`, margin, y);
+          doc.setTextColor(ink.r, ink.g, ink.b);
+          doc.setFont("helvetica", "normal");
+          writeWrapped(recommendation, margin + 18, contentWidth - 18, 15);
+          y += 6;
+        });
+
+        payload.sections.forEach((section) => {
+          ensureSpace(100);
+          doc.setTextColor(navy.r, navy.g, navy.b);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(15);
+          doc.text(`${section.title}: ${section.score}/${payload.sectionMaxScore || SECTION_MAX_SCORE}`, margin, y);
+          y += 18;
+
+          section.dimensions.forEach((dimension) => {
+            ensureSpace(82);
+            doc.setTextColor(ink.r, ink.g, ink.b);
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(11);
+            doc.text(`${dimension.name} - ${dimension.score}/5 ${dimension.scoreLabel}`, margin, y);
+            y += 15;
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(muted.r, muted.g, muted.b);
+            writeWrapped(dimension.statement, margin, contentWidth, 13);
+            if (dimension.levelDescriptor) {
+              y += 3;
+              doc.setTextColor(ink.r, ink.g, ink.b);
+              writeWrapped(`Rated ${dimension.scoreLabel}: ${dimension.levelDescriptor}`, margin, contentWidth, 13);
+            }
+            if (dimension.notes) {
+              y += 3;
+              doc.setTextColor(ink.r, ink.g, ink.b);
+              writeWrapped(`Notes: ${dimension.notes}`, margin + 12, contentWidth - 12, 13);
+            }
+            y += 8;
+          });
+        });
+
+        addFooter();
+        doc.save(`AI_Readiness_Assessment_${safeFileName(payload.clientName)}.pdf`);
+      }
+
+      function flattenDimensions(payload) {
+        const rows = [];
+        payload.sections.forEach((section) => {
+          section.dimensions.forEach((dimension) => {
+            rows.push({
+              name: dimension.name,
+              score: dimension.score,
+              sectionTitle: section.title,
+              sectionId: section.id,
+            });
+          });
+        });
+        return rows;
+      }
+
+      function getTopGaps(payload, count = 3) {
+        return flattenDimensions(payload)
+          .sort((a, b) => a.score - b.score || a.sectionTitle.localeCompare(b.sectionTitle))
+          .slice(0, count);
+      }
+
+      function getTopStrengths(payload, count = 3) {
+        return flattenDimensions(payload)
+          .sort((a, b) => b.score - a.score || a.sectionTitle.localeCompare(b.sectionTitle))
+          .slice(0, count);
+      }
+
+      function scoreColor(score) {
+        if (score <= 1) return "#E63946";
+        if (score === 2) return "#FF9F43";
+        if (score === 3) return "#F7B733";
+        if (score === 4) return "#1FAA59";
+        return "#0A7A3D";
+      }
+
+      function getRecommendations(payload) {
+        const sortedSections = [...payload.sections].sort((a, b) => a.score - b.score);
+        const lowest = sortedSections[0];
+        const second = sortedSections[1];
+        const highest = sortedSections[sortedSections.length - 1];
+        const gaps = getTopGaps(payload, 2);
+        const tier = payload.tier.level;
+
+        const tierAction =
+          tier === "Not Ready" || tier === "Emerging"
+            ? "Treat the next 30 days as foundation work before buying more AI tools."
+            : "Select one measured pilot and expand only after clear success criteria are visible.";
+
+        const recommendations = [
+          `${tierAction} ${lowest.playbook || `Make ${lowest.title} the first workstream, where the score shows the clearest adoption risk.`}`,
+          `Start with the two weakest dimensions — ${gaps[0].name} (${gaps[0].sectionTitle}) and ${gaps[1].name} (${gaps[1].sectionTitle}) — before scaling AI into sensitive PE or M&A workflows such as CIM review, data-room handling, pipeline scoring, or portfolio reporting.`,
+          `Use ${highest.title} as the sponsor lane for the first pilot. It is the strongest foundation and can build internal confidence.`,
+        ];
+
+        if (second && second.playbook && second.id !== lowest.id) {
+          recommendations.push(`Make ${second.title} the second improvement priority: ${lowercaseFirst(second.playbook)}`);
+        }
+
+        return recommendations;
+      }
+
+      function lowercaseFirst(text) {
+        if (!text) return text;
+        return text.charAt(0).toLowerCase() + text.slice(1);
+      }
+
+      function showRetrieveModal() {
+        hideError("retrieveError");
+        const modal = document.getElementById("retrieveModal");
+        if (modal) {
+          modal.classList.add("is-visible");
+          modal.setAttribute("aria-hidden", "false");
+        }
+        const clientInput = document.getElementById("retrieveClientName");
+        if (clientInput instanceof HTMLInputElement) {
+          clientInput.value = "";
+          window.setTimeout(() => clientInput.focus(), 50);
+        }
+        const passwordInput = document.getElementById("retrievePassword");
+        if (passwordInput instanceof HTMLInputElement) passwordInput.value = "";
+      }
+
+      function hideRetrieveModal() {
+        const modal = document.getElementById("retrieveModal");
+        if (modal) {
+          modal.classList.remove("is-visible");
+          modal.setAttribute("aria-hidden", "true");
+        }
+      }
+
+      function showLoading() {
+        const overlay = document.getElementById("loadingOverlay");
+        if (overlay) {
+          overlay.classList.add("is-visible");
+          overlay.setAttribute("aria-hidden", "false");
+        }
+        let index = 0;
+        const message = document.getElementById("loadingMessage");
+        if (message) message.textContent = loadingMessages[index];
+        loadingTimer = window.setInterval(() => {
+          index = (index + 1) % loadingMessages.length;
+          if (message) message.textContent = loadingMessages[index];
+        }, 1200);
+      }
+
+      function hideLoading() {
+        const overlay = document.getElementById("loadingOverlay");
+        if (overlay) {
+          overlay.classList.remove("is-visible");
+          overlay.setAttribute("aria-hidden", "true");
+        }
+        if (loadingTimer) {
+          window.clearInterval(loadingTimer);
+          loadingTimer = null;
+        }
+      }
+
+      async function getStorageKey(clientName, password) {
+        const clientSlug = safeFileName(clientName).toLowerCase();
+        const passwordDigest = await digestText(password);
+        return `${STORAGE_PREFIX}:${clientSlug}:${passwordDigest}`;
+      }
+
+      async function digestText(value) {
+        if (window.crypto?.subtle) {
+          const bytes = new TextEncoder().encode(value);
+          const digest = await window.crypto.subtle.digest("SHA-256", bytes);
+          return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+        }
+        return btoa(value).replace(/[^a-zA-Z0-9]/g, "");
+      }
+
+      function showError(id, message) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        element.textContent = message;
+        element.classList.add("is-visible");
+      }
+
+      function hideError(id) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        element.textContent = "";
+        element.classList.remove("is-visible");
+      }
+
+      function wait(ms) {
+        return new Promise((resolve) => window.setTimeout(resolve, ms));
+      }
+
+      function formatDate(value) {
+        return new Intl.DateTimeFormat("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }).format(new Date(value));
+      }
+
+      function safeFileName(value) {
+        return String(value || "client")
+          .trim()
+          .replace(/[^a-zA-Z0-9]+/g, "_")
+          .replace(/^_+|_+$/g, "")
+          .slice(0, 80) || "client";
+      }
+
+      function hexToRgb(hex) {
+        const value = hex.replace("#", "");
+        return {
+          r: parseInt(value.slice(0, 2), 16),
+          g: parseInt(value.slice(2, 4), 16),
+          b: parseInt(value.slice(4, 6), 16),
+        };
+      }
+
+      function addLogo(doc, dataUrl, x, y, maxWidth, maxHeight) {
+        try {
+          const props = doc.getImageProperties(dataUrl);
+          const ratio = Math.min(maxWidth / props.width, maxHeight / props.height);
+          doc.addImage(dataUrl, props.fileType, x, y, props.width * ratio, props.height * ratio);
+        } catch (error) {
+          console.warn("Logo could not be added to the PDF", error);
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function cssEscape(value) {
+        if (window.CSS?.escape) return window.CSS.escape(value);
+        return String(value).replace(/"/g, '\\"');
+      }
+    </script>
+  </body>
+</html>

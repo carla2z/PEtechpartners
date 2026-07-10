@@ -346,10 +346,22 @@ $faq_schema = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10-to-100 Team Firepower Estimator | PE Tech Partners</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
     <meta name="description" content="Model how a 10-person deal team can operate with the firepower of 100 through workflow automation, verification quality, and lower coordination drag.">
     <link rel="canonical" href="https://petechpartners.com/tools.php">
     <meta property="og:title" content="10-to-100 Team Firepower Estimator | PE Tech Partners">

@@ -13,10 +13,31 @@ $nav_items = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why Every PE Firm Needs a 'Tech Arms Dealer' - PE Tech Partners</title>
+    <meta name="description" content="Why the most successful PE firms deploy a specialized 'tech arms dealer'—on-demand technology partners who arm portfolio companies without full-time overhead.">
+    <link rel="canonical" href="https://petechpartners.com/blog-tech-arms-dealer.php">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Every PE Firm Needs a 'Tech Arms Dealer': The Secret Weapon for Portfolio Success">
+    <meta property="og:description" content="Why the most successful PE firms deploy a specialized 'tech arms dealer'—on-demand technology partners who arm portfolio companies without full-time overhead.">
+    <meta property="og:url" content="https://petechpartners.com/blog-tech-arms-dealer.php">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Every PE Firm Needs a 'Tech Arms Dealer': The Secret Weapon for Portfolio Success","description":"Why the most successful PE firms deploy a specialized 'tech arms dealer'—on-demand technology partners who arm portfolio companies without full-time overhead.","url":"https://petechpartners.com/blog-tech-arms-dealer.php","publisher":{"@type":"Organization","name":"PE Tech Partners","url":"https://petechpartners.com/"}}</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }

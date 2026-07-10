@@ -166,10 +166,61 @@ $faqs = [
   gtag('js', new Date());
   gtag('config', 'G-77VVQVBH64');
 </script>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($site_title); ?></title>
+    <meta name="description" content="PE Tech Partners aligns your deal technology—DealCloud, Affinity, VDRs—so your team closes faster. Free assessment for PE and M&A firms.">
+    <link rel="canonical" href="https://petechpartners.com/">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PE Tech Partners - Technology Alignment for Private Equity & M&A Firms">
+    <meta property="og:description" content="PE Tech Partners aligns your deal technology—DealCloud, Affinity, VDRs—so your team closes faster. Free assessment for PE and M&A firms.">
+    <meta property="og:url" content="https://petechpartners.com/">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PE Tech Partners - Technology Alignment for Private Equity & M&A Firms">
+    <meta name="twitter:description" content="PE Tech Partners aligns your deal technology—DealCloud, Affinity, VDRs—so your team closes faster.">
+    <meta name="twitter:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "PE Tech Partners",
+      "url": "https://petechpartners.com/",
+      "image": "https://petechpartners.com/attached_assets/Home_1761834398568.png",
+      "description": "Technology alignment consulting for private equity and M&A firms. We integrate deal systems—CRMs, VDRs, portfolio tools—so teams close more deals.",
+      "telephone": "+1-917-715-7100",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2125 Albany Post Rd, Suite 106",
+        "addressLocality": "Montrose",
+        "addressRegion": "NY",
+        "postalCode": "10548",
+        "addressCountry": "US"
+      },
+      "areaServed": ["New York City", "Westchester County", "Connecticut", "New Jersey"],
+      "priceRange": "$$$"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        <?php echo implode(',', array_map(function($f) {
+          return '{"@type":"Question","name":' . json_encode($f['question']) . ',"acceptedAnswer":{"@type":"Answer","text":' . json_encode($f['answer']) . '}}';
+        }, $faqs)); ?>
+      ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -656,7 +707,7 @@ $faqs = [
         }
         
         .problem-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(191, 10, 48, 0.15);
             border-left-width: 6px;
         }
@@ -785,13 +836,13 @@ $faqs = [
         }
         
         .step:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(135, 206, 235, 0.2);
             border-color: #87CEEB;
         }
         
         .step:hover .step-number {
-            transform: scale(1.15) rotate(360deg);
+            transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(135, 206, 235, 0.4);
         }
         
@@ -899,7 +950,7 @@ $faqs = [
         }
         
         .success-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(135, 206, 235, 0.2);
             border-left-width: 6px;
         }
@@ -1038,7 +1089,7 @@ $faqs = [
         .credential-card:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(135, 206, 235, 0.5);
-            transform: translateY(-8px) scale(1.05);
+            transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(135, 206, 235, 0.3);
         }
         
@@ -1180,13 +1231,49 @@ $faqs = [
         .faq-item h3 {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 0;
             color: #0A2E50;
         }
-        
-        .faq-item p {
+
+        .faq-toggle {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            background: none;
+            border: 0;
+            padding: 0;
+            font: inherit;
+            font-weight: 700;
+            color: inherit;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-icon {
+            flex: none;
+            font-size: 22px;
+            color: #BF0A30;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
             color: #333133;
             line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            margin-top: 0;
+            transition: max-height 0.35s ease, margin-top 0.35s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            margin-top: 12px;
         }
         
         /* Image Sections - PDF Style Two-Column Layout */
@@ -1513,6 +1600,7 @@ $faqs = [
             <div class="cta-buttons">
                 <div class="cta-primary-group">
                     <a href="schedule.php" class="btn btn-primary">Secure a Strategic Debrief</a>
+                    <a href="#solutions" class="btn btn-secondary">See How It Works</a>
                     <p class="cta-subtitle">No cost. No pressure. High clarity.</p>
                 </div>
             </div>
@@ -1527,7 +1615,7 @@ $faqs = [
                 <p>Look, you've dropped serious cash on the best platforms out there. But if your analysts are bouncing between DealCloud, Excel, PitchBook, and email just to get comps for an IC memo, you're bleeding time. And time is deals.</p>
             </div>
             <div class="image-section-image">
-                <img src="attached_assets/image_1765825165573.png" alt="Analyst working with multi-monitor trading desk">
+                <img src="attached_assets/image_1765825165573.png" alt="Analyst working with multi-monitor trading desk" loading="lazy" width="521" height="361">
             </div>
         </div>
     </section>
@@ -1556,7 +1644,7 @@ $faqs = [
                 <p><strong>Time to join them.</strong></p>
             </div>
             <div class="image-section-image">
-                <img src="https://cdn.gamma.app/fn0vcrcds7u127c/generated-images/C4pJ8WiMZ9oDJqi7plok1.png" alt="Team collaborating in office">
+                <img src="attached_assets/image_1761591065504.png" alt="Team collaborating in office" loading="lazy" width="1024" height="1024">
             </div>
         </div>
     </section>
@@ -1575,7 +1663,7 @@ $faqs = [
                 </ul>
             </div>
             <div class="image-section-image">
-                <img src="attached_assets/image_1761590822944.png" alt="Technology and data security">
+                <img src="attached_assets/image_1761590822944.png" alt="Technology and data security" loading="lazy" width="864" height="1152">
             </div>
         </div>
     </section>
@@ -1603,7 +1691,7 @@ $faqs = [
     <section class="image-section urgency">
         <div class="image-section-content">
             <div class="image-section-image">
-                <img src="attached_assets/image_1761590928600.png" alt="Dystopian office environment - frustrated workers">
+                <img src="attached_assets/image_1761590928600.png" alt="Dystopian office environment - frustrated workers" loading="lazy" width="1408" height="768">
             </div>
             <div class="image-section-text">
                 <h2>But If You Wait...</h2>
@@ -1616,12 +1704,35 @@ $faqs = [
         </div>
     </section>
 
+    <!-- Social Proof / Testimonials -->
+    <section class="testimonials-preview" style="background: #fff; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in-up" style="text-align: center; margin-bottom: 12px;">Results Our Clients Are Seeing</h2>
+            <p style="text-align: center; color: #64748b; margin-bottom: 48px;">Real outcomes, NDA-cleared for sharing — firm names withheld by mutual agreement.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto;">
+                <blockquote class="animate-on-scroll fade-in-up" style="background: #f8fafc; border-left: 4px solid #C41E3A; border-radius: 8px; padding: 28px; margin: 0;">
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px;">"Our analysts reclaimed roughly 12 hours per deal. IC memo prep went from 3 days to same-day. We closed 4 add-ons in the quarter we previously would have processed 1."</p>
+                    <cite style="font-style: normal; font-size: 13px; color: #64748b;">— Managing Director, Lower-Middle-Market PE Fund ($400M–$800M AUM)</cite>
+                </blockquote>
+                <blockquote class="animate-on-scroll fade-in-up" style="background: #f8fafc; border-left: 4px solid #C41E3A; border-radius: 8px; padding: 28px; margin: 0;">
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px;">"We cut $180K in annual SaaS spend and actually got more functionality out of what we kept."</p>
+                    <cite style="font-style: normal; font-size: 13px; color: #64748b;">— COO, M&amp;A Advisory Boutique (12-person team)</cite>
+                </blockquote>
+                <blockquote class="animate-on-scroll fade-in-up" style="background: #f8fafc; border-left: 4px solid #C41E3A; border-radius: 8px; padding: 28px; margin: 0;">
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px;">"NDA-to-exclusivity used to take us 6–8 weeks. Now we're consistently hitting 3–4 weeks. That speed has become a real differentiator with intermediaries."</p>
+                    <cite style="font-style: normal; font-size: 13px; color: #64748b;">— Partner, Growth Equity Firm ($1.2B AUM)</cite>
+                </blockquote>
+            </div>
+            <p style="text-align: center; margin-top: 32px;"><a href="testimonials.php" style="color: #C41E3A; font-weight: 600; text-decoration: none;">Read all client outcomes →</a></p>
+        </div>
+    </section>
+
     <!-- Ready to Make Your Tech a Weapon CTA -->
     <section class="image-section cta-section" style="background: #f8fafc; padding: 80px 0;">
         <div class="container">
             <div class="cta-grid">
                 <div class="animate-on-scroll scale-in">
-                    <img src="attached_assets/image_1761591065504.png" alt="Team collaboration" style="border-radius: 8px; width: 100%;">
+                    <img src="attached_assets/image_1761591065504.png" alt="Team collaboration" style="border-radius: 8px; width: 100%;" loading="lazy" width="1024" height="1024">
                 </div>
                 <div>
                     <h2 style="color: #0A2E50; font-size: 32px; margin-bottom: 24px;">Ready to Make Your Tech a Weapon?</h2>
@@ -1663,8 +1774,8 @@ $faqs = [
             <div class="faq-container">
                 <?php foreach ($faqs as $faq): ?>
                     <div class="faq-item animate-on-scroll slide-in-left">
-                        <h3><?php echo htmlspecialchars($faq['question']); ?></h3>
-                        <p><?php echo htmlspecialchars($faq['answer']); ?></p>
+                        <h3><button type="button" class="faq-toggle" aria-expanded="false"><?php echo htmlspecialchars($faq['question']); ?><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+                        <p class="faq-answer"><?php echo htmlspecialchars($faq['answer']); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -1672,12 +1783,21 @@ $faqs = [
     </section>
 
     <footer>
-        <div class="container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: start;">
+        <div class="container" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; align-items: start;">
             <div>
-                <p style="margin-bottom: 12px;"><strong><?php echo htmlspecialchars($company_name); ?></strong></p>
+                <p style="margin-bottom: 8px;"><strong><?php echo htmlspecialchars($company_name); ?></strong></p>
+                <p style="margin-bottom: 12px; font-size: 14px; opacity: 0.85;">Technology alignment for private equity &amp; M&amp;A firms. Serving NYC, Westchester, CT &amp; NJ.</p>
                 <p style="margin-bottom: 8px;">2125 Albany Post Rd Suite 106<br>Montrose, NY 10548</p>
-                <p style="margin-bottom: 12px;">Phone: 917-715-7100</p>
+                <p style="margin-bottom: 8px;">Phone: <a href="tel:+19177157100" style="color: #87CEEB; text-decoration: none;">917-715-7100</a></p>
+                <p style="margin-bottom: 12px;"><a href="https://www.linkedin.com/company/pe-tech-partners" style="color: #87CEEB; text-decoration: none;" rel="noopener">LinkedIn</a></p>
                 <p>&copy; <?php echo $year; ?> <?php echo htmlspecialchars($company_name); ?>. All rights reserved.</p>
+            </div>
+            <div>
+                <p style="margin-bottom: 8px;"><strong>Resources</strong></p>
+                <p style="margin-bottom: 8px;"><a href="blogs.php" style="color: #87CEEB; text-decoration: none;">Blog</a></p>
+                <p style="margin-bottom: 8px;"><a href="tools.php" style="color: #87CEEB; text-decoration: none;">Free Tools</a></p>
+                <p style="margin-bottom: 8px;"><a href="calculator.php" style="color: #87CEEB; text-decoration: none;">Software Waste Calculator</a></p>
+                <p style="margin-bottom: 8px;"><a href="testimonials.php" style="color: #87CEEB; text-decoration: none;">Testimonials</a></p>
             </div>
             <div style="text-align: right;">
                 <p style="margin-bottom: 8px;"><a href="terms.php" style="color: #87CEEB; text-decoration: none;">Terms of Service</a></p>
@@ -1744,6 +1864,22 @@ $faqs = [
                 }
                 
                 animateOnScroll.observe(el);
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const isOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item.open').forEach(o => {
+                        o.classList.remove('open');
+                        o.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
             });
         });
     </script>

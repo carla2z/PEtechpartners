@@ -1,0 +1,53 @@
+Create a polished 60 to 75 second B2B marketing video for PE Tech Partners.
+
+Use the uploaded PE Tech Partners logo and branded title card assets. The target audience is private equity firms, M&A advisory firms, independent sponsors, boutique investment banks, and portfolio operations teams in the Northeast United States.
+
+Tone and style:
+- Premium, serious, confident, and practical
+- Modern finance and deal-team environment
+- Clean technology visuals, dashboards, workflow diagrams, VDR-style document review, analyst work, and boardroom collaboration
+- Avoid sci-fi robots, neon cyberpunk, generic startup hype, cartoon characters, and exaggerated AI visuals
+- Use PE Tech Partners colors: deep navy, white, crimson accent, and restrained cool neutrals
+- Keep all on-screen text concise, high contrast, and readable
+
+Main message:
+PE Tech Partners helps private equity and M&A advisory teams use AI where it improves execution: CIM review, VDR workflows, diligence tracking, IC memo preparation, portfolio reporting, and AI governance.
+
+Voiceover:
+Private equity and M&A advisory teams are under pressure to move faster, review more information, and make sharper decisions with leaner teams.
+
+AI can help, but only when it is built around the way deals actually move.
+
+PE Tech Partners helps firms across the Northeast identify practical AI use cases inside sourcing, diligence, VDR review, IC memo preparation, and portfolio reporting.
+
+We do not start with generic chatbot experiments.
+
+We map the workflow, define the data boundaries, set review gates, and build controlled AI-assisted processes that support the team without replacing judgment.
+
+For sponsors, independent sponsors, investment banks, and M&A advisors, the goal is simple: remove manual drag, reduce repetitive analyst work, and improve consistency from first look through post-close execution.
+
+If your firm is ready to understand where AI can create real leverage, PE Tech Partners can help you separate useful systems from AI theater.
+
+Book a confidential strategic debrief at petechpartners.com.
+
+Scene sequence:
+1. Opening branded title card with the PE Tech Partners logo. On-screen text: "AI that speeds up deal teams without adding risk."
+2. Deal team pressure scene: analysts reviewing documents, VDR folders, spreadsheets, and notes. On-screen text: "More data. Shorter timelines. Leaner teams."
+3. Workflow scene: sourcing, diligence, VDR review, IC memo, portfolio reporting. On-screen text: "Built for PE and M&A workflows."
+4. Contrast scene: avoid generic chatbot visuals. Show controlled workflow dashboard instead. On-screen text: "Not chatbot experiments. Controlled execution leverage."
+5. Framework scene using the uploaded framework card. On-screen text: "Map. Govern. Automate. Train."
+6. Outcome scene: boardroom, operating partner, clean reporting dashboard. On-screen text: "Less manual drag. Better consistency. Faster execution."
+7. Final CTA card using the uploaded CTA asset. On-screen text: "Secure a Strategic Debrief" and "petechpartners.com."
+
+Brand details:
+- Company name: PE Tech Partners
+- Website: petechpartners.com
+- CTA: Secure a Strategic Debrief
+- Landing page: https://petechpartners.com/ai-consulting-private-equity-ma-advisors-northeast.php
+
+Music:
+Subtle, confident, modern corporate track. No dramatic trailer music.
+
+Output:
+Create a professional 16:9 video suitable for the website, LinkedIn, and email outreach. Keep motion smooth and restrained. Use clean transitions, not flashy effects.
+

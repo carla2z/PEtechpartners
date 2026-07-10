@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PE Tech Partners Video Cards</title>
+  <style>
+    :root {
+      --navy: #071426;
+      --blue: #102a43;
+      --crimson: #bf0a30;
+      --gold: #f3b33d;
+      --white: #ffffff;
+      --muted: rgba(255,255,255,0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(191,10,48,0.34), transparent 26%),
+        linear-gradient(135deg, #071426 0%, #0e243b 48%, #101820 100%);
+      color: var(--white);
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 72px 72px;
+      opacity: 0.55;
+    }
+
+    .accent {
+      position: absolute;
+      right: -180px;
+      top: 130px;
+      width: 760px;
+      height: 760px;
+      border: 2px solid rgba(243,179,61,0.34);
+      transform: rotate(24deg);
+    }
+
+    .accent::before,
+    .accent::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255,255,255,0.13);
+      inset: 80px;
+    }
+
+    .accent::after {
+      inset: 180px;
+      border-color: rgba(191,10,48,0.42);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 86px 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 94px;
+      height: 94px;
+      object-fit: contain;
+      border-radius: 18px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 1180px;
+      font-size: 92px;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin-top: 34px;
+      max-width: 1050px;
+      color: var(--muted);
+      font-size: 38px;
+      line-height: 1.34;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 18px;
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 17px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.84);
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+      max-width: 1370px;
+    }
+
+    .step {
+      min-height: 220px;
+      padding: 34px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 18px;
+    }
+
+    .step-num {
+      color: var(--gold);
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .step-title {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .step-copy {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.32;
+    }
+
+    .url {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .cta-box {
+      max-width: 1120px;
+      padding: 46px 54px;
+      border-left: 8px solid var(--crimson);
+      background: rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body>
+  <section id="hook" class="card">
+    <div class="grid"></div>
+    <div class="accent"></div>
+    <div class="content">
+      <div class="brand">
+        <img src="../upload-assets/01-pe-tech-partners-logo.png" alt="">
+        <span>PE Tech Partners</span>
+      </div>
+      <main>
+        <div class="eyebrow">AI consulting for PE and M&A advisors</div>
+        <h1>AI that speeds up deal teams without adding risk.</h1>
+        <p class="sub">Practical AI systems for diligence, VDR review, IC memo support, and portfolio reporting.</p>
+      </main>
+      <div class="url">petechpartners.com</div>
+    </div>
+  </section>
+
+  <section id="framework" class="card">
+    <div class="grid"></div>
+    <div class="accent"></div>
+    <div class="content">
+      <div class="brand">
+        <img src="../upload-assets/01-pe-tech-partners-logo.png" alt="">
+        <span>PE Tech Partners</span>
+      </div>
+      <main>
+        <div class="eyebrow">Controlled execution leverage</div>
+        <h1>Map. Govern. Automate. Train.</h1>
+        <div class="framework">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-title">Map</div>
+            <div class="step-copy">Find the workflows where AI can remove real manual drag.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-title">Govern</div>
+            <div class="step-copy">Define data boundaries, review gates, and usage rules.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-title">Automate</div>
+            <div class="step-copy">Build focused AI-assisted processes around current tools.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-title">Train</div>
+            <div class="step-copy">Help the team adopt the workflow with consistency.</div>
+          </div>
+        </div>
+      </main>
+      <div class="url">Private equity. M&A advisory. Portfolio operations.</div>
+    </div>
+  </section>
+
+  <section id="cta" class="card">
+    <div class="grid"></div>
+    <div class="accent"></div>
+    <div class="content">
+      <div class="brand">
+        <img src="../upload-assets/01-pe-tech-partners-logo.png" alt="">
+        <span>PE Tech Partners</span>
+      </div>
+      <main class="cta-box">
+        <div class="eyebrow">Ready to identify useful AI use cases?</div>
+        <h1>Secure a Strategic Debrief.</h1>
+        <p class="sub">AI consulting for private equity and M&A advisory firms in the Northeast.</p>
+        <div class="pill-row">
+          <span class="pill">CIM review</span>
+          <span class="pill">VDR workflows</span>
+          <span class="pill">Diligence tracking</span>
+          <span class="pill">Portfolio reporting</span>
+        </div>
+      </main>
+      <div class="url">petechpartners.com</div>
+    </div>
+  </section>
+</body>
+</html>

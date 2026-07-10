@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - PE Tech Partners</title>
+    <meta name="description" content="Insights on technology diligence, integration, and value creation for private equity and M&A firms — practical guidance for faster deals and stronger exits.">
+    <link rel="canonical" href="https://petechpartners.com/blogs.php">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - PE Tech Partners">
+    <meta property="og:description" content="Insights on technology diligence, integration, and value creation for private equity and M&A firms — practical guidance for faster deals and stronger exits.">
+    <meta property="og:url" content="https://petechpartners.com/blogs.php">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -506,7 +526,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Software Waste">
+                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Software Waste" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -522,7 +542,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Operational Efficiency">
+                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Operational Efficiency" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -538,7 +558,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_technology__2b5cb298.jpg" alt="M&A Technology">
+                        <img src="attached_assets/stock_images/business_technology__2b5cb298.jpg" alt="M&A Technology" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -554,7 +574,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_meeting_tec_0862ce87.jpg" alt="Tech Assessment">
+                        <img src="attached_assets/stock_images/business_meeting_tec_0862ce87.jpg" alt="Tech Assessment" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -570,7 +590,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_growth_scal_ba21c20b.jpg" alt="Business Scaling">
+                        <img src="attached_assets/stock_images/business_growth_scal_ba21c20b.jpg" alt="Business Scaling" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -586,7 +606,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/technology_integrati_141ff25d.jpg" alt="Tech Migration">
+                        <img src="attached_assets/stock_images/technology_integrati_141ff25d.jpg" alt="Tech Migration" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -602,7 +622,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/cloud_computing_data_2872198c.jpg" alt="Cloud Computing">
+                        <img src="attached_assets/stock_images/cloud_computing_data_2872198c.jpg" alt="Cloud Computing" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -618,7 +638,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/cybersecurity_networ_3e9bf05c.jpg" alt="Cybersecurity">
+                        <img src="attached_assets/stock_images/cybersecurity_networ_3e9bf05c.jpg" alt="Cybersecurity" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -634,7 +654,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_executive_t_c761da6e.jpg" alt="Non-Technical IT Management">
+                        <img src="attached_assets/stock_images/business_executive_t_c761da6e.jpg" alt="Non-Technical IT Management" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -650,7 +670,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_meeting_han_ca40f33f.jpg" alt="Client Acquisition">
+                        <img src="attached_assets/stock_images/business_meeting_han_ca40f33f.jpg" alt="Client Acquisition" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -666,7 +686,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_strategy_co_5d7d545b.jpg" alt="Tech Arms Dealer">
+                        <img src="attached_assets/stock_images/business_strategy_co_5d7d545b.jpg" alt="Tech Arms Dealer" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -682,7 +702,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/connected_network_te_739555ac.jpg" alt="Connected Ecosystem">
+                        <img src="attached_assets/stock_images/connected_network_te_739555ac.jpg" alt="Connected Ecosystem" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -698,7 +718,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Value Leak">
+                        <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Value Leak" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -714,7 +734,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/speed_velocity_fast__5e4f820a.jpg" alt="Deal Velocity">
+                        <img src="attached_assets/stock_images/speed_velocity_fast__5e4f820a.jpg" alt="Deal Velocity" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -730,7 +750,7 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="attached_assets/stock_images/business_compliance__733fb8b4.jpg" alt="Compliance">
+                        <img src="attached_assets/stock_images/business_compliance__733fb8b4.jpg" alt="Compliance" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">

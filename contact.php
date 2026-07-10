@@ -92,10 +92,30 @@ $nav_items = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - PE Tech Partners</title>
+    <meta name="description" content="Contact PE Tech Partners to discuss technology alignment for your next deal. Tell us your deal stage and challenges — our PE and M&A IT experts respond fast.">
+    <link rel="canonical" href="https://petechpartners.com/contact.php">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us - PE Tech Partners">
+    <meta property="og:description" content="Contact PE Tech Partners to discuss technology alignment for your next deal. Tell us your deal stage and challenges — our PE and M&A IT experts respond fast.">
+    <meta property="og:url" content="https://petechpartners.com/contact.php">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         * {
             margin: 0;

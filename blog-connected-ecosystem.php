@@ -13,10 +13,31 @@ $nav_items = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/jpeg" href="attached_assets/Home_1761834398568.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77VVQVBH64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-77VVQVBH64');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building a Connected Tech Ecosystem Across Your Portfolio - PE Tech Partners</title>
+    <meta name="description" content="Why top PE firms build unified tech ecosystems across their portfolios—from diligence to exit—to drive value creation at scale and boost exit multiples.">
+    <link rel="canonical" href="https://petechpartners.com/blog-connected-ecosystem.php">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="From Diligence to Exit: Building a Connected Tech Ecosystem Across Your Portfolio">
+    <meta property="og:description" content="Why top PE firms build unified tech ecosystems across their portfolios—from diligence to exit—to drive value creation at scale and boost exit multiples.">
+    <meta property="og:url" content="https://petechpartners.com/blog-connected-ecosystem.php">
+    <meta property="og:image" content="https://petechpartners.com/attached_assets/Home_1761834398568.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Diligence to Exit: Building a Connected Tech Ecosystem Across Your Portfolio","description":"Why top PE firms build unified tech ecosystems across their portfolios—from diligence to exit—to drive value creation at scale and boost exit multiples.","url":"https://petechpartners.com/blog-connected-ecosystem.php","publisher":{"@type":"Organization","name":"PE Tech Partners","url":"https://petechpartners.com/"}}</script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
