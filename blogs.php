@@ -526,6 +526,22 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
+                        <img src="attached_assets/spv-paper-trail.png" alt="SPV ownership documents with a broken paper trail" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Due Diligence</span>
+                            <span>•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3>Does the SPV Own the Shares? A Simple Due Diligence Check</h3>
+                        <p class="blog-excerpt">A plain-English check for the records connecting investor capital, an SPV, and the private company shares it claims to own.</p>
+                        <a href="blog-spv-due-diligence.php" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">
                         <img src="attached_assets/stock_images/inefficient_office_w_84aad69b.jpg" alt="Software Waste" loading="lazy">
                     </div>
                     <div class="blog-content">
