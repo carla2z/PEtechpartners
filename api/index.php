@@ -100,6 +100,7 @@ $allowed_pages = [
     'blog-operational-efficiency.php' => 'blog-operational-efficiency.php',
     'blog-scaling.php' => 'blog-scaling.php',
     'blog-software-graveyard.php' => 'blog-software-graveyard.php',
+    'blog-spv-due-diligence.php' => 'blog-spv-due-diligence.php',
     'blog-tech-arms-dealer.php' => 'blog-tech-arms-dealer.php',
     'blog-tech-assessment.php' => 'blog-tech-assessment.php',
     'blog-value-leak.php' => 'blog-value-leak.php',
