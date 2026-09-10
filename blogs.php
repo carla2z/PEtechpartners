@@ -526,6 +526,22 @@
 
                 <div class="blog-card">
                     <div class="blog-image">
+                        <img src="attached_assets/ai-deal-team-blind-spots-hero.png" alt="Deal professionals checking AI-generated sourcing research against source records" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">AI &amp; Deal Sourcing</span>
+                            <span>•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>AI Is Already in Your Deal Team. The Blind Spots Are What You Are Not Measuring.</h3>
+                        <p class="blog-excerpt">How PE and M&amp;A firms can connect AI to trusted data, benchmark the results, and scale sourcing without multiplying risk.</p>
+                        <a href="blog-ai-deal-team-blind-spots.php" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">
                         <img src="attached_assets/spv-paper-trail.png" alt="SPV ownership documents with a broken paper trail" loading="lazy">
                     </div>
                     <div class="blog-content">

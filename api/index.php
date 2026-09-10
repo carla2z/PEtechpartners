@@ -98,6 +98,7 @@ $allowed_pages = [
     'blog-migration.php' => 'blog-migration.php',
     'blog-non-technical-manager.php' => 'blog-non-technical-manager.php',
     'blog-operational-efficiency.php' => 'blog-operational-efficiency.php',
+    'blog-ai-deal-team-blind-spots.php' => 'blog-ai-deal-team-blind-spots.php',
     'blog-scaling.php' => 'blog-scaling.php',
     'blog-software-graveyard.php' => 'blog-software-graveyard.php',
     'blog-spv-due-diligence.php' => 'blog-spv-due-diligence.php',
