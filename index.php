@@ -1304,7 +1304,7 @@ $faqs = [
 
         .cta-image {
             width: 100%;
-            aspect-ratio: 4 / 3;
+            height: 285px;
             object-fit: cover;
             object-position: center;
             display: block;
@@ -1635,7 +1635,7 @@ $faqs = [
             }
 
             .cta-image {
-                aspect-ratio: 16 / 10;
+                height: min(260px, 62vw);
             }
             
             .image-section-text h2 {
