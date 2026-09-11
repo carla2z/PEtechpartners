@@ -12,16 +12,20 @@
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
-        "Referrer-Policy": "strict-origin-when-cross-origin"
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+        "Content-Security-Policy-Report-Only": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://link.msgsndr.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; frame-src https://booking.a2zbusinessit.com https://api.leadconnectorhq.com https://the-pe-tech-edge-best-pr-48ztpod.gamma.site https://the-hidden-deal-killer-h-nvk490l.gamma.site https://www.youtube-nocookie.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.leadconnectorhq.com"
       }
     },
     {
-      "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico|.*\\.(?:css|js|png|jpg|jpeg|gif|webp|svg|pdf|ico|txt|xml))",
+      "src": "/(robots[.]txt|sitemap[.]xml|favicon[.]ico|.*[.](?:css|js|png|jpg|jpeg|gif|webp|svg|pdf|ico|txt|xml))",
       "dest": "/api/index.php",
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
-        "Referrer-Policy": "strict-origin-when-cross-origin"
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+        "Content-Security-Policy-Report-Only": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://link.msgsndr.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; frame-src https://booking.a2zbusinessit.com https://api.leadconnectorhq.com https://the-pe-tech-edge-best-pr-48ztpod.gamma.site https://the-hidden-deal-killer-h-nvk490l.gamma.site https://www.youtube-nocookie.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.leadconnectorhq.com"
       }
     },
     {
@@ -30,7 +34,9 @@
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
-        "Referrer-Policy": "strict-origin-when-cross-origin"
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+        "Content-Security-Policy-Report-Only": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://link.msgsndr.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; frame-src https://booking.a2zbusinessit.com https://api.leadconnectorhq.com https://the-pe-tech-edge-best-pr-48ztpod.gamma.site https://the-hidden-deal-killer-h-nvk490l.gamma.site https://www.youtube-nocookie.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://api.leadconnectorhq.com"
       }
     }
   ]
