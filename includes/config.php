@@ -19,6 +19,7 @@ $nav_items = [
     ['href' => 'process.php',         'text' => 'Our Process'],
     ['href' => 'blogs.php',           'text' => 'Blog'],
     ['href' => 'tools.php',           'text' => 'Free Tools'],
+    ['href' => 'ai-solutions-lab.php','text' => 'AI Solutions Lab'],
     ['href' => 'testimonials.php',    'text' => 'Testimonials'],
     ['href' => 'schedule.php',        'text' => 'Secure a Strategic Debrief'],
 ];
