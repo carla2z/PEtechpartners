@@ -120,6 +120,43 @@ $nav_items = [
         
         nav a:hover { color: #87CEEB; }
         
+        .nav-toggle { display: none; }
+
+        @media (max-width: 1100px) {
+            .nav-container { flex-wrap: wrap; gap: 16px; }
+            .nav-container .logo { flex: 1; min-width: 0; }
+            .nav-container .logo-icon { flex-shrink: 0; }
+            .nav-container nav {
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                max-height: 65vh;
+                overflow-y: auto;
+            }
+            .nav-container nav a { padding: 12px 0; }
+            .nav-container.nav-ready .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 60px;
+                min-height: 44px;
+                padding: 8px;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+                background: #ffffff;
+                color: #0A2E50;
+                font: inherit;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            .nav-container.nav-ready nav { display: none; }
+            .nav-container.nav-ready nav.is-open { display: flex; }
+            .nav-toggle:focus-visible, nav a:focus-visible {
+                outline: 3px solid #87CEEB;
+                outline-offset: 3px;
+            }
+        }
+
         article {
             max-width: 800px;
             margin: 60px auto;
@@ -296,7 +333,8 @@ $nav_items = [
                     <div class="logo-subtitle">STRATEGIC SOLUTIONS FOR PE & M&A FIRMS</div>
                 </div>
             </a>
-            <nav>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="article-nav">Menu</button>
+            <nav id="article-nav" aria-label="Main navigation">
                 <?php foreach ($nav_items as $item): ?>
                     <a href="<?= htmlspecialchars($item['href']) ?>"><?= htmlspecialchars($item['text']) ?></a>
                 <?php endforeach; ?>
@@ -374,5 +412,31 @@ $nav_items = [
             </div>
         </div>
     </footer>
+    <script>
+        const navContainer = document.querySelector('.nav-container');
+        const navToggle = document.querySelector('.nav-toggle');
+        const articleNav = document.getElementById('article-nav');
+        function setMenuOpen(open) {
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.textContent = open ? 'Close' : 'Menu';
+            articleNav.classList.toggle('is-open', open);
+        }
+        navContainer.classList.add('nav-ready');
+        navToggle.addEventListener('click', () => {
+            setMenuOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        document.addEventListener('click', (event) => {
+            if (!navContainer.contains(event.target) || event.target.closest('#article-nav a')) {
+                setMenuOpen(false);
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+                setMenuOpen(false);
+                navToggle.focus();
+            }
+        });
+        window.matchMedia('(max-width: 1100px)').addEventListener('change', () => setMenuOpen(false));
+    </script>
 </body>
 </html>
