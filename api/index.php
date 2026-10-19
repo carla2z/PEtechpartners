@@ -107,6 +107,7 @@ $allowed_pages = [
     'blog-tech-assessment.php' => 'blog-tech-assessment.php',
     'blog-value-leak.php' => 'blog-value-leak.php',
     'risk-map.php' => 'risk-map.php',
+    'cyber-diligence-checklist.php' => 'cyber-diligence-checklist.php',
 ];
 
 if (!isset($allowed_pages[$path])) {
