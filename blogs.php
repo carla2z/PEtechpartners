@@ -523,6 +523,13 @@
             </div>
 
             <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image"><img src="attached_assets/calendar-phishing-header.png" alt="Calendar phishing warning and a suspicious subscription renewal invitation" loading="lazy" style="object-fit:contain"></div>
+                    <div class="blog-content"><div class="blog-meta"><span class="blog-category">Cybersecurity</span><span>•</span><span>5 min read</span></div>
+                    <h3>Your Next Deal Risk Might Already Be on Your Calendar</h3><p class="blog-excerpt">A fake calendar invitation can expose confidential deal information and disrupt a live transaction. Here is what PE and M&amp;A teams should check.</p>
+                    <a href="blog-calendar-phishing.php" class="read-more">Read More →</a></div>
+                </div>
+
 
                 <div class="blog-card">
                     <div class="blog-image">
