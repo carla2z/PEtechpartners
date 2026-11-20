@@ -524,6 +524,13 @@
 
             <div class="blog-grid">
                 <div class="blog-card">
+                    <div class="blog-image"><img src="attached_assets/claude-microsoft-365-actions.webp" width="1200" height="630" alt="Human approval of email, calendar, document, and chat actions" loading="lazy"></div>
+                    <div class="blog-content"><div class="blog-meta"><span class="blog-category">AI &amp; Deal Operations</span><span>•</span><span>6 min read</span></div>
+                    <h3>Before Claude Sends Your Next Deal Email, Decide Who Approves It</h3><p class="blog-excerpt">Before Claude acts on your firm’s behalf, set approval rules for deal emails, diligence files, and automated follow-ups. What PE and M&amp;A teams should review before December 9.</p>
+                    <a href="blog-claude-microsoft-365-deal-team-approvals.php" class="read-more">Read the Article</a></div>
+                </div>
+
+                <div class="blog-card">
                     <div class="blog-image"><img src="attached_assets/calendar-phishing-header.png" alt="Calendar phishing warning and a suspicious subscription renewal invitation" loading="lazy" style="object-fit:contain"></div>
                     <div class="blog-content"><div class="blog-meta"><span class="blog-category">Cybersecurity</span><span>•</span><span>5 min read</span></div>
                     <h3>Your Next Deal Risk Might Already Be on Your Calendar</h3><p class="blog-excerpt">A fake calendar invitation can expose confidential deal information and disrupt a live transaction. Here is what PE and M&amp;A teams should check.</p>

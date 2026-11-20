@@ -78,6 +78,7 @@ $allowed_pages = [
     '' => 'index.php',
     'index.php' => 'index.php',
     'blogs.php' => 'blogs.php',
+    'blog-claude-microsoft-365-deal-team-approvals.php' => 'blog-claude-microsoft-365-deal-team-approvals.php',
     'blog-calendar-phishing.php' => 'blog-calendar-phishing.php',
     'contact.php' => 'contact.php',
     'schedule.php' => 'schedule.php',
